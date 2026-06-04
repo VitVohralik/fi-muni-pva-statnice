@@ -60,3 +60,21 @@
 * **Konfidenční interval:** $100(1-\alpha)\%$; neznámý parametr v něm leží s pravděpodobností $1-\alpha$; $\alpha$ je hladina významnosti.
 * **Regresní analýza:** Vztah mezi proměnnými. **Lineární model** $y=\beta_0+\beta_1 x+\epsilon$; hodnocení přes $R^2$, P-hodnotu, deviance.
 * **Testování hypotéz:** $H_0$ (vztah neexistuje) vs. $H_1$. **Chyba 1. druhu** (falešné zamítnutí $H_0$), **2. druhu** (nezamítnutí nepravdivé $H_0$). Testy: t.test, wilcox.test.
+
+## 4. Grafy a jejich prohledávání
+* **Graf:** Uspořádaná dvojice $G=(V,E)$ – množina vrcholů $V$ a hran $E$ (dvouprvkové podmnožiny vrcholů).
+* **Stupeň vrcholu:** Počet vycházejících hran $d_G(v)$. **Věta:** součet stupňů = dvojnásobek počtu hran. **$d$-regulární** graf = všechny vrcholy stejný stupeň.
+* **Orientovaný vs. neorientovaný graf:** Orientovaný má jednosměrné hrany (šipky, $E\subseteq V\times V$), neorientovaný obousměrné. **Transpozice** obrací směr hran, **symetrizace** zapomíná směr.
+* **Typy grafů:** Kružnice, cesta, **úplný** ($\frac{n(n-1)}{2}$ hran), **bipartitní** (vrcholy do 2 disjunktních množin, bez liché kružnice), úplný bipartitní.
+* **Podgraf:** Graf na podmnožině vrcholů s podmnožinou hran. **Indukovaný podgraf** obsahuje všechny hrany původního grafu mezi vybranými vrcholy.
+* **Izomorfismus:** Bijektivní zobrazení vrcholů zachovávající hrany. Izomorfní grafy mají stejné počty vrcholů, hran i stupně.
+* **Eulerovský graf:** Souvislý graf se všemi vrcholy sudého stupně – jde nakreslit jedním tahem.
+* **Strom:** Minimální souvislý acyklický graf; mezi dvěma vrcholy vede právě jedna cesta. **Les** = graf bez kružnic (komponenty jsou stromy), hran = vrcholy − stromy.
+* **Kořenový strom:** Má kořen (hloubka 0), hierarchii potomků, listy. **Výška** = počet hran ke nejvzdálenějšímu listu. **Úplný** $n$-ární strom = všechny listy ve stejné hloubce.
+* **Komponenta souvislosti:** Maximální podmnožina vrcholů, mezi nimiž vede cesta. **Silná** (s orientací) vs. **slabá** (bez orientace) souvislost.
+* **Kosaraju–Sharir:** Hledá silně souvislé komponenty v $O(V+E)$ – DFS, reverse postorder, transpozice grafu, opakované DFS.
+* **Reprezentace grafu:** **Matice sousednosti** ($\Theta(V^2)$, husté grafy, test hrany $O(1)$) vs. **seznam následníků** ($\Theta(V+E)$, řídké grafy).
+* **Typy hran při průchodu:** Stromová, zpětná (cyklus/smyčka), dopředná, příčná. Vrcholy se obarvují bílý/šedý/černý (discovery a finish time).
+* **Topologické uspořádání:** Sekvence vrcholů, kde $u$ je před $v$ pro každou hranu $(u,v)$. Opačné pořadí dokončení DFS.
+* **DFS (do hloubky):** Zanoří se úplně do každé větve, $O(V+E)$, rekurze/zásobník. Využití: backtracking, silné komponenty, detekce cyklu, topologické uspořádání.
+* **BFS (do šířky):** Prochází po vrstvách pomocí fronty (FIFO), $O(V+E)$. Využití: nejkratší cesta v neohodnoceném grafu, Dijkstra, Prim, ověření bipartitity.
