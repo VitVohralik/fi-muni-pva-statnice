@@ -38,3 +38,25 @@
 * **Určitý integrál:** Orientovaná plocha pod grafem funkce na intervalu $[a,b]$: $\int_a^b f(x)\,\mathrm{d}x$.
 * **Neurčitý integrál:** Množina primitivních funkcí (opak derivace), liší se o konstantu, bez mezí.
 * **Integrační metody:** **Per partes** (integrace součinu) a **substituční metoda** (zavedení nové proměnné).
+
+## 3. Popisná statistika
+* **Kombinatorika:** **Variace** (uspořádaná $k$-tice), **kombinace** (neuspořádaná $k$-tice), **permutace** (uspořádaná $n$-tice) – s opakováním i bez.
+* **Statistika:** Disciplína sběru, analýzy a interpretace dat. **Popisná statistika** kvantitativně popisuje statistický soubor (množina statistických jednotek se statistickými znaky).
+* **Statistické znaky:** **Kvantitativní** (diskrétní/spojité), **kvalitativní** (ordinální/nominální), **alternativní**. Podle měřítka: nominální, ordinální, intervalové, poměrové.
+* **Aritmetický průměr:** Podíl součtu hodnot a jejich počtu; ovlivnitelný rozptylem. **Vážený průměr** přiřazuje každé hodnotě váhu.
+* **Medián:** Prostřední hodnota (50. percentil), neovlivněný extrémy. **Modus** je nejčastější hodnota.
+* **Střední hodnota (E):** Vážený průměr rozdělení (vahou je pravděpodobnost). Průměr z dat, střední hodnota z pravděpodobností.
+* **Rozptyl (D):** Střední hodnota kvadrátů odchylek od střední hodnoty: $\sigma^2(X)=E(X^2)-[E(X)]^2$. **Směrodatná odchylka** je jeho odmocnina.
+* **Kvantily:** Dělí uspořádaná data na části – kvartily (Q1 25 %, Q2 medián, Q3 75 %), percentily.
+* **Kovariance a korelace:** Kovariance udává směr lineární závislosti, korelace její sílu (koeficient $\in\langle-1,1\rangle$). **Kovarianční matice** má na diagonále rozptyly.
+* **Pravděpodobnost:** Míra očekávání jevu, $P:\mathcal{A}\to[0,1]$, $P(\Omega)=1$. Liší se od šance (příznivé ku všem vs. příznivé ku nepříznivým).
+* **Pravděpodobnostní prostor:** Trojice $(\Omega,\mathcal{A},P)$ – elementární jevy, jevové pole, pravděpodobnostní míra.
+* **Operace s jevy a nezávislost:** Sjednocení, průnik, opačný jev. Nezávislost: $P(A\cap B)=P(A)P(B)$. **Podmíněná pravděpodobnost** $P(A\mid B)=\frac{P(A\cap B)}{P(B)}$.
+* **Věty:** **Bayesova** (vztah opačných podmíněných pravděpodobností), **ZVČ** (průměr konverguje ke střední hodnotě), **CLV** (velký výběr má přibližně normální rozdělení).
+* **Náhodná veličina:** Měřitelná funkce $X:\Omega\to\mathbb{R}$. **Distribuční funkce** $F(x)=P(X\leq x)$. Diskrétní (skoky) vs. spojitá (hustota).
+* **Diskrétní rozdělení:** Geometrické, negativně binomické, hypergeometrické, Poissonovo, alternativní (Bernoulli), binomické, rovnoměrné.
+* **Spojitá rozdělení:** Normální ($\mu, \sigma^2$), exponenciální ($\lambda$), gamma ($\alpha, \beta$).
+* **Statistický odhad:** **Bodový** (1 číslo, např. průměr) a **intervalový** (konfidenční interval). **MLE** = metoda maximální věrohodnosti.
+* **Konfidenční interval:** $100(1-\alpha)\%$; neznámý parametr v něm leží s pravděpodobností $1-\alpha$; $\alpha$ je hladina významnosti.
+* **Regresní analýza:** Vztah mezi proměnnými. **Lineární model** $y=\beta_0+\beta_1 x+\epsilon$; hodnocení přes $R^2$, P-hodnotu, deviance.
+* **Testování hypotéz:** $H_0$ (vztah neexistuje) vs. $H_1$. **Chyba 1. druhu** (falešné zamítnutí $H_0$), **2. druhu** (nezamítnutí nepravdivé $H_0$). Testy: t.test, wilcox.test.
