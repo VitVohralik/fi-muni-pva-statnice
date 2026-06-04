@@ -59,6 +59,8 @@ Vychází z referenčního souboru `teoreticke/01-Linearni-algebra.md`:
 - **Odrážky** pro vlastnosti, výčty, algoritmy (kroky číslované)
 - **Příklady a obrázky** jsou vítány – přidávají konkrétnost
 - Jazyk je **český**, terminologie odborná ale přístupná
+- **Sekce s otázkami a příklady na konci souboru** (vzor `01`, `02`, `03`): pokud výpiska obsahuje opakovací otázky nebo procvičovací příklady, přepiš je jako text (ne jako obrázek) do sekcí `# Otázky` (konceptuální Q&A) a `# Příklady` (procvičování). Každá otázka je `**N.** zadání` a odpověď je citace `> **Odpověď:** ...` se stručným vysvětlením/postupem.
+- **Otázky a příklady vždy přečísluj od 1** – bez ohledu na číslování v originální výpišce (např. otázky 6–10 → 1–5).
 
 ---
 

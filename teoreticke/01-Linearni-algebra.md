@@ -270,5 +270,25 @@ $$\cos\alpha = \frac{|\langle \vec{u}, \vec{v} \rangle|}{\lVert \vec{u} \rVert \
 
 # Příklady
 
-![[01-priklady_01.png|389]]
-![[01-priklady_02.png|547]]
+**1.** Uvažme následující soustavu rovnic nad $\mathbb{R}$:
+$$\begin{aligned} -3x + 5y - 6z &= 3, \\ -2x + 6y - 2z &= 2, \\ 4y + 3z &= 0. \end{aligned}$$
+Které z tvrzení je pravdivé?
+
+> **Odpověď:** Soustava má nekonečně mnoho řešení, přičemž množina všech řešení tvoří **přímku v $\mathbb{R}^3$**. Determinant matice soustavy je $0$ (matice je singulární) a její hodnost je $2$ – zůstává tedy jeden volný parametr, jehož geometrickým obrazem je přímka.
+
+**2.** Vypočtěte
+$$\begin{pmatrix} 1 & -2 & 3 \\ 1 & 0 & -1 \end{pmatrix} \cdot \begin{pmatrix} 0 & 4 \\ -1 & -1 \\ 3 & -5 \end{pmatrix}.$$
+
+> **Odpověď:** $\begin{pmatrix} 11 & -13 \\ -3 & 9 \end{pmatrix}$. Násobíme řádky první matice se sloupci druhé; počet sloupců první ($3$) odpovídá počtu řádků druhé ($3$), výsledek je matice $2 \times 2$.
+
+**3.** Která z matic zadává lineární zobrazení $\mathbb{R}^2 \to \mathbb{R}^2$ odpovídající osové souměrnosti podle přímky $y = x$?
+
+> **Odpověď:** $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$. Osová souměrnost podle $y = x$ prohazuje souřadnice: $(x, y) \mapsto (y, x)$.
+
+**4.** Která z množin vektorů tvoří ortonormální bázi vektorového prostoru $\mathbb{R}^3$?
+
+> **Odpověď:** $\left\{ \left(\tfrac{1}{\sqrt{3}}, \tfrac{1}{\sqrt{3}}, \tfrac{-1}{\sqrt{3}}\right), \left(\tfrac{1}{\sqrt{6}}, \tfrac{1}{\sqrt{6}}, \tfrac{2}{\sqrt{6}}\right), \left(\tfrac{-1}{\sqrt{2}}, \tfrac{1}{\sqrt{2}}, 0\right) \right\}$. Každý vektor má jednotkovou velikost a všechny dvojice jsou navzájem kolmé (jejich skalární součiny jsou $0$).
+
+**5.** Jaké hodnoty musí nabývat $x$, aby byl determinant matice $\begin{pmatrix} 2 & -2 & 1 \\ 0 & 3-x & -6 \\ 0 & 1 & -3 \end{pmatrix}$ roven $0$?
+
+> **Odpověď:** $x = 1$. Rozvojem podle prvního sloupce: $\det = 2 \cdot \big((3-x)(-3) - (-6)\cdot 1\big) = 2(3x - 3) = 6x - 6 = 0 \Rightarrow x = 1$.
