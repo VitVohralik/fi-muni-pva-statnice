@@ -78,3 +78,16 @@
 * **Topologické uspořádání:** Sekvence vrcholů, kde $u$ je před $v$ pro každou hranu $(u,v)$. Opačné pořadí dokončení DFS.
 * **DFS (do hloubky):** Zanoří se úplně do každé větve, $O(V+E)$, rekurze/zásobník. Využití: backtracking, silné komponenty, detekce cyklu, topologické uspořádání.
 * **BFS (do šířky):** Prochází po vrstvách pomocí fronty (FIFO), $O(V+E)$. Využití: nejkratší cesta v neohodnoceném grafu, Dijkstra, Prim, ověření bipartitity.
+
+## 5. Grafové algoritmy
+* **Ohodnocený (vážený) graf:** Každá hrana má přiřazenou váhu $w:E(G)\to\mathbb{R}$. Lze reprezentovat **maticí vah** $W$.
+* **Cesta:** Posloupnost vrcholů spojených hranami; existence = dosažitelnost. **Jednoduchá cesta** neopakuje vrcholy, **Hamiltonovská** projde všechny vrcholy.
+* **Délka cesty:** Počet hran (u ohodnocených součet vah). Neexistuje → $\infty$, obsahuje záporný cyklus → $-\infty$.
+* **Nejkratší cesta:** Cesta s minimální vahou. Existuje vždy i jednoduchá; **každá podcesta nejkratší cesty je nejkratší**.
+* **SSSP (Single Source Shortest Path):** Nejkratší cesty z jednoho vrcholu do všech. Neohodnocený → BFS, acyklický → relaxace v topologickém uspořádání.
+* **Relaxace hrany:** Aktualizace odhadu vzdálenosti vrcholu, pokud se přes hranu našla kratší cesta. Základ Dijkstry i Bellman-Forda.
+* **Dijkstrův algoritmus:** Nejrychlejší SSSP přes **prioritní frontu**, jen **nezáporné** hrany. Složitost dle fronty: pole $\Theta(V^2)$, binární halda $\Theta((V+E)\log V)$, Fibonacciho $\Theta(V\log V+E)$.
+* **Bellman-Fordův algoritmus:** SSSP i pro **záporné hrany**, umí **detekovat záporný cyklus**. $(V-1)\times$ relaxuje všechny hrany, složitost $O(V\cdot E)$.
+* **Minimální kostra (MST):** Podgraf-strom propojující všechny vrcholy ($n-1$ hran) s nejmenším součtem vah. Využití: stavba sítí.
+* **Kruskalův algoritmus:** Hladově řadí hrany dle vah a přidává ty bez cyklu (disjunktní množiny, union-find), $O(E\log E)$.
+* **Jarníkův (Primův) algoritmus:** Od jednoho vrcholu přidává nejlevnější hranu ven z komponenty, $O(E+V\log V)$.
