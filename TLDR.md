@@ -91,3 +91,22 @@
 * **Minimální kostra (MST):** Podgraf-strom propojující všechny vrcholy ($n-1$ hran) s nejmenším součtem vah. Využití: stavba sítí.
 * **Kruskalův algoritmus:** Hladově řadí hrany dle vah a přidává ty bez cyklu (disjunktní množiny, union-find), $O(E\log E)$.
 * **Jarníkův (Primův) algoritmus:** Od jednoho vrcholu přidává nejlevnější hranu ven z komponenty, $O(E+V\log V)$.
+
+## 6. Stromové datové struktury
+* **Binární vyhledávací strom (BVS):** Kořenový strom s max. 2 potomky, kde levý potomek $<$ rodič $<$ pravý potomek. Operace v nevyváženém stromu $O(n)$.
+* **Následník / předchůdce:** Uzel s nejmenším větším / největším menším klíčem než $x$. Používají se při mazání uzlu se 2 potomky.
+* **Průchody:** **preorder** (kořen, L, P), **inorder** (L, kořen, P — vypíše seřazeně), **postorder** (L, P, kořen).
+* **Mazání v BVS:** Bez potomka → smazat; 1 potomek → nahradí ho potomek; 2 potomci → nahradí následník/předchůdce.
+* **Vyvážený BVS:** Listy mají přibližně stejnou hloubku $\Rightarrow$ hloubka $\log_2(n+1)$ a operace $O(\log n)$. Vyvažuje se **rotacemi** $O(1)$. Příklady: AVL, RB stromy.
+* **AVL strom:** Samovyvažující se implementace BVS.
+* **Červeno-černý strom (RB):** Samovyvažující BVS s uzly červený/černý. Garantuje výšku $2\log_2(n+1)$. Pravidla: kořen černý, listy (NIL) černé, červený má černého rodiče, stejná **černá výška** všech cest do listů.
+* **Černá výška:** Počet černých uzlů na cestě z $x$ do listu (bez výchozího uzlu).
+* **Rotace:** `LeftRotate` / `RightRotate` — vzájemně inverzní, zachovávají uspořádání BVS, mění strukturu v $O(1)$.
+* **RB korekce po vložení:** Nový uzel je červený; podle barvy strýce buď **přebarvení** (strýc červený) nebo **rotace** (strýc černý) ve třech případech.
+* **B-strom:** $n$-ární vyvážený vyhledávací strom; uzel s $k$ klíči má $k+1$ potomků, klíče vymezují intervaly. Min. stupeň $t$: uzel má $t-1$ až $2t-1$ klíčů, hloubka $\log_t\!\frac{n+1}{2}$. Použití: databáze (méně čtení z disku).
+* **Štěpení / merge uzlu:** Plný uzel se rozdělí, prostřední klíč vystoupá do rodiče (dělení kořene zvyšuje výšku). Při podtečení se uzly slučují. Preemptivní štěpení rozděluje skoro plné uzly už při průchodu.
+* **B+ strom:** Modifikace B-stromu — **všechna data v listech**, vnitřní klíče jen pro intervaly. Listy propojené odkazem na následující list (rychlé čtení sekvenčních dat). Použití: souborové systémy.
+* **Binární halda (heap):** Binární strom plněný zleva splňující **vlastnost haldy** (max-halda: rodič $\geq$ syn; min-halda: rodič $\leq$ syn). Typicky v poli (potomci $2i+1$, $2i+2$, rodič $\lfloor(i-1)/2\rfloor$).
+* **Operace haldy:** Insert i Delete-Root $O(\log n)$ (probublávání), Search $O(n)$, stavba haldy $O(n)$. **Heapify** opravuje vlastnost haldy probubláváním dolů.
+* **Heapsort:** Opakované odebírání kořene max-haldy. $O(n\log n)$, **in situ**, **není stabilní**. Halda implementuje **prioritní frontu**.
+* **Hashovací tabulka:** Klíče přiděluje deterministická **hashovací funkce**. Kolize: **zřetězení** (uzavřená adresace, linked list pod klíčem) nebo **otevřená adresace** (sondování — lineární, kvadratické). Smazání značí hodnotou **Deleted**.
