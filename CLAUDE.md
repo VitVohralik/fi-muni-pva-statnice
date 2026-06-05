@@ -71,6 +71,7 @@ Vychází z referenčního souboru `teoreticke/01-Linearni-algebra.md`:
 3. **Zachovej strukturu originálu** – pokud uživatel rozdělil téma na sekce, Claude toto členění respektuje a případně jen zpřehlední nadpisy.
 4. **Drž se referenčního stylu.** Pokud si nejsi jistý formátem, podívej se na `01-Linearni-algebra.md`.
 5. **Po dokončení otázky vždy aktualizuj TLDR.md** – přidej sekci s pojmy z té otázky.
+6. **Hotové otázky v `Otazky.md` mají proklik na svůj soubor.** Jakmile poznámka existuje, tučný název otázky se v `Otazky.md` změní na Obsidian wikilink ve tvaru `**[[NN-Nazev-souboru|Zobrazený název]].**`. Na zatím nevytvořené poznámky proklik nedávej (nech obyčejný tučný název). Složky jsou jen `teoreticke/` a `programove/`.
 
 ---
 
@@ -94,15 +95,15 @@ Vychází z referenčního souboru `teoreticke/01-Linearni-algebra.md`:
 ### Programové, výpočetní a informační systémy
 | # | Název | Soubor | Hotovo |
 |---|-------|--------|--------|
-| 1 | Podprogramy a OOP | `systemy/01-OOP.md` | ⬜ |
-| 2 | Nízkoúrovňové programování | `systemy/02-Nizkorovnove-programovani.md` | ⬜ |
-| 3 | Nízkoúrovňové architektury | `systemy/03-Architektury.md` | ⬜ |
-| 4 | Databáze | `systemy/04-Databaze.md` | ⬜ |
-| 5 | SQL, transakce, dotazy | `systemy/05-SQL.md` | ⬜ |
-| 6 | Operační systémy | `systemy/06-Operacni-systemy.md` | ⬜ |
-| 7 | Souborové systémy | `systemy/07-Souborove-systemy.md` | ⬜ |
-| 8 | Sítě | `systemy/08-Site.md` | ⬜ |
-| 9 | Síťové aplikace a bezpečnost | `systemy/09-Sitove-aplikace.md` | ⬜ |
-| 10 | Základy informační bezpečnosti | `systemy/10-Informacni-bezpecnost.md` | ⬜ |
-| 11 | Vývoj bezpečných aplikací | `systemy/11-Vyvoj-bezpecnych-aplikaci.md` | ⬜ |
-| 12 | Paralelní systémy | `systemy/12-Paralelni-systemy.md` | ⬜ |
+| 1 | Podprogramy a OOP | `programove/01-OOP.md` | ⬜ |
+| 2 | Nízkoúrovňové programování | `programove/02-Nizkorovnove-programovani.md` | ⬜ |
+| 3 | Nízkoúrovňové architektury | `programove/03-Architektury.md` | ⬜ |
+| 4 | Databáze | `programove/04-Databaze.md` | ⬜ |
+| 5 | SQL, transakce, dotazy | `programove/05-SQL.md` | ⬜ |
+| 6 | Operační systémy | `programove/06-Operacni-systemy.md` | ⬜ |
+| 7 | Souborové systémy | `programove/07-Souborove-systemy.md` | ⬜ |
+| 8 | Sítě | `programove/08-Site.md` | ⬜ |
+| 9 | Síťové aplikace a bezpečnost | `programove/09-Sitove-aplikace.md` | ⬜ |
+| 10 | Základy informační bezpečnosti | `programove/10-Informacni-bezpecnost.md` | ⬜ |
+| 11 | Vývoj bezpečných aplikací | `programove/11-Vyvoj-bezpecnych-aplikaci.md` | ⬜ |
+| 12 | Paralelní systémy | `programove/12-Paralelni-systemy.md` | ⬜ |
