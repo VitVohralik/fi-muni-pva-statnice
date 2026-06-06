@@ -130,3 +130,22 @@
 * **Heapsort:** $\Theta(n\log n)$, **in situ**, **není stabilní**, asymptoticky optimální (řazení haldou).
 * **Quicksort:** Pivot dělí pole na menší/větší, rekurze na obě části. Průměrně $\Theta(n\log n)$, nejhůř $\Theta(n^2)$; vhodný v praxi.
 * **Nekomparativní řazení ($O(n)$):** **Counting sort** (počítá výskyty), **radix sort** (po číslicích od nejméně signifikantní), **bucket sort** (přihrádky dle rozsahu, lze paralelizovat).
+
+## 8. Funkcionální programování
+* **Funkcionální paradigma:** Deklarativní paradigma; program je výraz, výpočet = jeho zjednodušování. Důraz na čisté funkce, imutabilitu a funkce vyšších řádů.
+* **Redukce:** Postupné nahrazování výrazu jednodušším podvýrazem; jeden takový krok je **redukční krok**.
+* **Redukční strategie:** Předpis, který podvýraz redukovat dál. **Striktní** (zevnitř, nejdřív argumenty — Java, Python), **normální** (zvenčí, nejdřív funkce — Haskell), **líná** (normální + pamatuje si vyhodnocené výrazy, zvládá nekonečná data).
+* **Churchova–Rosserova věta:** Skončí-li výpočet, je výsledek vždy stejný nezávisle na strategii (délka výpočtu i zacyklení se lišit mohou).
+* **Perpetualita / Normalizace:** Zacyklí-li se kterákoli strategie, zacyklí se i **striktní** (nejméně bezpečná). Skončí-li kterákoli, skončí i **normální** (nejbezpečnější).
+* **Arita:** Počet parametrů funkce — nulární (konstanta), unární, binární, ternární.
+* **Čistá funkce:** Bez vedlejších efektů; v Haskellu jsou ale i nečisté (I/O). Vše je **immutable**.
+* **Funkce vyšších řádů:** Berou funkci jako argument nebo ji vracejí (`map`, `filter`, `fold`). Umožňují abstrakci a znovupoužití kódu.
+* **Lambda (anonymní) funkce:** Funkce bez jména definovaná v místě použití: `\x -> x*x`.
+* **Currying a částečná aplikace:** Funkce je řetězec unárních funkcí; aplikací na část argumentů vznikne nová funkce. `curry`/`uncurry` převádí mezi více parametry a n-ticí; `flip` prohodí pořadí parametrů.
+* **Haskell:** Čistě funkcionální, silně a staticky typovaný, líné vyhodnocování. Kompilátor GHC/GHCi, start funkcí `main`.
+* **Typy:** **Monomorfní** (`Int`, `Integer`, `Float`, `Char`, `String`=`[Char]`, `Bool`), **polymorfní** (typová proměnná `a`), **kvalifikovaný** (polymorfní s omezením typovou třídou).
+* **Typové třídy:** Sdružují typy s podobnými vlastnostmi (`Eq`, `Ord`, `Num`, `Integral`, `Show`). Umožňují sdílení kódu.
+* **Uživatelské typy:** Definice přes `data` (hodnotové konstruktory), např. `data Maybe a = Nothing | Just a`. **Pattern matching** rozkládá hodnoty podle vzoru.
+* **Seznamy:** Immutable, líné, konstrukce přes `(:)`, spojování `(++)`, `zip`, `concat`. Lze definovat nekonečné (`[1..]`, `cycle`, `iterate`).
+* **Intenzionální seznamy:** Definice pravidlem s generátorem: `[2*n | n <- [0..9]]`.
+* **Fold / katamorfismus:** Akumulace seznamu do jedné hodnoty (`foldl` zleva, `foldr` zprava). Katamorfismus = nahrazení hodnotových konstruktorů jinými funkcemi vhodné arity.
