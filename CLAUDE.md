@@ -86,7 +86,7 @@ Vychází z referenčního souboru `teoreticke/01-Linearni-algebra.md`:
 | 4 | Grafy a jejich prohledávání | `teoreticke/04-Grafy-prohledavani.md` | ✅ |
 | 5 | Grafové algoritmy | `teoreticke/05-Grafove-algoritmy.md` | ✅ |
 | 6 | Stromové datové struktury | `teoreticke/06-Stromove-struktury.md` | ✅ |
-| 7 | Návrh algoritmů | `teoreticke/07-Navrh-algoritmu.md` | ⬜ |
+| 7 | Návrh algoritmů | `teoreticke/07-Navrh-algoritmu.md` | ✅ |
 | 8 | Funkcionální programování | `teoreticke/08-Funkcionalni-programovani.md` | ⬜ |
 | 9 | Regulární jazyky | `teoreticke/09-Regularni-jazyky.md` | ⬜ |
 | 10 | Rozhodnutelnost | `teoreticke/10-Rozhodnutelnost.md` | ⬜ |

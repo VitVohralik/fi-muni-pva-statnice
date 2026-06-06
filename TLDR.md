@@ -110,3 +110,23 @@
 * **Operace haldy:** Insert i Delete-Root $O(\log n)$ (probublávání), Search $O(n)$, stavba haldy $O(n)$. **Heapify** opravuje vlastnost haldy probubláváním dolů.
 * **Heapsort:** Opakované odebírání kořene max-haldy. $O(n\log n)$, **in situ**, **není stabilní**. Halda implementuje **prioritní frontu**.
 * **Hashovací tabulka:** Klíče přiděluje deterministická **hashovací funkce**. Kolize: **zřetězení** (uzavřená adresace, linked list pod klíčem) nebo **otevřená adresace** (sondování — lineární, kvadratické). Smazání značí hodnotou **Deleted**.
+
+## 7. Návrh algoritmů
+* **Rekurze:** Definice funkce/struktury s využitím sebe sama; iteruje až k **zarážce** (triviální případ). Drží volání na zásobníku.
+* **Druhy rekurze:** **Přímá** (A volá A), **nepřímá** (A→B→A), **tail-rekurze** (volání na konci, nahraditelné cyklem — kompilátor optimalizuje).
+* **Výhody/nevýhody rekurze:** Čitelný zápis vs. paměťová náročnost (**stack overflow**), těžší odhad složitosti, často pomalejší. Každou rekurzi lze převést na iterativní (explicitní zásobník/cyklus).
+* **Matematická indukce:** Důkaz tvrzení o nekonečných posloupnostech — **báze** $T(k_0)$ + **indukční krok** $T(k)\Rightarrow T(k+1)$. Jde opačným směrem než rekurze (indukce začíná bází, rekurze k ní směřuje).
+* **Rozděl a panuj:** Rekurzivní dělení na triviální podproblémy: **Divide → Conquer → Combine**. Výhody: lepší asymptotika, paralelismus, práce v cache. Používá merge sort a quicksort.
+* **Algoritmus:** Konečná posloupnost elementárních kroků; má vstupní podmínku, **invariant cyklu** (platí před i po iteraci) a výstupní podmínku.
+* **Korektnost:** **Konvergence/úplnost** (výpočet skončí), **parciální korektnost** (skončí-li, je výsledek správný), **totální korektnost** = obojí.
+* **In situ:** Algoritmus s konstantní extra pamětí (modifikuje vstup). **Extrasekvenční** složitost neuvažuje vstupní data.
+* **Asymptotická notace:** $\mathcal{O}$ (horní odhad, „nejvýše tak rychle"), $\Omega$ (dolní odhad), $\Theta = \mathcal{O}\cap\Omega$ (stejně rychle).
+* **Substituční metoda:** Odhad řešení + důkaz indukcí ($T(n)\le cn\log n$).
+* **Rekurzivní strom:** Rozbalení rekurze — sčítání práce po úrovních (geometrická řada).
+* **Master theorem:** Pro $T(n)=aT(n/b)+\Theta(n^c)$: $a<b^c\Rightarrow\Theta(n^c)$; $a=b^c\Rightarrow\Theta(n^c\log n)$; $a>b^c\Rightarrow\Theta(n^{\log_b a})$.
+* **Řadicí algoritmy:** **Stabilní** nemění pořadí stejných prvků; **přirozený** rychleji zpracuje částečně seřazená data.
+* **Insertion / Selection sort:** Oba $\Theta(n^2)$, in situ. Insertion **vkládá** do seřazené části (stabilní), selection **vybírá** min/max (nestabilní).
+* **Merge sort:** Rozděl a panuj, $\Theta(n\log n)$, **stabilní**, **není in situ**, asymptoticky optimální.
+* **Heapsort:** $\Theta(n\log n)$, **in situ**, **není stabilní**, asymptoticky optimální (řazení haldou).
+* **Quicksort:** Pivot dělí pole na menší/větší, rekurze na obě části. Průměrně $\Theta(n\log n)$, nejhůř $\Theta(n^2)$; vhodný v praxi.
+* **Nekomparativní řazení ($O(n)$):** **Counting sort** (počítá výskyty), **radix sort** (po číslicích od nejméně signifikantní), **bucket sort** (přihrádky dle rozsahu, lze paralelizovat).
