@@ -167,3 +167,17 @@
 * **Chomského hierarchie:** Vnořené třídy: **typ 0** frázové (Turingův stroj), **typ 1** kontextové ($\alpha A\beta \to \alpha\gamma\beta$, lineárně ohraničené TM), **typ 2** bezkontextové ($A \to \gamma$, zásobníkové automaty), **typ 3** regulární ($A \to a$ / $A \to aB$, konečné automaty).
 * **Regulární výraz:** Popis regulárního jazyka pomocí závorek, sjednocení, zřetězení a iterace. **Kleeneho věta:** stejná vyjadřovací síla jako automat.
 * **Převody:** Gramatika ↔ NFA ↔ DFA ↔ regulární výraz (odstranění stavů a nahrazení šipek regulárními výrazy).
+
+## 10. Rozhodnutelnost
+* **Výpočetní problém:** Problém předkládaný výpočetnímu zařízení; reprezentace dvojicí $(\mathcal{D}, out)$ – doména instancí a funkce přiřazující výstup. **Algoritmický problém** vyžaduje specifický algoritmus (konečný, s jasnými vstupy/výstupy).
+* **Rozhodovací problém:** Vrací True/False o vlastnosti objektu. Každý lze přeložit na **problém příslušnosti** (patří slovo do jazyka?).
+* **Turingův stroj (TS):** Konečný automat s nekonečnou páskou. Sedmice $(Q, \Sigma, \Gamma, \delta, s, Q_{acc}, Q_{rej})$; $\Gamma = \Sigma$ + zarážka $\triangleright$ + prázdné políčko $\sqcup$. **Konfigurace** = (stav, páska, pozice).
+* **Úplný TS:** Vždy akceptuje/zamítá, nikdy necyklí. Pokud TS cyklí nebo se zasekne, slovo je zamítnuto.
+* **Churchova–Turingova teze:** Každé reálné výpočetní zařízení simuluje nějaký TS (nelze dokázat). **Univerzalita:** TS umí simulovat libovolný jiný TS (lze ho zapsat jako řetězec a poslat na vstup).
+* **Rozhodnutelnost:** Existuje **úplný** TS akceptující slova s vlastností $P$ a zamítající ostatní. **Nerozhodnutelnost:** takový TS neexistuje. **Částečná rozhodnutelnost:** TS požadovaná slova akceptuje, ostatní zamítá nebo cyklí.
+* **Halting problem:** Rozhodnout, zda TS nad slovem zastaví. **Nerozhodnutelný** (Turing 1936), ale částečně rozhodnutelný (instance, které zastaví).
+* **Třídy jazyků:** **Rekurzivně spočetný (RE)** = akceptován nějakým TM (typ 0); **rekurzivní (Rec)** = rozhodován **úplným** TM. Každý rekurzivní je i rekurzivně spočetný; regulární jazyky jsou rozhodnutelné.
+* **Nedeterministický TS (NTS):** $\delta: Q \times \Gamma \to 2^{Q \times \Gamma \times \{+1,-1,0\}}$; v pseudokódu `Oracle()`. Akceptuje, pokud alespoň jeden výpočet vrátí True. Lze simulovat DTS.
+* **Metoda redukce:** Transformační algoritmus převádějící problém $P_1$ na $P_2$ ($P_1 \leq P_2$). Nerozhodnutelnost $P_1$ ⟹ nerozhodnutelnost $P_2$; rozhodnutelnost $P_2$ ⟹ rozhodnutelnost $P_1$.
+* **Nerozhodnutelné problémy:** Postův problém přiřazení (PCP), CFG-EQUIVALENCE, CFG-REGULARITY (pro bezkontextové gramatiky).
+* **Diagonalizace:** Cantorova metoda – anti-diagonální stroj dělá opak diagonály matice (TS × vstupy). Dokazuje nerozhodnutelnost halting problému i problému příslušnosti pro TM.
