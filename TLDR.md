@@ -149,3 +149,21 @@
 * **Seznamy:** Immutable, líné, konstrukce přes `(:)`, spojování `(++)`, `zip`, `concat`. Lze definovat nekonečné (`[1..]`, `cycle`, `iterate`).
 * **Intenzionální seznamy:** Definice pravidlem s generátorem: `[2*n | n <- [0..9]]`.
 * **Fold / katamorfismus:** Akumulace seznamu do jedné hodnoty (`foldl` zleva, `foldr` zprava). Katamorfismus = nahrazení hodnotových konstruktorů jinými funkcemi vhodné arity.
+
+## 9. Regulární jazyky
+* **Formální jazyk:** Libovolná množina slov nad **abecedou $\Sigma$** (konečná množina symbolů). **Slovo** je konečná posloupnost symbolů, **$\varepsilon$** je prázdné slovo.
+* **Operace nad jazyky:** Sjednocení, průnik, rozdíl, zřetězení ($L_1.L_2$), iterace ($L^*$, $L^+$), doplněk ($\Sigma^* \setminus L$), reverze (palindrom $ww^R$).
+* **Pumping lemma (lemma o vkládání):** Každé dostatečně dlouhé slovo z dané třídy lze rozdělit a „napumpovat" zopakováním části → opět slovo z jazyka. Slouží k důkazu, že jazyk **není** regulární.
+* **DFA (deterministický konečný automat):** Pětice $(Q, \Sigma, \delta, s, F)$ s **totální injektivní** přechodovou funkcí $Q \times \Sigma \to Q$. Pamatuje si jen současný stav.
+* **NFA (nedeterministický):** Stejná pětice, ale $\delta: Q \times \Sigma \to 2^Q$ (potenční množina). Slovo je platné, dovede-li alespoň jednu větev do koncového stavu. **$\varepsilon$-NFA** povoluje epsilon-kroky (přechod bez čtení znaku).
+* **Síla NFA = síla DFA:** Oba akceptují pouze regulární jazyky; NFA převedeme na DFA **determinizací**.
+* **Determinizace:** Odstranění $\varepsilon$-kroků (Next1/2/3 – epsilon okolí) + **podmnožinová konstrukce** (stav DFA = množina stavů NFA).
+* **Produktový automat:** Synchronní paralelní spojení 2 DFA (sdílí abecedu), stavy = kartézský součin $Q_1 \times Q_2$. Průnik: $F = F_1 \times F_2$; sjednocení: $F = (F_1 \times Q_2) \cup (Q_1 \times F_2)$.
+* **Uzávěrové vlastnosti:** Regulární jazyky jsou uzavřené na sjednocení, průnik, rozdíl, zřetězení, iteraci, reverzi a doplněk.
+* **Doplněk automatu:** Prohození koncových a nekoncových stavů – nutná **totální** přechodová funkce.
+* **Minimalizace:** Slučování **ekvivalentních** (nerozlišitelných) stavů. Hledáme stavy **rozlišitelné** slovem délky $\leq$ počet stavů; odstraníme nedosažitelné, iterujeme třídy rozkladu. Pro každý regulární jazyk existuje jedinečný minimální DFA.
+* **Kanonizace:** Přečíslování stavů v pořadí průchodu (do šířky) → jedinečný kanonický DFA. Umožňuje test ekvivalence dvou automatů.
+* **Gramatika:** Čtveřice $(NTerm, \Sigma, P, S)$ – neterminály, terminály, přepisovací pravidla, počáteční neterminál. Větší vyjadřovací síla než automaty (popis syntaxe jazyků).
+* **Chomského hierarchie:** Vnořené třídy: **typ 0** frázové (Turingův stroj), **typ 1** kontextové ($\alpha A\beta \to \alpha\gamma\beta$, lineárně ohraničené TM), **typ 2** bezkontextové ($A \to \gamma$, zásobníkové automaty), **typ 3** regulární ($A \to a$ / $A \to aB$, konečné automaty).
+* **Regulární výraz:** Popis regulárního jazyka pomocí závorek, sjednocení, zřetězení a iterace. **Kleeneho věta:** stejná vyjadřovací síla jako automat.
+* **Převody:** Gramatika ↔ NFA ↔ DFA ↔ regulární výraz (odstranění stavů a nahrazení šipek regulárními výrazy).
