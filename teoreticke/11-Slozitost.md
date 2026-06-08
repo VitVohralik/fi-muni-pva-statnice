@@ -204,6 +204,13 @@ Důkaz NP-úplnosti „od nuly" je obtížný $\Rightarrow$ dělá se to jen pro
 - **VERTEX-COVER** – INPUT: neorientovaný graf $G = (V, E)$, přirozené číslo $k$. OUTPUT: *True*, pokud existuje množina vrcholů $C \subseteq V$ taková, že $|C| \leq k$ a každá hrana grafu je incidentní nějakému vrcholu z $C$; jinak *False*.
 - **CLIQUE** – INPUT: neorientovaný graf $G = (V, E)$, přirozené číslo $k$. OUTPUT: *True*, pokud existuje množina vrcholů $C \subseteq V$ taková, že $|C| \geq k$ a každé dva různé vrcholy z $C$ jsou spojeny hranou; jinak *False*.
 
+## PSPACE problémy
+
+- **TQBF** (True Quantified Boolean Formula) – rozhodnout, zda je pravdivá plně **kvantifikovaná** výroková formule, tj. formule, ve které je každá proměnná svázána kvantifikátorem $\forall$ nebo $\exists$ (např. $\forall x\, \exists y\, (x \lor \neg y)$).
+	- Zobecnění SATu: u SATu existenčně kvantifikujeme všechny proměnné ($\exists x_1 \dots \exists x_n$), u TQBF se mohou $\forall$ a $\exists$ libovolně střídat.
+	- Je to **kanonický PSPACE-úplný** problém (obdoba toho, čím je SAT pro NP).
+	- Modeluje hry dvou hráčů „existuje můj tah takový, že pro každý tah soupeře existuje můj tah…", proto s ním souvisí složitost zobecněných her (šachy, dáma).
+
 ## EXP problémy
 
 - **Šachy**

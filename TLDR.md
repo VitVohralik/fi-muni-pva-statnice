@@ -199,4 +199,5 @@
 * **NP-Complete (úplné):** NP-Hard ∩ NP. Každý úplný je těžký, ne naopak. P řešení jednoho úplného ⟹ $P = NP$ (kolaps celé NP do P).
 * **Důkaz NP-úplnosti:** Je-li $L \in$ NP a $L' \leq_p L$ pro nějaký NP-úplný $L'$, pak je i $L$ NP-úplný (redukce z kanonického problému).
 * **Kanonické NP-úplné problémy:** 3SAT, problém obchodního cestujícího (rozhodovací varianta), problém batohu, VERTEX-COVER, CLIQUE.
-* **Příklady tříd:** P – NSD, prvočíselnost; NP – faktorizace, izomorfismus grafů, SUBSET-SUM; EXP – šachy; nerozhodnutelné – Halt, CFG-Equality.
+* **TQBF (True Quantified Boolean Formula):** Rozhodnout pravdivost plně kvantifikované výrokové formule ($\forall$/$\exists$ u každé proměnné). Kanonický **PSPACE-úplný** problém (obdoba SATu pro NP), zobecnění SATu.
+* **Příklady tříd:** P – NSD, prvočíselnost; NP – faktorizace, izomorfismus grafů, SUBSET-SUM; PSPACE – TQBF; EXP – šachy; nerozhodnutelné – Halt, CFG-Equality.
