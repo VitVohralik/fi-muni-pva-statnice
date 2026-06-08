@@ -90,7 +90,7 @@ Vychází z referenčního souboru `teoreticke/01-Linearni-algebra.md`:
 | 8 | Funkcionální programování | `teoreticke/08-Funkcionalni-programovani.md` | ✅ |
 | 9 | Regulární jazyky | `teoreticke/09-Regularni-jazyky.md` | ✅ |
 | 10 | Rozhodnutelnost | `teoreticke/10-Rozhodnutelnost.md` | ✅ |
-| 11 | Složitost | `teoreticke/11-Slozitost.md` | ⬜ |
+| 11 | Složitost | `teoreticke/11-Slozitost.md` | ✅ |
 
 ### Programové, výpočetní a informační systémy
 | # | Název | Soubor | Hotovo |

@@ -11,7 +11,7 @@
 8. **[[08-Funkcionalni-programovani|Funkcionální programování]].** Funkcionální programovací paradigma (princip výpočtu, redukční krok, redukční strategie a jejich vlastnosti, příklady). Funkce vyšších řádů a jejich využití. Nepojmenované funkce. Schopnost elementárního programování v Haskellu. ([IB015](https://is.muni.cz/auth/el/fi/podzim2025/IB015/index.qwarp))
 9. **[[09-Regularni-jazyky|Regulární jazyky]].** Chomského hierarchie formálních jazyků. Regulární jazyky, jejich reprezentace a převody mezi nimi. Varianty konečných automatů. Nedeterminismus a determinizace automatů. Uzávěrové vlastnosti regulárních jazyků. ([IB110](https://is.muni.cz/auth/el/fi/jaro2026/IB110/index.qwarp))
 10. **[[10-Rozhodnutelnost|Rozhodnutelnost]].** Pojem algoritmického problému a algoritmu. Turingův stroj a problém zastavení. Rozhodnutelnost a částečná rozhodnutelnost, nerozhodnutelnost. Metoda redukce. ([IB110](https://is.muni.cz/auth/el/fi/jaro2026/IB110/index.qwarp))
-11. **Složitost.** Časová složitost algoritmu versus časová složitost problému. Složitostní třídy (P, NP) a vztahy mezi nimi, příklady problémů z jednotlivých tříd. Těžkost a úplnost problému v dané třídě, polynomiální redukce problémů, NP-úplné úlohy. ([IB110](https://is.muni.cz/auth/el/fi/jaro2026/IB110/index.qwarp))
+11. **[[11-Slozitost|Složitost]].** Časová složitost algoritmu versus časová složitost problému. Složitostní třídy (P, NP) a vztahy mezi nimi, příklady problémů z jednotlivých tříd. Těžkost a úplnost problému v dané třídě, polynomiální redukce problémů, NP-úplné úlohy. ([IB110](https://is.muni.cz/auth/el/fi/jaro2026/IB110/index.qwarp))
 
 **Programové, výpočetní a informační systémy**  
   

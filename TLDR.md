@@ -181,3 +181,22 @@
 * **Metoda redukce:** Transformační algoritmus převádějící problém $P_1$ na $P_2$ ($P_1 \leq P_2$). Nerozhodnutelnost $P_1$ ⟹ nerozhodnutelnost $P_2$; rozhodnutelnost $P_2$ ⟹ rozhodnutelnost $P_1$.
 * **Nerozhodnutelné problémy:** Postův problém přiřazení (PCP), CFG-EQUIVALENCE, CFG-REGULARITY (pro bezkontextové gramatiky).
 * **Diagonalizace:** Cantorova metoda – anti-diagonální stroj dělá opak diagonály matice (TS × vstupy). Dokazuje nerozhodnutelnost halting problému i problému příslušnosti pro TM.
+
+## 11. Složitost
+* **Teorie výpočetní složitosti:** Zkoumá, kolik výpočetních zdrojů (čas, paměť) stojí řešení **rozhodnutelných** problémů; výpočetní model = Turingův stroj, délka výpočtu = počet kroků.
+* **Složitost algoritmu:** Náročnost konkrétního algoritmu na zdroje. **Časová** = délka nejdelšího výpočtu pro daný vstup; **prostorová** = největší zabraná paměť. Měří se v nejhorším/průměrném/nejlepším případě.
+* **Složitost problému:** Složitost **optimálního** (nejrychlejšího/nejúspornějšího) algoritmu řešícího problém, bere se nejhorší vstup.
+* **Asymptotická notace:** $\mathcal{O}(g)$ roste nejvýše tak rychle, $\Omega(g)$ alespoň tak rychle, $\Theta(g) = \mathcal{O} \cap \Omega$ stejně rychle jako $g$. Polynomiální $\mathcal{O}(n^k)$, exponenciální $\mathcal{O}(k^n)$.
+* **Polynomiální = efektivní:** Polynomiální algoritmy ($Time \in \mathcal{O}(n^k)$) jsou považovány za prakticky řešitelné.
+* **P (PTIME):** Problémy řešitelné **deterministickým** polynomiálním algoritmem (DTS). Např. NSD, prvočíselnost, řazení, minimální kostry, SSSP.
+* **NP:** Problémy řešitelné **nedeterministickým** polynomiálním algoritmem; ekvivalentně mají **polynomiálně verifikovatelný certifikát** pozitivní instance. P ⊆ NP ⊆ EXPTIME.
+* **P vs. NP:** Otevřený problém – lze-li výsledek rychle ověřit, lze ho také rychle nalézt? Neví se ani $NP = EXPTIME$.
+* **Pozitivní instance + certifikát:** Instance s odpovědí „ano"; certifikát je důkaz pozitivnosti ověřitelný v polynomiálním čase (např. ověření součtu u SUBSET-SUM).
+* **EXP / PSPACE / EXPSPACE:** Exponenciální čas, resp. polynomiální / exponenciální prostor (paměť).
+* **Savitchova věta:** $SPACE(f^2) \supseteq NSPACE(f)$ – nedeterministický prostor $N$ lze simulovat deterministicky v $N^2$.
+* **Polynomiální redukce ($\leq_p$):** Převod problému $L_1$ na $L_2$ funkcí počítanou v PTIME, zachovávající (ne)pozitivnost. Pokud $L_2 \in$ PTIME a $L_1 \leq_p L_2$, pak i $L_1 \in$ PTIME.
+* **NP-Hard (těžké):** Na problém se polynomiálně redukuje **každý** problém z NP; sám nemusí být v NP.
+* **NP-Complete (úplné):** NP-Hard ∩ NP. Každý úplný je těžký, ne naopak. P řešení jednoho úplného ⟹ $P = NP$ (kolaps celé NP do P).
+* **Důkaz NP-úplnosti:** Je-li $L \in$ NP a $L' \leq_p L$ pro nějaký NP-úplný $L'$, pak je i $L$ NP-úplný (redukce z kanonického problému).
+* **Kanonické NP-úplné problémy:** 3SAT, problém obchodního cestujícího (rozhodovací varianta), problém batohu, VERTEX-COVER, CLIQUE.
+* **Příklady tříd:** P – NSD, prvočíselnost; NP – faktorizace, izomorfismus grafů, SUBSET-SUM; EXP – šachy; nerozhodnutelné – Halt, CFG-Equality.
