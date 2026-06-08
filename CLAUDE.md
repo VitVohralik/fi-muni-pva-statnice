@@ -95,7 +95,7 @@ Vychází z referenčního souboru `teoreticke/01-Linearni-algebra.md`:
 ### Programové, výpočetní a informační systémy
 | # | Název | Soubor | Hotovo |
 |---|-------|--------|--------|
-| 1 | Podprogramy a OOP | `programove/01-OOP.md` | ⬜ |
+| 1 | Podprogramy a OOP | `programove/01-OOP.md` | ✅ |
 | 2 | Nízkoúrovňové programování | `programove/02-Nizkorovnove-programovani.md` | ⬜ |
 | 3 | Nízkoúrovňové architektury | `programove/03-Architektury.md` | ⬜ |
 | 4 | Databáze | `programove/04-Databaze.md` | ⬜ |

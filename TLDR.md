@@ -201,3 +201,33 @@
 * **Kanonické NP-úplné problémy:** 3SAT, problém obchodního cestujícího (rozhodovací varianta), problém batohu, VERTEX-COVER, CLIQUE.
 * **TQBF (True Quantified Boolean Formula):** Rozhodnout pravdivost plně kvantifikované výrokové formule ($\forall$/$\exists$ u každé proměnné). Kanonický **PSPACE-úplný** problém (obdoba SATu pro NP), zobecnění SATu.
 * **Příklady tříd:** P – NSD, prvočíselnost; NP – faktorizace, izomorfismus grafů, SUBSET-SUM; PSPACE – TQBF; EXP – šachy; nerozhodnutelné – Halt, CFG-Equality.
+
+---
+
+# Programové, výpočetní a informační systémy
+
+## 1. Podprogramy a OOP
+* **Programovací paradigmata:** **Procedurální/imperativní** (strukturované, nestrukturované, OOP – záleží na pořadí instrukcí) vs. **deklarativní** (funkcionální, logické – co se má udělat, ne jak).
+* **Dělení jazyků:** Dle abstrakce (nízko-/vysokoúrovňové), dle kompilace (**kompilované** – binárka se statickými dependencies, vs. **interpretované** – interpretace/JIT/mezikód za běhu).
+* **Datové typy:** **Jednoduché** (ordinální – int, bool, char, enum; neordinální – float/double dle IEEE 754, void) a **složené** (pole, string, list, struct, union, tagged union, tuple).
+* **Ukazatel:** Adresa do paměti / null. **Dangling pointer** míří na dealokovanou paměť; **odkaz** je ukazatel, který se sám dereferencuje a nepoužívá aritmetiku.
+* **ADT:** Implementačně nezávislá specifikace struktury dat s povolenými operacemi (zásobník, fronta, množina). Schovává detaily okolnímu světu.
+* **Typování:** **Silně/slabě** (zda zamezuje nesprávné operace) × **staticky/dynamicky** (kontrola při překladu/za běhu). Java, Haskell, C# = silně staticky; Python = silně dynamicky; C/C++ = slabě staticky; JS/PHP = slabě dynamicky.
+* **Ekvivalence typů:** **Jmenná** (porovnává jména, striktní vs. volná vůči aliasům) vs. **strukturální** (nahrazuje jména definicemi). **Type cast** (implicitní/explicitní konverze), **koerce** (stačí kompatibilita).
+* **Proměnná:** Pojmenovaná oblast v paměti s hodnotou. **Vazba** statická/dynamická, **aliasing** (více jmen na týž objekt), **mutable** (mění hodnotu, drží identitu) vs. **immutable**.
+* **Řízení toku:** **Příkazy** provádějí akci (přiřazení, podmínky, cykly, blok); **výrazy** se vyhodnotí na hodnotu. **Operátor** = funkce se speciální notací (pre-/in-/postfix, unární/binární/ternární).
+* **Priorita a asociativita:** Priorita určuje pořadí operátorů (neviditelné závorky), asociativita řeší stejnou prioritu (zleva/zprava). **Líné vyhodnocování** rozhodne bez vyhodnocení celého výrazu.
+* **Rozsah (scope):** Prostor viditelnosti entit. **Statický** (dle struktury kódu, určen při překladu) vs. **dynamický** (dle pořadí volání, za běhu). Globální rozsah = globální proměnné.
+* **Podprogram:** Základní mechanismus řízení běhu. **Funkce** vrací hodnotu (volá se ve výrazu), **procedura** ji nevrací (volá se jako příkaz). **Čistá funkce** nemá vedlejší efekty.
+* **Předávání parametrů:** **Hodnotou** (kopie), **odkazem/sdílením** (efektivní, riziko aliasů), **jménem** (líné vyhodnocení výrazu), **výsledkem** (`out`), **hodnotou-výsledkem** (`in-out`).
+* **OOP:** Paradigma s objekty (data + metody), které komunikují. 4 principy: **abstrakce, zapouzdření, dědičnost, polymorfismus**. Stavební kameny – třída (typ i implementace) a rozhraní (bez implementace).
+* **Abstrakce:** Skrývání nedůležitých detailů, high-level pohled (rozhraní, abstraktní třídy s deklarovanými metodami – nelze instanciovat).
+* **Zapouzdření:** Spojení dat a operací pod jediným jménem, řízení přístupu (`public`/`protected`/`private`/package). **Boxing** = obalení hodnotového typu objektem. **Namespace** = prostor jmen.
+* **Dědičnost:** Nová třída využívá rodičovskou (tranzitivně, stromová hierarchie). Dědí se min. `protected` členy; konstruktor potomka volá konstruktor rodiče. **Diamond problem** u vícenásobné dědičnosti tříd.
+* **LSP:** Objekt typu T lze nahradit objektem podtřídy S bez negativních důsledků. Alternativa k dědičnosti = **kompozice**.
+* **Polymorfismus:** **Ad-hoc** (přetěžování, výběr za překladu), **parametrický** (generika, dynamická vazba v runtime), **podtypový** (T drží objekt podtřídy). **Override** přepisuje metodu rodiče (výběr za běhu).
+* **Časná vs. pozdní vazba:** **Časná (statická)** – metoda vybrána za překladu dle deklarovaného typu, v C# klíčové slovo `new` (skrytí). **Pozdní (dynamická)** – vybrána za běhu dle skutečného typu objektu, v C# `virtual` + `override` (přepsání). Časná je rychlejší.
+* **Tabulka virtuálních metod (vtable):** Každý objekt nese ukazatel na tabulku své třídy s odkazy na implementace virtuálních metod (code pointers). Umožňuje pozdní vazbu; u `override` se odkaz přesměruje, jinak zděděn z rodiče.
+* **Výjimky:** Objekt nesoucí info o chybě, propaguje se nahoru po call-stacku k handleru (`try-catch-finally`). **Kontrolované** (musí se chytit / `throws`) vs. **nekontrolované** (`RuntimeException`).
+* **Event-driven programming:** Asynchronní paradigma, tok řízen událostmi ve frontě dispatcheru, obsluhují je posluchače (EventListener) mimo hlavní vlákno (aplikace nezamrzá).
+* **SOLID:** Single-responsibility, Open–closed, Liskov substitution, Interface segregation, Dependency inversion – principy návrhu udržovatelných OOP systémů.
