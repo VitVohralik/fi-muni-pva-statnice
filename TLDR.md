@@ -231,3 +231,19 @@
 * **Výjimky:** Objekt nesoucí info o chybě, propaguje se nahoru po call-stacku k handleru (`try-catch-finally`). **Kontrolované** (musí se chytit / `throws`) vs. **nekontrolované** (`RuntimeException`).
 * **Event-driven programming:** Asynchronní paradigma, tok řízen událostmi ve frontě dispatcheru, obsluhují je posluchače (EventListener) mimo hlavní vlákno (aplikace nezamrzá).
 * **SOLID:** Single-responsibility, Open–closed, Liskov substitution, Interface segregation, Dependency inversion – principy návrhu udržovatelných OOP systémů.
+
+## 2. Principy nízkoúrovňového programování
+* **Paměť:** Adresovatelné množství slotů fixní délky (slot typicky 1 bajt). Entity zabírají více slotů, přístup přes adresu začátku (hexadecimálně, např. `0x0a`).
+* **Paměťové segmenty programu:** **Textový** (instrukce), **zásobník** (stack-frame s lokálními proměnnými), **halda** (dynamická paměť), **inicializovaný** a **neinicializovaný (bss)** datový segment (globální proměnné).
+* **C jako slabě typovaný jazyk:** Objekty mohou měnit typy. **Implicitní** konverze (interpretuje bity jiným typem) vs. **explicitní** (převede hodnotu vnitřní funkcí). `sizeof()` vrací počet bajtů typu.
+* **Zarovnání (alignment):** Typy zarovnané na násobky slova procesoru kvůli optimalizaci čtení (`int` 4 B bez paddingu, `char` 1 B + 3 B padding).
+* **Bitové operátory:** `&` (AND), `|` (OR), `^` (XOR), `~` (INVERT), `<<`/`>>` (shift = násobení/dělení 2). Reprezentace dat jako flagů, čtení maskou.
+* **`const`:** Označuje konstantu, překladač hlídá neměnnost. Lze ošálit přiřazením do nekonstantního ukazatele.
+* **Plytká vs. hluboká kopie:** Plytká = přiřazení (povrch struktury), hluboká = `malloc()` + `memcpy()`. Předání struktury hodnotou tvoří plytkou kopii.
+* **Uživatelské typy:** **`enum`** (výčet, vnitřně `int`), **`struct`** (záznam pojmenovaných položek, zarovnaný), **`union`** (sdílená paměť, velikost největší položky, bitová reinterpretace), **`typedef`** (nový název typu).
+* **Ukazatel:** Adresa do paměti, má typ. `&` vrací adresu, `*` dereferencuje. **Ukazatelová aritmetika** posouvá po prvcích (`pArray + 3` = 4. prvek). `Pole` ≡ `&Pole[0]`, ale `int*` ≠ `int[10]`.
+* **NULL / void\* / funkční ukazatel:** NULL = adresa 0 (`(void*)0`). `void*` bez znalosti typu. Funkční ukazatel míří na kód funkce (předávání funkce parametrem).
+* **Aliasing:** Více ukazatelů různého typu na stejné místo. **Strict aliasing** to zakazuje kvůli optimalizacím (lze vypnout).
+* **Pole:** Souvislý blok, alokace za překladu, **meze se nehlídají** (segfault při přístupu mimo). Vícerozměrné pole překladač ukládá jednorozměrně. Řetězec = pole charů s koncovou `\0`.
+* **Dynamická paměť (halda):** `malloc` (neinicializuje), `calloc` (n × velikost + inicializuje), `realloc` (změna velikosti, zachová obsah), `free` (uvolní, nemaže obsah), `memset` (rychlá inicializace). Bez `free` → memory leak; double free = undefined behaviour (CWE-415).
+* **Ladění:** **Debugger** krokuje program, zkoumá proměnné/zásobník/haldu. **Breakpoint** (i conditional), **memory breakpoint** (změna paměti, nutná podpora CPU), **Valgrind** (memory leaky, analýza paměti). HW podpora: trap flag, instrukce pro virtualizaci.
