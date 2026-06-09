@@ -297,3 +297,37 @@
 * **BCNF:** 3NF + každá závislost je triviální nebo $\alpha$ je superklíč. Silnější než 3NF, ale nemusí zachovat funkční závislosti. Platí $\text{BCNF} \subset \text{3NF} \subset \text{2NF} \subset \text{1NF}$.
 * **Dekompozice:** Rozklad schématu na menší; musí být **bezztrátová** (zachová data) a ideálně **zachovat funkční závislosti** ($\bigcup F_i^+ = F^+$).
 * **Normalizace:** Dekompozice do normálních forem kvůli lepší manipulaci, méně redundanci a konzistenci. **Nezlepšuje výkon.**
+
+## 5. SQL, transakce, dotazy
+* **SQL:** Standardizovaný **neprocedurální** dotazovací jazyk pro relační databáze (IBM, standardy ANSI). Nerozlišuje velikost písmen.
+* **Jazykové prvky:** **Příkaz** (statement), **dotaz** (query – vrací relaci), **klauzule** (clause), **predikát** (podmínka v 3VL: pravda/nepravda/neznámé), **výraz** (skalární hodnota).
+* **Skupiny příkazů:** **DML** (manipulace dat – `INSERT/SELECT/UPDATE/DELETE`), **DDL** (definice – `CREATE/ALTER/DROP`), **DCL** (práva a transakce – `COMMIT/ROLLBACK/GRANT/REVOKE`).
+* **Operátory:** `= <> < >`, `BETWEEN` (inkluzivní), `LIKE` (vzor), `IN`, `IS [NOT] NULL`, `IS NOT DISTINCT FROM`, `AS` (alias).
+* **Datové typy:** `char(n)`, `varchar(n)`, `int`, `real`, `float(n)`, `date/time/timestamp`, `numeric(p,d)`, uživatelské (`CREATE TYPE`).
+* **SELECT:** Odpovídá projekci. `SELECT` (povinné) – `FROM` (kartézský součin, povinné) – `WHERE` (selekce, nepovinné). `DISTINCT` bez duplicit, `ALL` s duplicitami.
+* **INSERT / UPDATE / DELETE:** Vkládá/upravuje/maže záznamy z **právě jedné** tabulky; musí splňovat omezení sloupců. Pozor na vnořené dotazy v `WHERE`.
+* **MERGE:** Kombinace `INSERT` a `UPDATE` (`WHEN MATCHED` / `WHEN NOT MATCHED`).
+* **GROUP BY:** Roztřídí záznamy podle parametru, umožní agregační funkce. `WHERE` se provede **před** seskupením.
+* **JOIN:** Spojuje tabulky. Typy: **inner**, **left/right/full outer**. Podmínky: `NATURAL`, `ON`, `USING` (bez nich kartézský součin).
+* **HAVING:** Podmínka nad agregačními funkcemi, provede se **po** `WHERE`. Atributy mimo agregace musí být v `GROUP BY`.
+* **Agregační funkce:** `COUNT` (jediná vrací 0 pro `NULL`, `COUNT(sloupec)` ignoruje `NULL`, `DISTINCT` pro unikáty), `AVG`, `SUM`, `MIN`, `MAX`. Implicitně berou celou tabulku jako jednu skupinu.
+* **Vnořené SQL:** `IN/NOT IN`, `<op> SOME` (alespoň jedna), `<op> ALL` (všechny), `EXISTS/NOT EXISTS` (neprázdná/prázdná). Místo atributu musí vracet jednu hodnotu.
+* **Trigger (spouštěč):** Akce provedená automaticky při události. **DML** (INSERT/UPDATE…), **DDL** (CREATE/DROP/ALTER), **logon** trigger. Často pro kontrolu integrity.
+* **Uložená procedura:** Program uložený v DB (PL/SQL, T-SQL). Výhody: výkon (prováděcí plán v cache), nepřerušitelnost, vrstva zabezpečení, propojení procedur.
+* **Integritní omezení:** `NOT NULL`, `UNIQUE`, `PRIMARY KEY` (NOT NULL + UNIQUE), `FOREIGN KEY`, `CHECK`, `DEFAULT`, `INDEX`. **Referenční integrita** cizím klíčem mezi podřízenou a nadřízenou tabulkou.
+* **Transakce:** Posloupnost operací nad daty; mezi začátkem a koncem může být DB nekonzistentní, na konci musí být konzistentní.
+* **ACID:** **Atomicity** (celá/nic), **Consistency** (zachová konzistenci), **Isolation** (neviditelnost mezivýsledků pro ostatní), **Durability** (změny přežijí výpadek).
+* **Úrovně izolace:** Read uncommitted → Read committed → Repeatable read → Serializable. Postupně eliminují **dirty read**, **non-repeatable read**, **fantom**.
+* **Fantom:** Nově vložený/smazaný řádek objevující se uprostřed transakce, ač logicky měl být zamčen. Může nastat i při striktním 2PL.
+* **Stavy transakce:** Aktivní → částečně potvrzená → potvrzená; nebo aktivní/částečně potvrzená → chybující → zrušená.
+* **Souběžné zpracování:** Vyšší propustnost a nižší odezva, ale nutné **zamykání** a řešení **deadlocku** (vzájemné čekání na zdroje – řeší se ukončením transakce).
+* **Plán:** Pořadí instrukcí souběžných transakcí. **Serializovatelný** = ekvivalentní sériovému plánu.
+* **Vyhodnocení dotazu:** 1) parsing + překlad do relační algebry, 2) **optimalizace** (nejlevnější plán dle statistik v katalogu), 3) **vyhodnocení** strojem.
+* **Míra nákladů:** Dominují diskové přístupy (seek + čtení/zápis bloků). Více paměti snižuje čtení z disku. Zápis dražší než čtení.
+* **Operace výběru:** **A1 lineární** ($E = b_r$, příp. $b_r/2$ na klíči), **A2 binární** ($E = \lceil\log_2 b_r\rceil + \lceil SC/f_r\rceil - 1$, jen na seřazeném klíči).
+* **Index:** Zrychluje čtení, zpomaluje zápis. Záznam `|klíč|ukazatel|`. **Řazené** vs **hašovací** indexy.
+* **Řazené indexy:** **Primární/shlukující** (určuje pořadí záznamů, řídký i hustý), **sekundární/neshlukující** (jiné pořadí, jen hustý). **Hustý** (záznam pro každou hodnotu klíče) vs **řídký** (jen některé).
+* **Víceúrovňový index:** Řídký index nad primárním indexem (vnější) – když se index nevejde do paměti.
+* **B⁺ strom:** Vyvážený $n$-ární strom, nejpoužívanější index. Stejná délka cest, vnitřní uzel $\lceil n/2\rceil$–$n$ potomků, list $\lceil(n-1)/2\rceil$–$n{-}1$ klíčů. Automatická lokální reorganizace.
+* **Statické hašování:** **Kyblík** (bucket) z hašovací funkce $h: K \to B$. **Otevřené** (closed addressing, přetokové kyblíky) vs **uzavřené** (open addressing, `i++` při kolizi). Špatné pro **ranged queries**.
+* **Dynamické hašování:** Mění hašovací funkci dle velikosti DB. **Rozšiřitelné hašování** – prefix $i$ bitů adresuje kyblík, tabulka adres se zdvojnásobuje/slévá.
