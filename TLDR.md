@@ -274,3 +274,26 @@
 * **Von Neumannova architektura:** 5 modulů – vstupní zařízení, ALU, řadič, operační paměť, výstupní zařízení. Dnešní odlišnosti: multitasking, více procesorů, DMA, částečné zavádění programu.
 * **RISC:** Málo jednoduchých instrukcí pevné délky, LOAD/STORE, 1 instrukce/takt, více registrů, složitost v kompilátoru. Více kódu, rychlejší běh (ARM).
 * **CISC:** Velký instrukční set, kompaktní kód, více adresovacích režimů, méně RAM, nižší výkon (Intel x86).
+
+## 4. Databáze
+* **Data:** Údaje s vypovídací schopností. **Redundance** = opakovaný výskyt informace, **inkonzistence** = porušení pravidel (např. duplicitní „unikátní" ID).
+* **Databázový model:** Logická struktura ukládání dat – **relační**, **síťový**, **hierarchický**.
+* **Relační model:** Model založený na predikátové logice; data = $n$-ární relace. Využívají ho relační databáze.
+* **Atribut / doména / relace:** Atribut = atomická hodnota (plní sloupec), doména = množina povolených hodnot (`null` je vždy v ní), relace = podmnožina kartézského součinu domén (množina $n$-tic bez duplicit). Soubor relací = **relační schéma**.
+* **Klíče:** **Superklíč** (dostatečně unikátní množina atributů), **kandidátní klíč** (minimální superklíč), **primární klíč** (vybraný kandidátní), **cizí klíč** (kandidátní klíč z jiné relace – tvoří vazbu).
+* **Relační algebra:** Procedurální dotazovací jazyk, operace uzavřené nad relacemi (vstup i výstup je relace). 6 základních operací.
+* **Selekce $\sigma$:** Vybírá **řádky** splňující podmínku $P(t)$.
+* **Projekce $\Pi$:** Vybírá **sloupce**, umí i aritmetiku nad sloupci.
+* **Sjednocení $\cup$ / rozdíl $-$:** Vyžadují stejnou **aritu** (počet sloupců) a domény. Sjednocení spojí, rozdíl odebere $n$-tice z druhé relace.
+* **Kartézský součin $\times$:** Všechny kombinace řádků; při společných atributech nutné **přejmenování**.
+* **Přejmenování $\rho$:** Přejmenuje atributy (výsledky agregací, konflikty u součinu).
+* **Agregační funkce $G$:** `avg`, `min`, `max`, `sum`, `count`. `count` vrací 0 pro `null`, ostatní `null`.
+* **Join:** **Natural join $\bowtie$** spojí přes společné atributy (selekce + projekce nad $\times$). **Outer join** doplní `null` – left/right/full dle připojené strany.
+* **Funkční závislost ($X \rightarrow Y$):** Dva řádky se stejným $X$ nemají různé $Y$. **Triviální** ($Y \subseteq X$, platí vždy), **úplná** (potřeba celé $X$), **částečná** (opak úplné – stačí část $X$), **tranzitivní** (přes prostředníka $\gamma$). Slouží k dekompozici a prevenci redundance.
+* **Armstrongovy axiomy:** Pravidla pro odvození uzávěru závislostí – reflexivita, tranzitivita, pseudotranzitivita, sjednocení, dekompozice, rozšíření, zúžení.
+* **1NF:** Všechny domény (atributy) jsou **atomické** (nedělitelné).
+* **2NF:** 1NF + každý neklíčový atribut závisí na **celém** kandidátním klíči (žádná **parciální** závislost).
+* **3NF:** 2NF + neklíčové atributy vzájemně nezávislé (žádná **tranzitivní** závislost). Pro každou závislost: triviální, $\alpha$ je superklíč, nebo $\beta-\alpha$ je v kandidátním klíči.
+* **BCNF:** 3NF + každá závislost je triviální nebo $\alpha$ je superklíč. Silnější než 3NF, ale nemusí zachovat funkční závislosti. Platí $\text{BCNF} \subset \text{3NF} \subset \text{2NF} \subset \text{1NF}$.
+* **Dekompozice:** Rozklad schématu na menší; musí být **bezztrátová** (zachová data) a ideálně **zachovat funkční závislosti** ($\bigcup F_i^+ = F^+$).
+* **Normalizace:** Dekompozice do normálních forem kvůli lepší manipulaci, méně redundanci a konzistenci. **Nezlepšuje výkon.**
