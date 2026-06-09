@@ -247,3 +247,30 @@
 * **Pole:** Souvislý blok, alokace za překladu, **meze se nehlídají** (segfault při přístupu mimo). Vícerozměrné pole překladač ukládá jednorozměrně. Řetězec = pole charů s koncovou `\0`.
 * **Dynamická paměť (halda):** `malloc` (neinicializuje), `calloc` (n × velikost + inicializuje), `realloc` (změna velikosti, zachová obsah), `free` (uvolní, nemaže obsah), `memset` (rychlá inicializace). Bez `free` → memory leak; double free = undefined behaviour (CWE-415).
 * **Ladění:** **Debugger** krokuje program, zkoumá proměnné/zásobník/haldu. **Breakpoint** (i conditional), **memory breakpoint** (změna paměti, nutná podpora CPU), **Valgrind** (memory leaky, analýza paměti). HW podpora: trap flag, instrukce pro virtualizaci.
+
+## 3. Nízkoúrovňové výpočetní architektury
+* **Číselné soustavy:** **Polyadické** (poziční, $A=\sum a_i z^i$) vs. **nepolyadické** (římské). Převody: 1 OCT = 3 bity, 1 HEX = 4 bity BIN.
+* **Přirozený kód:** Přímý binární obraz čísla, nejlevější bit je znaménko. Rozsah $(-127,127)$, dvě nuly, složitější aritmetika.
+* **Inverzní kód:** Záporná čísla mají invertované bity. Při přetečení / kladném výsledku nutno přičíst +1. Dvě nuly.
+* **Doplňkový kód:** Nejrozšířenější. Kladná v přirozeném, záporná negací bitů +1. Jedna nula, nesymetrický rozsah $(-128,127)$, bez korekce.
+* **Aditivní kód:** Posunutá nula (obraz nuly `0111…1`). Nesymetrický rozsah, výhoda = přímé porovnávání kladných i záporných.
+* **Váhový / BCD kód:** Řádům přiřazeny váhy (BCD = 8-4-2-1, 4 bity = 1 desítková číslice). **Packed** (4 bity/číslice) vs. **unpacked** (1 bajt/číslice). Bez zaokrouhlovacích chyb, ale plýtvá místem.
+* **IEEE 754:** Plovoucí desetinná čárka $F=m\cdot Z^{exp}$. Znaménko (1 b) + exponent (aditivní, 8 b) + mantisa (přímý, 23 b).
+* **Vnitřní / vnější kódy:** Vnitřní = uvnitř systému (BCD, doplňkový, ASCII). Vnější = ordinální hodnota znaku (Unicode, UTF-8).
+* **Detekční kódy:** Redundance pro odhalení chyb – **paritní bit**, **kontrolní součet (checksum)**, **CRC** (polynomiální dělení).
+* **Opravné kódy:** Redundance pro opravu – **zdvojení** (detekce), **ztrojení** (oprava), **Hammingův kód** (paritní bity na mocninách dvojky).
+* **Booleova algebra:** Šestice $(A,\wedge,\vee,\neg,1,0)$ nad $\{0,1\}$. Pravidla: komutativita, distributivita, De Morgan, absorpce, idempotence…
+* **Hradla:** Skládají se z tranzistorů (NOT, AND, OR, NAND, NOR, XOR), nemají paměť.
+* **Paměti:** Druhy vnější/vnitřní/permanentní/registry. **RWM/RAM** (volatilní), **registry** (na čipu, nejrychlejší), **ROM/EPROM/EEPROM** (permanentní), **CAM** (asociativní, adresace tagem).
+* **Endianita:** **Little-Endian** (nejnižší bajt na nejmenší adrese), **Big-Endian** (nejvyšší bajt na nejmenší adrese), Middle-Endian.
+* **Cache:** SRAM, asociativní, oddělená pro instrukce/data. **L1** (per jádro), **L2** (per jádro/skupina), **L3** (sdílená). Algoritmy **LRU**, **LFU**. Vyrovnávací paměť (zápis) vs. mezipaměť (čtení, prefetch).
+* **Procesor:** Synchronní stroj řízený řadičem, dvojkový doplňkový kód. Dělí se dle velikosti slova, struktury (RISC/CISC/DSP), počtu jader. Takt = operace/s.
+* **Registry:** Úložiště velikosti 1 slovo, monolitické, neindexovatelné. **A** (střádač/akumulátor), **PC** (čítač instrukcí, adresa vykonávané instrukce).
+* **Instrukční set:** LDA, STA, JMP, MOV, aritmetické/logické, podmíněné skoky dle flagů (JC/JZ/JP…), zásobník (PUSH/POP).
+* **Zásobník volání (callstack):** Stack-frame = lokály + návratová adresa + parametry. Stack Pointer (vrchol) a Frame Pointer (rámec).
+* **Přerušení:** Pozastavení práce mezi instrukcemi, v privilegovaném režimu, flag IF. Lze nořit. Obsluha podprogramem + RET. 256 typů v tabulce. Souběh řešen spinlockem + zákazem přerušení.
+* **Typy přerušení:** **Vnější** (HW, ze zařízení přes řadič přerušení), **vnitřní** (procesor – dělení nulou, výpadek stránky), **softwarové** (synchronní instrukce – systémové volání). **Offload** (zařízení s vlastní jednotkou, např. síťovka).
+* **Mikroprogramování:** Instrukce realizovány sekvencí **mikroinstrukcí** uložených v mikroprogramové paměti. Chyby v mikrokódu → zranitelnosti (Meltdown).
+* **Von Neumannova architektura:** 5 modulů – vstupní zařízení, ALU, řadič, operační paměť, výstupní zařízení. Dnešní odlišnosti: multitasking, více procesorů, DMA, částečné zavádění programu.
+* **RISC:** Málo jednoduchých instrukcí pevné délky, LOAD/STORE, 1 instrukce/takt, více registrů, složitost v kompilátoru. Více kódu, rychlejší běh (ARM).
+* **CISC:** Velký instrukční set, kompaktní kód, více adresovacích režimů, méně RAM, nižší výkon (Intel x86).
