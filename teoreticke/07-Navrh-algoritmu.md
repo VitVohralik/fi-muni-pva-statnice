@@ -1,3 +1,7 @@
+# Návrh algoritmů
+
+> **Zadání:** Metoda rozděl a panuj, výhody a nevýhody použití rekurze, odstranění rekurze. Vysvětlení principů a implementace řadících rekurzivních algoritmů. Vztah rekurze a matematické indukce. (IB002, IB015)
+
 # Rekurze
 
 > **Rekurze** je definice funkce nebo datové struktury s využitím sebe sama.

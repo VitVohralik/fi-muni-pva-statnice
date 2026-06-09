@@ -1,3 +1,7 @@
+# Funkcionální programování
+
+> **Zadání:** Funkcionální programovací paradigma (princip výpočtu, redukční krok, redukční strategie a jejich vlastnosti, příklady). Funkce vyšších řádů a jejich využití. Nepojmenované funkce. Schopnost elementárního programování v Haskellu. (IB015)
+
 # Funkcionální programovací paradigma
 
 **Funkcionální programování** je programování pomocí funkcí $\implies$ hlavní myšlenkou je použití funkcí jako základních stavebních kamenů programů. Klade důraz na **čisté funkce**, **imutabilitu** a **funkce vyšších řádů**.

@@ -1,3 +1,7 @@
+# Regulární jazyky
+
+> **Zadání:** Chomského hierarchie formálních jazyků. Regulární jazyky, jejich reprezentace a převody mezi nimi. Varianty konečných automatů. Nedeterminismus a determinizace automatů. Uzávěrové vlastnosti regulárních jazyků. (IB110)
+
 # Formální jazyk
 
 > **Formální jazyk** je libovolná množina slov nad určitou **abecedou**.

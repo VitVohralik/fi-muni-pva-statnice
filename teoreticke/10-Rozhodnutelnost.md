@@ -1,3 +1,7 @@
+# Rozhodnutelnost
+
+> **Zadání:** Pojem algoritmického problému a algoritmu. Turingův stroj a problém zastavení. Rozhodnutelnost a částečná rozhodnutelnost, nerozhodnutelnost. Metoda redukce. (IB110)
+
 # Výpočetní problém
 
 > **Výpočetní problém** je jakýkoliv problém, který předkládáme výpočetnímu zařízení, aby jej vyřešilo.

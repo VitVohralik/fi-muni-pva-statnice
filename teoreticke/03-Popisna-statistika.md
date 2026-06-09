@@ -1,3 +1,7 @@
+# Popisná statistika
+
+> **Zadání:** Popisná statistika, střední hodnota, medián, rozptyl, korelace. Odhady statistik a jejich spolehlivost. Distribuční funkce, rozdělení náhodných veličin a jejich příklady. (MB143)
+
 # Opakování kombinatoriky
 
 - **Kombinace** je neuspořádaná $k$-tice z $n$ prvků.

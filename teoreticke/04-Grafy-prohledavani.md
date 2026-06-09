@@ -1,3 +1,7 @@
+# Grafy a jejich prohledávání
+
+> **Zadání:** Typy grafů, stromy, stupně vrcholů, orientované grafy, reprezentace grafů. Algoritmy prohledávání grafu do hloubky a do šířky a jejich využití. Komponenty souvislosti. (IB000, IB002)
+
 # Graf
 
 > **Graf** je uspořádaná dvojice $G = (V, E)$, kde $V$ je konečná množina **vrcholů** a $E$ je množina **hran** – množina vybraných dvouprvkových podmnožin množiny vrcholů, tj. $E \subseteq \binom{V}{2}$.

@@ -1,3 +1,7 @@
+# Složitost
+
+> **Zadání:** Časová složitost algoritmu versus časová složitost problému. Složitostní třídy (P, NP) a vztahy mezi nimi, příklady problémů z jednotlivých tříd. Těžkost a úplnost problému v dané třídě, polynomiální redukce problémů, NP-úplné úlohy. (IB110)
+
 # Teorie výpočetní složitosti
 
 > **Teorie výpočetní složitosti** se zabývá efektivitou výpočtů, tj. tím, kolik výpočetních zdrojů je nutné spotřebovat na vyřešení **rozhodnutelných** problémů.

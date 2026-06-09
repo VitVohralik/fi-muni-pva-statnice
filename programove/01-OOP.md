@@ -1,3 +1,7 @@
+# Podprogramy a objektově orientované programování
+
+> **Zadání:** Podprogramy, rozsahy jmen, předávání hodnot, výjimky. Objektově orientované programování. Zapouzdření, dědičnost, polymorfismus - principy, použití a implementace. Realizace v jazycích C#, C++ nebo Java (dle vlastní volby). (PB006)
+
 # Programování
 
 **Programovací jazyk** je prostředek pro zápis algoritmů $\Rightarrow$ **program**.

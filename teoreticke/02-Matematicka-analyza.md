@@ -1,3 +1,7 @@
+# Základy matematické analýzy
+
+> **Zadání:** Relace a zobrazení, vlastnosti reálných funkcí, polynomy, spojité funkce a limity, derivace, neurčitý a určitý integrál, geometrický význam. (IB000, MB142)
+
 # Relace ("vztah")
 
 > **Relace** mezi množinami $A_1, A_2, \dots, A_k$ (pro $k \in \mathbb{N}$) je libovolná podmnožina kartézského součinu
