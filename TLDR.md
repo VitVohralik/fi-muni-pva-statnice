@@ -419,3 +419,34 @@
 * **TCP:** Spojovaný, čísluje bajty do segmentů, potvrzuje doručení, duplexní, point-to-point. **Handshake:** SYN → SYN-ACK → ACK. **Fin:** FIN → ACK → FIN-ACK → ACK. **Flow control** (okno příjemce), **Congestion control** (AIMD, zpomalí při ztrátě ACK).
 * **L5 Relační vrstva:** Správa relací nad L4 (checkpointy). Simplexní / Poloduplexní / Duplexní komunikace.
 * **L7 Aplikační vrstva:** Protokoly pro uživatele (HTTP, FTP, DNS, SMTP…). **Client-Server** (centralizace, request-response) vs **Peer-to-Peer** (rovnocenné uzly, sdílení zdrojů). **Pull model** (klient iniciuje, webový prohlížeč) vs **Push model** (server iniciuje, IPTV/streaming).
+
+## 9. Síťové aplikace a bezpečnost
+* **Členění aplikací:** Dle modelu — **client-server** (klient iniciuje, server centralizuje zdroje; tenký/tlustý klient) vs **peer-to-peer** (uzly komunikují přímo, decentralizace). Dle přístupu — **pull** (iniciuje klient) vs **push** (iniciuje server).
+* **P2P / překryvová síť:** Virtuální (overlay) síť nad fyzickou infrastrukturou; data přenášena pomocí **peerů**. **Centralizované** (vyhledávací servery, špatně škáluje), **decentralizované** (bez serverů, imunní vůči single-point of failure; plochá/hierarchická), **hybridní** (**super-peers** slouží ostatním).
+* **Rozložení dat v P2P:** **Nestrukturované** (peer drží vlastní data, žádná garance nalezení) vs **strukturované** (lokalitu určuje strategie — DHT; rychlejší za cenu režie).
+* **Aplikační protokol:** Definuje typy, syntax, sémantiku a pravidla zpráv mezi aplikacemi. TCP: FTP, Telnet, RDP; UDP: DHCP, TFTP.
+* **WWW:** Celosvětová síť nad Internetem (≠ Internet); dokumenty na serverech adresované **URL**, přenos přes **HTTP**. Autor Tim Berners-Lee (CERN, 1990).
+* **HTTP:** Přístup k datům na WWW; hypertext (HTML), rozšíření **MIME** pro soubory/média; TCP port 80, request-response.
+* **URL:** `method://host:port/path` — protokol, uzel, (nepovinný) port a cesta ke zdroji.
+* **WWW dokumenty:** **statické** (pevný obsah), **dynamické** (generované na požadavek, CGI), **aktivní** (aplikace běží u klienta, např. Java).
+* **DNS:** Jmenná služba — překlad doménových jmen na IP a zpět. Hierarchický jmenný prostor (invertovaný strom, zóny, root = 13 serverů). Vyhodnocení: root → TLD server (`.cz`) → autoritativní server domény → IP.
+* **SMTP:** Doručování pošty přes TCP port 25. Pošta = obálka (adresy) + zpráva. **MUA** (klient) → **MSA**/**MTA** (server) → cílový **MTA** → **MDA** (správce schránek).
+* **POP3 vs IMAP:** **POP3** stahuje lokálně, offline, maže ze serveru, jeden klient. **IMAP** ponechá na serveru, vyžaduje připojení, více klientů, pamatuje stav zprávy.
+* **FTP:** Přenos souborů, klient-server přes TCP — **řídicí** (port 21) a **datové** (port 20) spojení. Špatně zabezpečený → **SFTP**, **FTPS**.
+* **DHCP / NTP:** DHCP přiděluje IP, masku, DNS a bránu. NTP synchronizuje hodiny.
+* **QoS:** Zajištění kvality přenosu (delay, bandwidth), brání zahlcení; přes L2–L4. **Best-effort**, **Differentiated Services** (značkování paketů, bezstavové) vs **Integrated Services** (rezervace zdrojů, stavové).
+* **Scheduling:** **FIFO** (best-effort), **Priority Queuing** (podle tříd), **Weighted Fair Queuing** (časová okna dle vah, round-robin).
+* **Omezování toků:** **Leaky Bucket** (vyhlazuje na konstantní tok, zahazuje pakety) vs **Token Bucket** (hromadí tokeny, povolí omezené špičky).
+* **Prevence zahlcení:** **RED** (Random Early Detection — náhodné zahazování při zaplnění fronty, ruší globální synchronizaci), **WRED** (navíc zohledňuje prioritu paketu).
+* **Multimédia:** **Vzorkování** (sampling — diskrétní časy), **kvantování** (diskrétní hodnoty intenzity), **komprese** (úspornější formát).
+* **Firewall:** Řídí provoz mezi sítěmi různé důvěryhodnosti dle pravidel. **L3** (filtruje IP/porty jako směrovač) vs **L7** (analyzuje obsah paketů, malware).
+* **Bezpečnostní funkce:** Autentizace (ověření identity), autorizace (oprávnění), účtování, **důvěrnost** (šifrování), **integrita**, **nepopiratelnost**.
+* **Symetrická vs asymetrická kryptografie:** Symetrická = 1 sdílený klíč (rychlá, ale distribuce klíče). Asymetrická = veřejný + privátní klíč (bezpečnější, pomalá, krátké zprávy).
+* **Certifikát:** Váže veřejný klíč na identitu (jméno, klíč, platnost, podpis vydavatele); vydává **certifikační autorita (CA)**.
+* **Autentizace:** Heslem (riziko replay útoku) nebo náhodným číslem (**nonce/keksík**, řeší čerstvost), případně vzájemná.
+* **Diffie-Hellman:** Ustanovení sdíleného tajného klíče přes nezabezpečený kanál pomocí $G^{XY} \bmod N$, bez přenosu klíče.
+* **Digitální podpis:** Podepsaný hash zprávy (privátním klíčem, ověření veřejným). Zajišťuje integritu, nepopiratelnost i autentizaci. Hash: MD5, SHA-256.
+* **IPSec (L3):** Bezpečnost na síťové vrstvě. **AH** (autentizace + integrita) + **ESP** (šifrování). Transportní vs tunelovací mód (VPN).
+* **SSL/TLS (L4–L7):** Šifrování + autentizace mezi transportní a aplikační vrstvou (SSL 3.0 = TLS 1.0). Handshake: asymetricky se vymění symetrický klíč → šifrovaný provoz (**HTTPS**, **FTPS**).
+* **Aplikační brány / Proxy (L7):** Oddělují sítě dvěma spojeními přes bránu (NAT, skrytí klienta). Vysoké zabezpečení, vyšší latence a nižší propustnost.
+* **PGP:** L7 protokol pro důvěrnost, integritu a autentizaci — šifrování e-mailů.
