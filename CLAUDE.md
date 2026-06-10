@@ -37,8 +37,9 @@ Claude při přepisu:
 - opraví překlepy a gramatické chyby
 - zpřehlední nejasné nebo rozvleklé formulace – ale **věcný obsah zachová**
 - styl a obsažnost přizpůsobí referenčnímu souboru `teoreticke/01-Linearni-algebra.md`
+- zkontroluje informace, definice a správnost textu. Zatím neopravuje, zeptá se.
 
-Pokud Claude narazí na místo, kde si **není jistý výkladem nebo čitelností**, nejprve se zeptá – neopravuje věcný obsah sám od sebe.
+Pokud Claude narazí na místo, kde si **není jistý výkladem, správností nebo čitelností**, nejprve se zeptá – neopravuje věcný obsah sám od sebe.
 
 ### 3. Aktualizace TLDR (`TLDR.md`)
 
@@ -100,7 +101,7 @@ Vychází z referenčního souboru `teoreticke/01-Linearni-algebra.md`:
 | 3 | Nízkoúrovňové architektury | `programove/03-Architektury.md` | ✅ |
 | 4 | Databáze | `programove/04-Databaze.md` | ✅ |
 | 5 | SQL, transakce, dotazy | `programove/05-SQL.md` | ✅ |
-| 6 | Operační systémy | `programove/06-Operacni-systemy.md` | ⬜ |
+| 6 | Operační systémy | `programove/06-Operacni-systemy.md` | ✅ |
 | 7 | Souborové systémy | `programove/07-Souborove-systemy.md` | ⬜ |
 | 8 | Sítě | `programove/08-Site.md` | ⬜ |
 | 9 | Síťové aplikace a bezpečnost | `programove/09-Sitove-aplikace.md` | ⬜ |
