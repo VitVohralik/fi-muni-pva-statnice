@@ -362,3 +362,35 @@
 * **Virtualizace OS:** Spuštění ve virtuálním prostředí přes **hypervisor** (bare-metal vs hosted). Suspend, migrace, live migrace. **Container** (Docker), **emulace** (JIT), **nativní virtualizace**, **paravirtualizace**.
 * **Kontrola přístupu:** **Uživatel** = jednotka vlastnictví, autentizuje se; akce se autorizují. **Principle of least privilege**, **sandbox**.
 * **Přístupová práva:** Spravuje **access control policy** (subjekt, akce, objekt). 3×3 permission bity `rwx` (osmičkově), sticky/setuid/setgid bity. **Discretionary** (vlastník) vs **Mandatory** (centrální autorita) model. Vynucuje **kernel**.
+
+## 7. Souborové systémy
+* **Souborový systém:** Hierarchické uspořádání souborů – virtualizace úložiště (služba OS). Typy: ext4 (Linux), NTFS (Windows).
+* **VFS (Virtual Filesystem Switch):** API jádra pro unifikovaný přístup k různým souborovým systémům.
+* **Mount:** Připojení úložiště/zařízení – kořen připojeného systému se stane složkou jiného systému.
+* **Soubor:** Základní jednotka – přidělené bloky + metadata (vlastník, časy, seznam bloků). Abstrakce skrývá blokový charakter.
+* **File Descriptor:** Index do tabulky otevřených souborů (UNIX). Ve Windows se nazývá handle.
+* **Složka (adresář):** Seznam namapovaných i-nodů. Implementace: Old-Style (netříděný seznam), Hash-Based (O(1)), Tree-Based (B-strom, O(log n)).
+* **I-node:** Anonymní objekt reprezentující soubor/složku/symlink. Obsahuje metadata a seznam datových bloků; neobsahuje jméno.
+* **Hardlink:** Více jmen odkazujících na tentýž i-node (rovnocenné).
+* **Symlink (měkký odkaz):** Pouze cesta k i-nodu. Dangling symlink = cesta k neexistujícímu i-nodu.
+* **Superblock:** Metadata filesystému (lokace bitmap, velikost bloku, velikost FS); uchováváno vícekrát.
+* **Snapshot:** Kopie filesystému; sekvence snapshotů obsahuje jen rozdíly oproti předchozímu.
+* **Bitmapa:** 1 bit = 1 blok (až 4 KB); blok bitmapy pokryje 128 MB. Atomické flipování bitů. Základ alokačních skupin.
+* **Tabulka i-nodů:** Mapování metadat souborů; řádky jsou i-uzly. Alokaci řídí bitmapa.
+* **B-strom (ve FS):** Nahrazuje bitmapy i tabulky; klíče jsou adresy bloků, podstromy tvoří intervaly volného místa.
+* **Žurnál (write-ahead log):** Sekvence transakcí zajišťující konzistenci. Při výpadku se nedokončená transakce zahodí. Ext4 má 2 žurnály (low-level bloky + high-level operace).
+* **Vnitřní fragmentace:** Nevyužitý zbytek bloku (soubor menší než blok).
+* **Vnější fragmentace:** Soubory roztroušené po FS → pomalé čtení. Řeší defragmentace.
+* **Checksum:** Detekce korupce dat; součást metadat.
+* **Bloková vrstva:** Část OS zajišťující nízkoúrovňový přístup k úložišti; FS nad ní neřeší HW specifika.
+* **Blokové zařízení:** Abstrakce paměťových zařízení jako adresovatelného pole bloků (512 B–4 KB). Cache skrývá latenci.
+* **Mezipaměť (cache):** Pamatuje si čtená data, prefetch. Vyrovnávací paměť (write buffer) funguje symetricky pro zápisy.
+* **I/O plánovač:** Spravuje frontu zápisů, přeskládá je do optimálního pořadí (kontinuální přístup = nejrychlejší).
+* **Standard IO:** API pro čtení/zápis; data se kopírují do soukromé paměti procesu (neefektivní).
+* **Memory-Mapped IO:** Soubor namapován do virtuálního adresního prostoru procesu; stránky se načítají lazily přes page fault do RAM. Sdílitelný mezi procesy. Private/Shared mapování.
+* **PIO (Programový V/V):** Procesor aktivně načítá data ze zařízení; blokující při větších objemech.
+* **DMA (Direct Memory Access):** Zařízení zapisuje přímo do RAM bez CPU; oznamuje přerušením. IO-MMU zajišťuje překlad adres a ochranu.
+* **RAID:** Více disků jako jedno zařízení. HW nebo SW (bloková vrstva). Levely 0–6 a 10; liší se stripingem, paritou a redundancí.
+* **Hammingův kód:** Lineární kód; detekuje až 2 chybné bity, opravuje 1 bit. Používá RAID 2.
+* **Šifrování disku:** Symetrická bloková šifra (AES) na úrovni bloků; zachovává velikost dat. Checksum pro integritu.
+* **Komprese:** Bezztrátová reorganizace dat (LZ77, LZW, Huffman). Obtížná s náhodným přístupem; ztrátová komprese na disku nevhodná.
