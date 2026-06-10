@@ -331,3 +331,34 @@
 * **B⁺ strom:** Vyvážený $n$-ární strom, nejpoužívanější index. Stejná délka cest, vnitřní uzel $\lceil n/2\rceil$–$n$ potomků, list $\lceil(n-1)/2\rceil$–$n{-}1$ klíčů. Automatická lokální reorganizace.
 * **Statické hašování:** **Kyblík** (bucket) z hašovací funkce $h: K \to B$. **Otevřené** (closed addressing, přetokové kyblíky) vs **uzavřené** (open addressing, `i++` při kolizi). Špatné pro **ranged queries**.
 * **Dynamické hašování:** Mění hašovací funkci dle velikosti DB. **Rozšiřitelné hašování** – prefix $i$ bitů adresuje kyblík, tabulka adres se zdvojnásobuje/slévá.
+
+## 6. Operační systémy
+* **Operační systém:** Abstrakce nad hardwarem zajišťující **hardwarovou přenositelnost**. Spravuje prostředky (paměť, čas), izoluje procesy, zabezpečuje. Aspekty: abstrakce, modularita, virtualizace, přenositelnost.
+* **Komponenty OS:** **kernel** (jádro), **knihovny** (libc), **daemons** (úlohy na pozadí), **interface** (shell, UI), **utilities** (systémové programy).
+* **Architektury OS:** kernel-based, vrstvené (NT 4.0), modulární (macOS), virtualizované (JVM), klient-server.
+* **Knihovna:** Balík funkcí tvořící **API**. **Statická** (kód se zkopíruje při kompilaci) vs **dynamická/sdílená** (volá se za běhu, sdílí více programů). Skládá se z hlaviček a implementace.
+* **API vs ABI:** **API** = rozhraní na úrovni zdrojového kódu (knihovny, funkce). **ABI** = pravidla komunikace procesů s jádrem na úrovni strojového kódu.
+* **Jádro:** První zavedeno do paměti, běží v privilegovaném režimu, namapováno do každého procesu. **Monolitické** (vše v jádře – Linux), **mikrojádro** (servery mimo jádro, IPC), **hybridní** (Windows). Unikernel, exokernel.
+* **Režimy procesoru:** **Privilegovaný** (jen kernel – MMU, I/O, přerušení) vs **uživatelský** (programy, omezená práva). x86 má 4 **ringy** (0–3).
+* **DMA (Direct Memory Access):** HW přistupuje do RAM nezávisle na CPU (asynchronně).
+* **Proces:** Spuštěný program, základní jednotka práce s pamětí, vlastní virtuální adresní prostor a soukromí. Drahý na vytvoření. **PCB** ukládá jeho stav. Komunikace přes **IPC**.
+* **Vlákno:** Základní výpočetní jednotka (sekvence instrukcí), subjekt plánování. Sdílí prostředky procesu kromě zásobníku → levné, vyžaduje synchronizaci. **TCB** ukládá jeho stav.
+* **Přepínání kontextu (context switch):** Uloží/obnoví registry z PCB, vymění stránkovací tabulku, vyleje **TLB**, zneplatní cache → drahé, režijní ztráta.
+* **Stavy procesu:** nový → připravený ⇄ běžící → ukončený; běžící → čekající → připravený. Se střednědobým plánovačem přibývá odložený připravený/čekající.
+* **POSIX:** Uznávaný standard (rozhraní), wrappery systémových volání; libc = C + POSIX. **pthread_create/exit/join**, handle `pthread_t`. **Detached thread** nelze joinovat. Vše je soubor → **file descriptor**.
+* **Fork:** Duplikace procesu (rodič + dítě), kopie virtuálního adresního prostoru. **Exec** přepíše paměť novým programem. Spuštění programu = fork + exec.
+* **Copy-on-write:** Po forku jsou stránky READ-ONLY a sdílené; kopírují se až při zápisu. Více virtuálních adres ukazuje na stejné fyzické místo.
+* **Virtuální paměť:** Každý proces má **virtuální adresní prostor** a **překladovou tabulku**. Překlad virtuální↔fyzická řeší **MMU** (součást CPU). Řeší fragmentaci a izolaci.
+* **Stránkování:** Stránka = $2^n$ adres; spodních $n$ bitů (**offset**) se opisuje. Tabulky menší a rychlejší. Adresa se dělí na segmenty (úrovně překladu).
+* **Stránka vs rámec:** **Stránka** = blok virtuální paměti, **rámec** = blok fyzické paměti (typicky 4 KB). **Externí stránkování** (líné načítání, mapování souborů).
+* **Plánování (scheduler):** Součást kernelu, rozhoduje o spouštění vláken; cíl propustnost, férovost, latence. **Preemptivní** (lze násilně přerušit) vs **kooperativní** (vzdá se sám). **Vláknová afinita**.
+* **Scheduling algoritmy:** **Round-robin** (rovnoměrné kvantum), **Shortest Job First** (preemptive/non-preemptive).
+* **Souběžnost:** Vztah událostí bez přímé souvislosti. **Race condition** = nedeterminismus z proložení instrukcí při sdíleném přístupu.
+* **Kritická sekce:** Neproložitelná část kódu, odolná vůči plánování. Realizace zámkem (bitovou proměnnou) + atomické operace → **spin-lock**.
+* **Atomicita:** Neporušitelná celistvost operace. **CAS (compare-and-swap)** – mění hodnotu jen pokud odpovídá očekávané. **Petersonův algoritmus** (spravedlivé vyloučení).
+* **Uváznutí (deadlock):** Vlákna vzájemně čekají na zdroje. **Coffmanovy podmínky:** vzájemné vyloučení, čekající vlastník, neodnímatelnost, kruhové čekání. **Pštrosí algoritmus** = ignorovat.
+* **Livelock / starvation:** Vlákno běží, ale nepokročí k cíli (livelock); trvalé zablokování (hladovění).
+* **Synchronizační primitiva:** **Mutex** (1 vlákno), **Read-Write lock** (čtenáři/písaři, RCU), **semafor** (čítač N vláken), **bariéra** (čeká na počet), **podmínková proměnná** (wait/signal), **monitor** (`synchronized`).
+* **Virtualizace OS:** Spuštění ve virtuálním prostředí přes **hypervisor** (bare-metal vs hosted). Suspend, migrace, live migrace. **Container** (Docker), **emulace** (JIT), **nativní virtualizace**, **paravirtualizace**.
+* **Kontrola přístupu:** **Uživatel** = jednotka vlastnictví, autentizuje se; akce se autorizují. **Principle of least privilege**, **sandbox**.
+* **Přístupová práva:** Spravuje **access control policy** (subjekt, akce, objekt). 3×3 permission bity `rwx` (osmičkově), sticky/setuid/setgid bity. **Discretionary** (vlastník) vs **Mandatory** (centrální autorita) model. Vynucuje **kernel**.
