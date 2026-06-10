@@ -394,3 +394,28 @@
 * **Hammingův kód:** Lineární kód; detekuje až 2 chybné bity, opravuje 1 bit. Používá RAID 2.
 * **Šifrování disku:** Symetrická bloková šifra (AES) na úrovni bloků; zachovává velikost dat. Checksum pro integritu.
 * **Komprese:** Bezztrátová reorganizace dat (LZ77, LZW, Huffman). Obtížná s náhodným přístupem; ztrátová komprese na disku nevhodná.
+
+## 8. Sítě
+* **Síť:** Skupina propojených zařízení sdílející zdroje. Klíčové parametry: **Bandwidth** (kapacita kanálu), **Packet loss** (% ztracených paketů), **Zpoždění/RTT** (čas doručení tam a zpět), **Jitter** (variabilita zpoždění).
+* **Síťový protokol:** Definuje formát a pořadí zpráv a akce při jejich odeslání/příjmu.
+* **Circuit Switching:** Spojovaná síť — před přenosem se ustaví pevný okruh, udržovaný po celou komunikaci (analogová telefonie, L1).
+* **Packet Switching:** Nespojovaná síť — zasílání nezávislých paketů. **Virtuální kanály** (předem ustavená cesta, WAN/ATM) vs **datagramový přístup** (každý paket nezávisle, Internet).
+* **ISO/OSI model:** 7 vrstev (L1 fyzická → L7 aplikační); každá komunikuje jen se sousedními. **TCP/IP** slučuje L5–L7 do aplikační a L1–L2 do vrstvy přístupu k médiu.
+* **L1 Fyzická vrstva:** Přenáší bity (point-to-point). Signál analogový (modulace) nebo digitální. Kódování: přímé, NRZ-L, NRZ-I, **Manchester** (samosynchronizovatelné), **4B/5B** (redundance pro sync). **Multiplexing:** FDM (frekvenční, WiFi → OFDM), WDM (optika), TDM (časové, Ethernet).
+* **L2 Vrstva datového spoje:** Rámce, MAC adresace, hop-to-hop delivery, detekce/oprava chyb (CRC, FEC, Hammingův kód). **CSMA/CD** (drátový Ethernet — detekuje kolize při vysílání), **CSMA/CA** (WiFi — čeká, než nikdo nevysílá). **Spanning Tree Algorithm** zabraňuje cyklům.
+* **Topologie L2:** Sběrnicová (CSMA/CD, kolizní doména = všechny), kruhová (pešek), hvězdicová (hub = všechny, bridge/switch = 2 sousedící stanice).
+* **L3 Síťová vrstva:** Host-to-host doručení přes přepínání paketů (datagramy). Nespojovaná, best-effort. IP protokol. **ARP** překládá IP na MAC. **MTU** — příliš velký paket se fragmentuje (IPv4 kdekoliv, IPv6 jen na zdroji s Path MTU discovery). **DHCP** přiřazuje IP dynamicky.
+* **IPv4 adresy:** Unicast (jedno rozhraní), Broadcast (všichni na LAN), Multicast (zájemci). 32 bitů, vyčerpány. **IPv6** — 128 bitů; Unicast, Multicast, Anycast (doručí nejbližšímu), bez Broadcastu.
+* **ICMP:** Informace o chybách v přenosu IP paketů (zabaleno v IP datagramu).
+* **Classful Addressing:** Historická metoda — třídy A/B/C/D/E; nehospodárná, velké směrovací tabulky. **Subnetting** (dělení), **Supernetting** (spojování sousedních prefixů).
+* **CIDR:** Classless Inter-Domain Routing — adresování bez tříd, masky s libovolným počtem bitů. IPv6 podporuje nativně.
+* **NAT:** Network Address Translation — skrývá celou LAN za jednu veřejnou IP; zpomaluje vyčerpání IPv4.
+* **Směrování:** Hledání optimální cesty, každý uzel předá paket nejbližšímu cíli (**hop**). **Směrovací tabulka** obsahuje IP prefixy → next-hop + interface. **Statické** (ručně) vs **dynamické** (reaguje na změny; BGP pro mezidoménové, OSPF/RIP uvnitř AS).
+* **Směrovací algoritmy:** **Distance Vector** (Bellman-Ford, výměna celých tabulek) vs **Link State** (Dijkstra, sdílení info o linkách, protokol OSPF).
+* **BGP:** Border Gateway Protocol — dynamický, podporuje politiky, Path Vector (uchovává celou cestu).
+* **Multicast:** Zasílání skupině zájemců. IPv4 třída D (`224.0.0.0–239.255.255.255`), IPv6 `ff00::/8`. TTL omezuje šíření. **Source Based Tree** (DVMRP, MOSPF, PIM-DM) vs **Shared Tree** (CBT, PIM-SM — Meeting Point).
+* **ARQ:** Mechanismus spolehlivosti — potvrzování doručení (ACK). **Stop-and-Wait** (neefektivní), **Go-Back-N** (zahazuje out-of-order), **Selective-Repeat** (bufferuje out-of-order), **Piggybacking** (ACK na záda zpětného paketu).
+* **UDP:** Nespojovaný, nečíslovaný, best-effort; rychlý. Vhodný pro real-time, DNS, streaming.
+* **TCP:** Spojovaný, čísluje bajty do segmentů, potvrzuje doručení, duplexní, point-to-point. **Handshake:** SYN → SYN-ACK → ACK. **Fin:** FIN → ACK → FIN-ACK → ACK. **Flow control** (okno příjemce), **Congestion control** (AIMD, zpomalí při ztrátě ACK).
+* **L5 Relační vrstva:** Správa relací nad L4 (checkpointy). Simplexní / Poloduplexní / Duplexní komunikace.
+* **L7 Aplikační vrstva:** Protokoly pro uživatele (HTTP, FTP, DNS, SMTP…). **Client-Server** (centralizace, request-response) vs **Peer-to-Peer** (rovnocenné uzly, sdílení zdrojů). **Pull model** (klient iniciuje, webový prohlížeč) vs **Push model** (server iniciuje, IPTV/streaming).
