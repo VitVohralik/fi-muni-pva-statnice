@@ -357,7 +357,7 @@
 * **Kritická sekce:** Neproložitelná část kódu, odolná vůči plánování. Realizace zámkem (bitovou proměnnou) + atomické operace → **spin-lock**.
 * **Atomicita:** Neporušitelná celistvost operace. **CAS (compare-and-swap)** – mění hodnotu jen pokud odpovídá očekávané. **Petersonův algoritmus** (spravedlivé vyloučení).
 * **Uváznutí (deadlock):** Vlákna vzájemně čekají na zdroje. **Coffmanovy podmínky:** vzájemné vyloučení, čekající vlastník, neodnímatelnost, kruhové čekání. **Pštrosí algoritmus** = ignorovat.
-* **Livelock / starvation:** Vlákno běží, ale nepokročí k cíli (livelock); trvalé zablokování (hladovění).
+* **Livelock / starvation:** Vlákno běží, ale nepokročí k cíli (livelock); plánovač vláknu dlouhodobě odpírá zdroj (hladovění).
 * **Synchronizační primitiva:** **Mutex** (1 vlákno), **Read-Write lock** (čtenáři/písaři, RCU), **semafor** (čítač N vláken), **bariéra** (čeká na počet), **podmínková proměnná** (wait/signal), **monitor** (`synchronized`).
 * **Virtualizace OS:** Spuštění ve virtuálním prostředí přes **hypervisor** (bare-metal vs hosted). Suspend, migrace, live migrace. **Container** (Docker), **emulace** (JIT), **nativní virtualizace**, **paravirtualizace**.
 * **Kontrola přístupu:** **Uživatel** = jednotka vlastnictví, autentizuje se; akce se autorizují. **Principle of least privilege**, **sandbox**.
