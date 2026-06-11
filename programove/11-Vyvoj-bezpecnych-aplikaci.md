@@ -54,6 +54,12 @@ Vlastnosti uvažujeme vždy vůči nějakému **datasetu**.
 - **Nespojitelnost (unlinkability)** ⇒ umožňuje provádět akce v systému bez zpětného dohledání totožnosti strůjce
 - **Nepozorovatelnost (unobservability)** je nespojitelnost na úrovni uživatelů ⇒ vyžaduje, aby uživatelé ani subjekty nemohli zpozorovat, jestli nějaká akce probíhá
 
+## Metody pro zajištění anonymity a soukromí
+
+- **Mix Networks (Chaum 1981)** ⇒ dosahují anonymity a nespojitelnosti využitím fiktivních zpráv (dummy traffic) a neoptimálního směrování. Omezují možnost analýzy provozu.
+- **Onion Routing / TOR** ⇒ využívá vrstvené šifrování (každý uzel dešifruje jednu vrstvu). Poskytuje interaktivní anonymitu v reálném čase.
+- **Anonymizing Remailers (např. Mixminion)** ⇒ servery, které odstraní hlavičky z e-mailu a předají ho dál (princip store-and-forward).
+
 # Standardy a regulace
 
 ## Common Criteria
@@ -152,17 +158,26 @@ Základem je **defenzivní programování** ⇒ snaha být připraven na všechn
 - poskytovat nezabezpečený software může být protizákonné
 - firmy vypisují finanční odměnu za nalezení bugů v produkci (**bug bounty**)
 
+**Taxonomie chyb:**
+- **Bug** ⇒ nechtěné chování programu.
+- **Vulnerability** ⇒ zranitelnost; bug, který je dostupný útočníkovi (v systému, který má nějakou hodnotu).
+- **Exploit** ⇒ nástroj, který bug zneužije a zároveň vykoná škodlivý kód (payload).
+- **0-day** ⇒ zranitelnost, pro kterou ještě neexistuje záplata a není veřejně známá.
+
 ## Ochrana podle úrovně
 
 - **ve zdrojovém kódu** ⇒ ověření vstupů (žádné `name = DROP ALL TABLES`), **sanitizace**
   - obrana proti **SQL injection** útoku
-- **testování** ⇒ dynamic checkers, **fuzzing**, code review, CWE
+  - **Nikdy neimplementovat vlastní kryptografii** — vždy používat prověřené knihovny (např. Libsodium, OpenSSL).
+- **testování** ⇒ dynamic checkers, **fuzzing**, code review, CWE (seznam kategorií slabin), **CVE** (databáze konkrétních známých zranitelností)
   - **fuzzing** ⇒ posílá do programu kvanta náhodných dat a sleduje, co se stane; výstupy analyzuje
-- **compiler** ⇒ stack protection
-- **prostředí spuštění** ⇒ **DEP** (Data Execution Prevention), **ASLR** (Address Space Layout Randomization), **sandboxing**
+- **compiler** ⇒ 
+  - **Stack canary** — náhodná hodnota vložená před návratovou adresu na zásobníku, která se kontroluje proti přetečení (buffer overflow).
+  - **CFI (Control Flow Integrity)** — omezuje platné cíle skoků programu (ochrana proti ROP útokům).
+- **prostředí spuštění** ⇒ **DEP** (Data Execution Prevention, znemožní spustit kód ze zásobníku), **ASLR** (Address Space Layout Randomization, znáhodňuje adresní prostor paměti), **sandboxing**
 - **development lifecycle**
   - **Microsoft Secure Development Lifecycle (SDL)**
-  - ověřené a aktualizované knihovny, např. OpenSSL
+  - ověřené a aktualizované knihovny (sledování závislostí, např. přes Dependabot)
 
 ## Bezpečnostní analýza
 
@@ -180,15 +195,20 @@ Příliš konzervativní analýzy mají riziko **false-positives**. Horší jsou
 
 # Použitelná bezpečnost
 
-**Použitelná bezpečnost** je balanc mezi využitelností a zabezpečením.
+**Použitelná bezpečnost** je balanc mezi využitelností a zabezpečením. Zaměřuje se na interakci lidí a systémů.
 
-- zabývá se interakcí mezi uživateli a systémem
-- bezpečnostní opatření musí být **user-friendly**, jinak je nikdo nebude chtít používat
+- základní princip: **Don't blame the user, improve the system** (neobviňuj uživatele, vylepši systém).
+- **Usefulness = Utility + Usability** (použitelnost se skládá z kritérií: Learnability, Efficiency, Memorability, Errors a Satisfaction).
+- bezpečnostní opatření musí být **user-friendly**, jinak je nikdo nebude chtít používat.
 
-Typickým objektem jsou např. požadavky na formát hesla (1 velké písmeno, číslo, speciální znak).
+**Klíčové principy a problémy:**
+- **Secure defaults:** Výchozí stav systému by měl být vždy ten nejbezpečnější. Snížení bezpečnosti musí vyžadovat explicitní snahu.
+- **Habituation (habituace):** Zvykání si na opakující se podněty. Uživatelé mají tendenci častá varování ignorovat (automaticky klikají na "OK"). Řešením je omezit množství dialogů jen na ty skutečně důležité.
+- **Passphrases vs. Hesla:** Dlouhé smysluplné fráze (passphrases) se pamatují lépe než složité shluky náhodných znaků a poskytují srovnatelnou nebo vyšší entropii vůči útoku hrubou silou.
 
-- **ověřování integrity dat** ⇒ PGP, vizuální hashe
-- implementace user-friendly **chybových hlášek** — např. expired certifikát u webové stránky, ikona zámku
+Příklady v uživatelském rozhraní:
+- **ověřování integrity dat** ⇒ vizuální hashe (např. unikátní avatar generovaný z hashe namísto porovnávání textových řetězců)
+- implementace user-friendly **chybových hlášek** — např. srozumitelně popsaný expired certifikát u webové stránky, ikona zámku
 
 ### Impact pyramid
 
