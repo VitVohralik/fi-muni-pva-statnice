@@ -338,7 +338,13 @@ Zcela oddělují obě sítě. Fungují na aplikační vrstvě. Komunikace probí
 
 ### PGP
 
-**Pretty Good Privacy (PGP)** ⇒ protokol na úrovni **L7 aplikační vrstvy** zajišťující důvěrnost, integritu i autentizaci na základě vlastních síťových mechanismů. Používá se k šifrování e-mailů.
+**Pretty Good Privacy (PGP)** ⇒ protokol na úrovni **L7 aplikační vrstvy** zajišťující důvěrnost, integritu i autentizaci na základě vlastních síťových mechanismů. Nejčastěji se používá k šifrování a podepisování e-mailů.
+
+Funguje jako kompletní balíček stavějící na asymetrické kryptografii, který ale pro praktické použití přidává další mechanismy:
+- **Šifrování zpráv (Hybridní model):** Pro rychlost se zpráva zašifruje jednorázovým *symetrickým* klíčem, a teprve tento malý klíč se zašifruje *asymetricky* (veřejným klíčem příjemce).
+- **Digitální podpis (Autentizace a integrita):** Ze zprávy se vytvoří otisk (hash), který se zašifruje *soukromým klíčem odesílatele*. Příjemce jej ověří pomocí odesílatelova veřejného klíče.
+- **Správa klíčů (Web of Trust):** PGP nepoužívá centrální certifikační autority (CA) jako TLS. Místo toho si uživatelé podepisují veřejné klíče navzájem a vytvářejí tak "pavučinu důvěry".
+- **Formátování (ASCII Armor):** Převádí binární šifrovaná data do textového formátu (známé `-----BEGIN PGP MESSAGE-----`), aby je šlo snadno vložit do těla e-mailu.
 
 ### Proxy
 

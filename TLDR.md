@@ -449,7 +449,7 @@
 * **IPSec (L3):** Bezpečnost na síťové vrstvě. **AH** (autentizace + integrita) + **ESP** (šifrování). Transportní vs tunelovací mód (VPN).
 * **SSL/TLS (L4–L7):** Šifrování + autentizace mezi transportní a aplikační vrstvou (SSL 3.0 = TLS 1.0). Handshake: asymetricky se vymění symetrický klíč → šifrovaný provoz (**HTTPS**, **FTPS**).
 * **Aplikační brány / Proxy (L7):** Oddělují sítě dvěma spojeními přes bránu (NAT, skrytí klienta). Vysoké zabezpečení, vyšší latence a nižší propustnost.
-* **PGP:** L7 protokol pro důvěrnost, integritu a autentizaci — šifrování e-mailů.
+* **PGP:** L7 protokol pro důvěrnost, integritu a autentizaci (např. šifrování e-mailů). Využívá asymetrickou kryptografii, hybridní model šifrování a decentralizovanou správu klíčů (Web of Trust).
 
 ## 10. Základy informační bezpečnosti
 * **Bezpečnostní funkce:** **Důvěrnost** (šifrování), **integrita** (hash/kódy), **nepopiratelnost** (logy, digitální podpis), **dostupnost** (zálohy, redundance). Plus **autentizace** (ověření identity) a **autorizace** (Access Control).
