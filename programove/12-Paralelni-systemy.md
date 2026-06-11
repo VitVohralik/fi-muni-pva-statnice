@@ -255,7 +255,7 @@ Komunikace závisí na návrhu komunikační sítě:
 - **Problém**: násobné použití One-To-All je příliš pomalé
 - Při vysílání si uzel uloží kopii příchozí zprávy a pak ji spolu se svojí zprávou pošle dál ⇒ ve výsledku má pak každý uzel svou kopii každé zprávy
 
-![[Pasted image 20260611203024.png|579]]
+![[A-T-A.png|579]]
 
 - **E-cube routing**
 	- A-T-A algoritmus efektivní pro hyperkostky
