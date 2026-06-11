@@ -107,4 +107,4 @@ Vychází z referenčního souboru `teoreticke/01-Linearni-algebra.md`:
 | 9 | Síťové aplikace a bezpečnost | `programove/09-Sitove-aplikace.md` | ✅ |
 | 10 | Základy informační bezpečnosti | `programove/10-Informacni-bezpecnost.md` | ✅ |
 | 11 | Vývoj bezpečných aplikací | `programove/11-Vyvoj-bezpecnych-aplikaci.md` | ✅ |
-| 12 | Paralelní systémy | `programove/12-Paralelni-systemy.md` | ⬜ |
+| 12 | Paralelní systémy | `programove/12-Paralelni-systemy.md` | ✅ |

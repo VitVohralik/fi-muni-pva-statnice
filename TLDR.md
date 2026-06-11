@@ -498,3 +498,33 @@
 * **False-positives vs false-negatives:** False-positives = planý poplach; horší jsou **false-negatives** = nedetekované problémy.
 * **Použitelná bezpečnost:** Balanc využitelnosti a zabezpečení; opatření musí být user-friendly. **Impact pyramid** — výše ve stacku = méně lidí, ale větší dopad.
 * **Chybové hlášky:** **NEAT** (Necessary, Explained, Actionable, Tested), **SPRUCE** (Source, Process, Risk, Unique knowledge, Choices, Evidence).
+
+## 12. Paralelní systémy
+* **Paralelní systém:** Systém, jehož chování vzniká interakcí souběžných procesů. Výkon dnes roste počtem jader ⇒ paralelismus nutný pro škálovatelnost.
+* **Nevýhody paralelismu:** Race condition, deadlock, livelock, starving, aktivní čekání; vyšší komplexita, žádný debugger přes procesy, **emergentní jevy** (neexplicitně naprogramované chování).
+* **Flynnova klasifikace:** **SISD** (sekvenční), **SIMD** (vektorové instrukce, GPU), **MIMD** (vícejádrové procesory), **MISD** (nepoužívá se).
+* **Cache:** Data blíž procesoru. **Koherence** (jediná platná hodnota), **cache line** (atomický blok), **hit ratio** (úspěšnost), **vylití** (zápis do paměti), **cache poisoning** (škodlivé naplnění).
+* **False Sharing:** Více vláken píše různé proměnné na stejné cache line ⇒ modifikace donutí ostatní zbytečně nahrát celou line. Řeší **padding**, dedikovaná paměť, atomické operace.
+* **volatile:** Nestálá proměnná (mění ji jiné vlákno/přerušení/port); vynucuje zápis do paměti, nepoužívá registry. Negarantuje pořadí ⇒ stále nutná synchronizační primitiva.
+* **Thread-safe vs reentrantní:** Thread-safe = lze spustit více vlákny bez synchronizace; reentrantní = lze přerušit a spustit znovu jako novou instanci.
+* **Sdílená vs distribuovaná paměť:** Sdílená = globální adresní prostor (POSIX, OpenMP, TBB); distribuovaná = oddělené paměti + explicitní zprávy, vlastní hodiny (MPI).
+* **Dekompozice:** Rozložení problému na paralelizovatelné podproblémy. **Graf závislostí** (topologické uspořádání), **kritická cesta** (max práce), **granularita** (jemno-/hrubozrnná), **stupeň souběžnosti**.
+* **Typy dekompozice:** **Úlohová/rekurzivní** (Rozděl a panuj, quicksort), **datová** (stejná úloha nad různými daty), **průzkumová** (dělení dle směrů prohledávání), **spekulativní** (počítá všechny možné výstupy předem), **hybridní MAP-REDUCE**.
+* **Mapování:** Přiřazování úloh vláknům. **Statické** (v době kompilace, efektivní) vs **dynamické** (za běhu, vyrovnává zátěž). Blokové, cyklické, blokově-cyklické rozdělení dat.
+* **Afinitní plánování:** Úlohy cestují co nejlevněji — primárně mezi jádry sdílejícími cache, aby se předešlo kopírování dat.
+* **Cena komunikace:** $T = t_s + m \cdot t_w$ (latence + objem × přenos na slovo). **Embarrassingly parallel** = úlohy bez režie (ray casting).
+* **Blokující vs neblokující:** Blokující čeká na dokončení (pošťák čeká); neblokující běží dál (nechá balík u dveří). **Bafrované** (buffer/schránka) vs **nebafrované** (souhra obou stran).
+* **Topologie:** **Prsten** (2 sousedi), **hvězdice** (centrální uzel, Master-Slave), **hyperkostka** ($\log_2 n$-rozměrná krychle), **strom**.
+* **Kolektivní operace:** **One-To-All / O-T-A** (broadcast, scatter; rekurzivní zdvojení, složitost $d \cdot \log(p^{1/d})$), **All-To-One** (gather, reduce), **All-To-All** (E-cube routing pro hyperkostky).
+* **POSIX Threads:** Exekuční model nezávislý na jazyce. `pthread_create/exit/join`, **mutex**, handle = `pthread_t`. **Detached** vlákna nelze join.
+* **Podmínková proměnná:** Řeší spin-lock a režii uspávání. `cond_wait` uvolní zámek a čeká, `cond_signal`/`cond_broadcast` ($O(n)$) probudí čekající vlákna.
+* **Lock-free:** Programování bez zamykání pomocí atomických operací (CAS). Žádné uváznutí, lepší škálování, ale složitá korektnost. **Lock-free** (alespoň 1 vlákno dokončí) vs **wait-free** (žádné uváznutí).
+* **CAS (Compare And Swap):** Atomická instrukce, `CAS(addr, exp, val)` — při shodě obsahu s exp nahradí val. **ABA problém** bez GC (řeší tag/timestamp). **CAS2** se 2 ukazateli.
+* **Hazardní ukazatele:** Řeší lock-free dealokaci bez GC — vlákna zveřejňují použité ukazatele, čítač 0 = lze dealokovat.
+* **WRRM (Write-Rarely-Read-Many):** Dělení na čtenáře/písaře, souběžné čtení. Zápis = kopie + atomická záměna ukazatele (CAS nezamění celou strukturu). Potřebuje GC.
+* **OpenMP:** API pro paralelní C/C++; paralelizaci řeší překladač dle direktiv (`-fopenmp`). Direktivy `parallel`, `single`, `for` (`ordered`), `sections`, `redukce`; `private`/`shared`, `OMP_NUM_THREADS`.
+* **MPI (Message Passing Interface):** Komunikace mezi procesy, abstrahuje typy přes **Datatype**. `MPI_Init/Finalize`, `Comm_size/rank`, `Send/Recv`, neblokující `Isend/Irecv`. Kolektivní: `MPI_Bcast`, `MPI_Reduce`.
+* **Výkonnostní analýza:** n zdrojů ≠ n-násobné zrychlení (režie: komunikace, synchronizace, nerovnoměrná zátěž). **Superlineární zrychlení** falešné vs skutečné (cache efekt).
+* **Metriky:** $T_s$ = nejlepší sekvenční čas, $T_p$ paralelní, $T_o = T_p - T_s$ režie. **Zrychlení** $S = T_s/T_p$, **efektivita** $E = S/p$, **cena** $C = p \cdot T_p$.
+* **Škálovatelnost a izoefektivita:** Škálovatelnost = zachování efektivity při růstu jader/vstupu. **Izoefektivita** = jak musí růst objem výpočtu ($T_s$) pro zachování efektivity (rovnice: $T_s = K \cdot T_o(W, p)$; nižší funkce = snazší škálování).
+* **Amdahlův zákon:** $S_{max} = \frac{1}{(1-p) + p/S_p}$, kde $p$ = paralelizovatelný podíl, $S_p$ = zrychlení nad paralelní částí. Limit zrychlení danou sekvenční částí.
