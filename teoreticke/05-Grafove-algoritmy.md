@@ -270,3 +270,27 @@ graph LR
 
 **5.** Co je to kostra? K čemu je ta minimální? Popiš algoritmy pro její hledání. Jak funguje Primův a Kruskalův algoritmus?
 > **Odpověď:** **Kostra** je podgraf, který je stromem a propojuje všechny vrcholy ($n-1$ hran). **Minimální kostra** má nejmenší součet vah – využití při stavbě sítí (úspora materiálu). **Kruskal:** seřadí hrany dle vah a hladově přidává ty, které netvoří cyklus (správa disjunktních množin), $O(E \log E)$. **Prim (Jarník):** od jednoho vrcholu postupně přidává nejlevnější hranu vedoucí ven z už propojené komponenty, $O(E + V \log V)$.
+
+# Otázky z ISu
+
+> Otázky pocházejí ze společné testové sekce *Algoritmy a datové struktury*. U tvrzení typu ano/ne nebyla v exportu z ISu vyznačena správná odpověď — je doplněna podle standardních výsledků.
+
+**1.** Je následující tvrzení pravdivé? „Dijkstrův algoritmus pro hledání nejkratších cest funguje korektně na grafech bez záporně ohodnocených hran."
+- ✅ ano
+- ne
+
+**2.** Je dán orientovaný graf $G = (V, E)$, jehož hrany jsou ohodnoceny přirozenými čísly, a dva vrcholy $s$, $t$ tohoto grafu. Je následující tvrzení pravdivé? „Dijkstrův algoritmus najde nejkratší cestu z vrcholu $s$ do vrcholu $t$ v čase $\mathcal O(V + E)$."
+- ano
+- ✅ ne
+
+**3.** Definujme jednoduchou cestu v grafu jako posloupnost vrcholů spojených hranou, v níž se žádný vrchol neopakuje. Mějme ohodnocený graf G, který je silně souvislý a obsahuje záporný cyklus. Je následující tvrzení pravdivé? „Mezi některými vrcholy grafu G neexistuje nejkratší jednoduchá cesta."
+- ano
+- ✅ ne
+
+**4.** Definujme cestu v grafu jako posloupnost vrcholů spojených hranou s tím, že vrcholy na cestě se mohou opakovat. Mějme ohodnocený graf G, který je silně souvislý a obsahuje záporný cyklus. Je následující tvrzení pravdivé? „Mezi některými vrcholy grafu G neexistuje nejkratší cesta."
+- ✅ ano
+- ne
+
+**5.** Uvažujme orientovaný ohodnocený graf $G = (V, E, w)$. Nechť $X$ je nejkratší cesta z $s$ do $t$ v $G$. Předpokládejme, že délku každé hrany v $G$ zvětšíme o jedničku, tj. $w'(e) = w(e) + 1$. Platí, že pak $X$ je nejkratší cestou z $s$ do $t$ v $G' = (V, E, w')$?
+- ano
+- ✅ ne

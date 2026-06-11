@@ -337,3 +337,74 @@ function Partition(A, left, right):
 > - d) $\in \Omega(n^5)$ — **ano**.
 > - e) $\in \Theta(n^5)$ — **ano** (zřejmé z a) a d)).
 > - f) $\in \Theta(n)$ — **ne** ($n^5$ roste rychleji než $n$).
+
+# Otázky z ISu
+
+> Otázky pocházejí ze společné testové sekce *Algoritmy a datové struktury*. U tvrzení typu ano/ne nebyla v exportu z ISu vyznačena správná odpověď — je doplněna podle standardních výsledků.
+
+**1.** Je následující tvrzení pravdivé? „Řazení haldou (heapsort) je in situ (in-place, s konstantní extra pamětí)."
+- ✅ ano
+- ne
+
+**2.** Je následující tvrzení pravdivé? „Řazení sléváním (mergesort) je in situ (in-place, s konstantní extra pamětí)."
+- ano
+- ✅ ne
+
+**3.** Je následující tvrzení pravdivé? „Řazení haldou (heapsort) je stabilní."
+- ano
+- ✅ ne
+
+**4.** Mějme následující program pro výpočet faktoriálu: `i = 0; f = 1; while i < n do i = i + 1; f = f * i end while; return f`. Která z následujících formulí je invariantem cyklu while v tomto programu?
+- ✅ $f = i!$
+- $f = n!$
+- $f = n! / i!$
+- žádná z nabízených odpovědí
+- $f = f \cdot i$
+
+**5.** Je dáno pole $A$ obsahující $n$ nenulových celých čísel. Existuje algoritmus s časovou složitostí v $O(n)$ a s konstantní extra pamětí, který najde a vypíše takovou permutaci prvků $A$, že všechna záporná čísla z $A$ předcházejí všem kladným číslům?
+- ✅ ano
+- ne
+
+**6.** Uvažme analogii binárního vyhledávání prvku $x$ v seřazeném poli $A[1, \ldots, n]$. Namísto rozdělení na poloviny rozdělíme $A$ na třetiny (porovnáme $x$ s $A[\lfloor n/3\rfloor]$ a $A[\lfloor 2n/3\rfloor]$ a rekurzivně vyhledáváme v jedné z třetin) — „ternární vyhledávání". Je pravda, že ternární vyhledávání má časovou složitost v $\mathcal O(\log_2 n)$?
+- ✅ ano
+- ne
+
+**7.** Těsná asymptotická dolní hranice pro složitost řazení pomocí porovnávání je určena funkcí:
+- $n^2$
+- ✅ $n \log n$
+- $n$
+- Dolní hranice není známa.
+
+**8.** Mějme problém $P$ a algoritmus $A$, který tento problém řeší. Dále víme, že časová složitost problému $P$ je kvadratická. Které z následujících tvrzení určitě neplatí?
+- Časová složitost algoritmu $A$ patří do třídy $\Theta(n^2)$.
+- Časová složitost algoritmu $A$ patří do třídy $\mathcal O(2^n)$.
+- Časová složitost algoritmu $A$ patří do třídy $\Theta(2^n)$.
+- ✅ Časová složitost algoritmu $A$ patří do třídy $\mathcal O(n \log n)$.
+
+**9.** Je následující tvrzení pravdivé? „Stabilní řadící algoritmus nemění pořadí prvků vstupní posloupnosti."
+- ano
+- ✅ ne
+
+**10.** Který z uvedených řadicích algoritmů má nejlepší časovou složitost, pokud předpokládáme, že vstupní pole už je seřazeno?
+- ✅ insertsort
+- mergesort
+- heapsort
+- quicksort
+
+**11.** Je následující tvrzení pravdivé? „Řazení sléváním (mergesort) je stabilní."
+- ✅ ano
+- ne
+
+**12.** Je následující tvrzení pravdivé? „Stabilní řadící algoritmus nemění pořadí stejných prvků vstupní posloupnosti."
+- ✅ ano
+- ne
+
+**13.** Které z následujících tvrzení je pravdivé?
+- $2^{3n} \in \Theta(3^{2n})$
+- žádné z uvedených tvrzení
+- $2^{3n} \in \omega(3^{2n})$
+- ✅ $2^{3n} \in o(3^{2n})$
+
+**14.** Když $f(n) \in \mathcal O(g(n))$ a $g(n) \in \mathcal O(h(n))$, tak $f(n) \in \mathcal O(h(n))$.
+- ✅ ano
+- ne

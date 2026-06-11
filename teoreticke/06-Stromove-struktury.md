@@ -357,3 +357,88 @@ Reprezentace tabulkou $\Rightarrow$ každý prvek má klíč (ukazatel). Ukazate
 
 **4.** Jak funguje B-strom? V čem je rozdíl oproti klasickému BVS? Kolik může být klíčů v každém uzlu?
 > **Odpověď:** **B-strom** je $n$-ární vyvážený vyhledávací strom; uzel s $k$ klíči má $k+1$ potomků a klíče vymezují intervaly podstromů. **Rozdíl** oproti BVS: uzel drží více klíčů a má vyšší aritu $\Rightarrow$ menší hloubka a méně čtení z disku (proto se používá v databázích a souborových systémech). **Počet klíčů** podle minimálního stupně $t$: minimálně $t-1$, maximálně $2t-1$.
+
+# Otázky z ISu
+
+> Otázky pocházejí ze společné testové sekce *Algoritmy a datové struktury*. U tvrzení typu ano/ne (a u úlohy 1) nebyla v exportu z ISu vyznačena správná odpověď — je doplněna podle standardních výsledků.
+
+**1.** Mějme binární vyhledávací strom (bez jakéhokoli vyvažování), který je na začátku prázdný. Uvažujme následující posloupnost operací: `insert(7) insert(9) insert(3) insert(4) insert(1) insert(6) delete(2) delete(1) insert(5) insert(8) delete(4)`. Napište pořadí vrcholů ve výsledném stromě při průchodu preorder (pouze číslice bez mezer):
+> **Odpověď:** `736598`. Výsledný strom: kořen 7, vlevo 3 (s pravým synem 6, jehož levým synem je 5), vpravo 9 (s levým synem 8).
+
+**2.** Předpokládejme, že implementujeme datový typ prioritní fronta pomocí pole (prvky nejsou seřazeny). Jaká je v nejhorším případě složitost operací Insert a Extract-Min?
+- ✅ $\Theta(1)$ a $\Theta(n)$
+- $\Theta(1)$ a $\Theta(\log n)$
+- $\Theta(n)$ a $\Theta(n)$
+- $\Theta(n)$ a $\Theta(1)$
+
+**3.** Které z následujících tvrzení o B-stromech neplatí?
+- Výška B-stromu je vždy logaritmická vzhledem k počtu uložených prvků.
+- ✅ Vyhledávání prvků v B-stromech je asymptoticky rychlejší než vyhledávání prvků v červenočerných stromech.
+- B-stromy se používají v databázových systémech.
+- Vrcholy B-stromů mohou mít více než dva následníky.
+
+**4.** Mějme binární strom vykreslený na následujícím obrázku. Napište pořadí procházení vrcholů při průchodu inorder, preorder a postorder.
+```
+          1
+        /   \
+       /     \
+      2       7
+     / \     /
+    3   4   8
+       / \   \
+      5   6   9
+```
+- ✅ Inorder: 325461897
+- ✅ Preorder: 123456789
+- ✅ Postorder: 356429871
+
+**5.** Je dán binární strom s $n$ vrcholy, který může, ale nemusí být vyhledávacím stromem. Jaká je složitost asymptoticky nejlepšího algoritmu, který ověřuje, zda má daný strom vlastnost binárního vyhledávacího stromu?
+- $\Theta(n \log n)$
+- $\Theta(\log n)$
+- $\Theta(\mbox{výška stromu})$
+- ✅ $\Theta(n)$
+
+**6.** Je následující tvrzení pravdivé? „Vyhledávání prvku v hašovací tabulce má časovou složitost $\mathcal O(1)$."
+- ano
+- ✅ ne
+
+**7.** Uvažme binární haldu, která podporuje operace Insert a Extract-Min. Která z uvedených operací se dá realizovat s časovou složitostí $\mathcal O(\log n)$?
+- žádná z nabízených
+- najít největší číslo uložené v haldě
+- ✅ najít páté nejmenší číslo uložené v haldě
+- najít medián čísel uložených v haldě
+
+**8.** Je následující tvrzení pravdivé? „Vyhledávání v binárním vyhledávacím stromě má vždy časovou složitost v $\mathcal O(\log n)$, kde $n$ je počet uzlů stromu."
+- ano
+- ✅ ne
+
+**9.** Je dána binární halda a číslo $x$ v ní uložené. Existuje algoritmus se složitostí v $\mathcal O(\log n)$, který v dané haldě najde nejmenší číslo větší než $x$?
+- ano
+- ✅ ne
+
+**10.** Mějme maximovou binární haldu reprezentovanou pomocí pole. Na počátku výpočtu je halda prázdná, pak provedeme operace: `insert(5) insert(7) insert(2) insert(8) extract_max() insert(1) insert(3) insert(9)`. Jaký bude obsah pole po provedení těchto příkazů?
+- ✅ 957132
+
+**11.** Který z následujících zápisů není reprezentací maximové binární haldy v poli?
+- $[27,20,16,5,4,3,2,1]$
+- ✅ $[27,20,3,16,1,2,4,5]$
+- $[27,5,20,4,1,16,3,2]$
+- $[27,4,20,2,3,16,5,1]$
+
+**12.** Je dán binární strom s $n$ vrcholy. Nechť $\mathit{size}(x)$ označuje počet vrcholů v podstromu s kořenem $x$. Jaká je složitost asymptoticky nejlepšího algoritmu, který vypočítá hodnotu $\mathit{size}(x)$ pro všechny vrcholy stromu?
+- ✅ $\Theta(n)$
+- $\Theta(n \log n)$
+- $\Theta(n^2)$
+- $\Theta(\mbox{výška stromu})$
+
+**13.** Mějme následující posloupnost operací se zásobníkem: `push(1) push(2) push(3) pop() push(4) pop() pop() push(5)`. Předpokládejme, že na začátku byl zásobník prázdný. Jaký bude jeho obsah po provedení uvedené posloupnosti operací? (Dno zásobníku zde píšeme vlevo.)
+- 1 2 5
+- 4 5
+- ✅ 1 5
+- 1 2 3 4 5
+
+**14.** Předpokládejme, že implementujeme datový typ prioritní fronta pomocí seřazeného pole (prvky jsou seřazeny od největšího po nejmenší). Jaká je v nejhorším případě složitost operací Insert a Extract-Min?
+- $\Theta(n)$ a $\Theta(n)$
+- $\Theta(\log n)$ a $\Theta(1)$
+- ✅ $\Theta(n)$ a $\Theta(1)$
+- $\Theta(1)$ a $\Theta(n)$

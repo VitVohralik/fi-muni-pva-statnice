@@ -296,3 +296,68 @@ $$\begin{pmatrix} 1 & -2 & 3 \\ 1 & 0 & -1 \end{pmatrix} \cdot \begin{pmatrix} 0
 **5.** Jaké hodnoty musí nabývat $x$, aby byl determinant matice $\begin{pmatrix} 2 & -2 & 1 \\ 0 & 3-x & -6 \\ 0 & 1 & -3 \end{pmatrix}$ roven $0$?
 
 > **Odpověď:** $x = 1$. Rozvojem podle prvního sloupce: $\det = 2 \cdot \big((3-x)(-3) - (-6)\cdot 1\big) = 2(3x - 3) = 6x - 6 = 0 \Rightarrow x = 1$.
+
+# Otázky z ISu
+
+**1.** Vektor je
+- ✅ prvek vektorového prostoru
+- n-tice čísel oddělených čárkou, zapsaných v závorkách
+- domácká zkomolenina jména Hektor
+
+**2.** Vektory, které jsou součástí vektorového prostoru, je možné z definice
+- sčítat, násobit a násobit prvkem z příslušného tělesa
+- ✅ pouze sčítat a násobit prvkem z příslušného tělesa
+- pouze sčítat s prvkem z příslušného tělesa
+
+**3.** Skalární součin vektorů je roven nule, pokud jsou vektory
+- rovnoběžné
+- ✅ na sebe kolmé
+- identické
+
+**4.** Výsledkem vektorového součinu dvou vektorů ve standardním euklidovském trojrozměrném prostoru je vektor, který
+- ✅ je kolmý na násobené vektory
+- leží v rovině definované násobenými vektory
+- je vektor, jehož směr nelze určit (ani v pravotočivém souřadném systému)
+
+**5.** Ortogonální báze euklidovského n-rozměrného vektorového prostoru je tvořena pouze vektory, jejichž zápis obsahuje vždy (n-1) nul.
+- ano
+- ✅ ne
+
+**6.** Ortonormální báze euklidovského n-rozměrného vektorového prostoru je tvořena pouze vektory, jejichž zápis obsahuje vždy (n-1) nul.
+- ano
+- ✅ ne
+
+**7.** V ortonormální bázi n-rozměrného vektorového prostoru jsou všechny vektory na sebe kolmé.
+- ✅ ano
+- ne
+
+**8.** Součet délek vektorů v plnohodnotné ortonormální bázi 3D euklidovského vektorového prostoru odpovídá dimenzi vektorového prostoru.
+- ✅ ano
+- ne
+
+**9.** Nadrovina n-rozměrného vektorového prostoru má dimenzi
+- 2, je to rovina
+- n+1, předpona nad je zde intuitivně superiorní
+- ✅ n-1, a basta!
+
+**10.** Geometrický význam vlastního čísla zobrazení je
+- neznámý
+- velikost posunu vlastního vektoru zobrazení ve svém směru
+- ✅ znám, ale není zde uveden mezi možnostmi
+
+**11.** Determinant čtvercové matice je
+- skalár, který odpovídá řádu matice
+- skalár, který pro libovolnou matici získám jako součin prvků na diagonále
+- ✅ skalár, který získám jako součin prvků na diagonále horní trojúhelníkové matice
+- vektor, který je vektorovým součtem vektorů ortonormální báze
+
+**12.** Lineární zobrazení je zobrazení, které
+- zachovává sčítání a násobení skalárem a je možné v něm posunout bod nula
+- ✅ zachovává sčítání a násobení skalárem, tudíž v něm není možné posunout bod nula
+- je zobecnění libovolného afinního zobrazení
+
+**13.** Afinní zobrazení z 2D do 2D vektorového prostoru
+- může posunout bod nula a může oblouk zobrazit na přímku
+- ✅ může posunout bod nula, ale nemůže oblouk zobrazit na přímku
+- nemůže posunout bod nula, ale může oblouk zobrazit na přímku
+- nemůže posunout bod nula a nemůže oblouk zobrazit na přímku

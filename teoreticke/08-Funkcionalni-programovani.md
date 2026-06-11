@@ -313,3 +313,57 @@ Varianty `foldl1`/`foldr1` nepotřebují počáteční hodnotu (vezmou krajní p
 > druhy _ = error
 > ```
 > Vzor `_:x:_` znamená „libovolný první prvek, druhý prvek `x` a libovolný zbytek". Alternativně: `druhy xs = head (tail xs)`.
+
+# Otázky z ISu
+
+**1.** V základním paradigmatu funkcionálního programování se přepisovatelné proměnné
+- běžně používají
+- používají pouze jako lokální proměnné
+- ✅ vůbec nepoužívají
+
+**2.** Pořadí redukčních kroků při výpočtu ve funkcionálním paradigmatu
+- může ovlivnit hodnotu výsledku, ke kterému se program v konečném čase dopočítá.
+- ✅ může ovlivnit to, zda se program v konečném čase dopočítá k nějakému výsledku.
+- nemá na výpočet programu vůbec žádný vliv
+
+**3.** Pokud se program zacyklí při použití striktní redukční strategie,
+- pak se nutně zacyklí i při použití normální redukční strategie.
+- ✅ pak se může zacyklit i při použití normální redukční strategie.
+- pak se nemůže zacyklit při použití normální redukční strategie.
+
+**4.** Referenčně transparentní programovací jazyk Haskell
+- ✅ neumožňuje napsat program, který jako svoji výslednou hodnotu spočítá součet dvou zadaných čísel.
+- neumožňuje označit jednu hodnotu více různými proměnnými.
+- neumožňuje realizovat grafické rozhraní programu.
+
+**5.** Typ je
+- velký týpek, který bojuje za práva všech programátorů.
+- ✅ množina hodnot, které vykazují jisté společné vlastnosti.
+- syntaktický konstrukt, který spojuje typové proměnné šipkou.
+
+**6.** Při částečné aplikaci funkce na vhodný výraz se počet binárních typových konstruktorů (->) v typu výrazu vzniklého částečnou aplikací v porovnání s původním typem částečně aplikované funkce
+- garantovaně zvýší
+- nezmění
+- garantovaně sníží
+- ✅ nelze říci, záleží na konkrétní situaci
+
+**7.** Funkce map a filter, které pracují nad seznamy, jsou
+- komutativní, tj. nezáleží na pořadí jejich aplikace
+- typově identické, neboť pro seznam vrací seznam
+- ✅ funkce vyšších řádů
+- neplatí ani jedno z výše uvedených tvrzení
+
+**8.** Funkce, která jako svůj první parametr vyžaduje hodnotu nějakého rekurzivně definovaného typu, musí ve své definici
+- mít právě dva řádky definice (dva definiční případy), a to jeden pro bázi a jeden řádek pro rekurzivní rozvoj
+- mít právě tolik definičních případů, kolik je datových konstruktorů v typu uvedené datové struktury
+- ✅ neplatí žádné z ostatních tvrzení
+
+**9.** Použití akumulátoru je
+- ✅ označení programovací techniky, která umožňuje v některých případech nerealizovat rekurzivní návrat
+- postup, kdy do přepisovatelné proměnné postupně akumuluji hodnoty v zadaném seznamu
+- programovací technika, která výrazně šetří výpočtem spotřebovanou energii
+
+**10.** Lambda funkce (nepojmenované funkce)
+- ✅ mají zcela stejné chování a typy jako pojmenované funkce
+- na rozdíl od pojmenovaných funkcí nelze vůbec skládat
+- se chovají stejně jako pojmenované funkce, ovšem jsou jiného typu

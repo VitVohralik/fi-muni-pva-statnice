@@ -437,3 +437,114 @@ Nulová hypotéza $H_0 \Rightarrow$ předpokládá, že vztah neexistuje. Altern
 **4.** Mějme pravděpodobnostní funkci $P$ a dva stochasticky nezávislé náhodné jevy $A$ a $B$ takové, že $P(B) \neq 0$. Které tvrzení obecně platí?
 
 > **Odpověď:** $P(A \mid B) = P(A)$. Pro nezávislé jevy platí $P(A \cap B) = P(A)P(B)$, a tedy $P(A \mid B) = \frac{P(A \cap B)}{P(B)} = \frac{P(A)P(B)}{P(B)} = P(A)$.
+
+# Otázky z ISu
+
+## Kombinatorika a pravděpodobnost
+
+**1.** Permutace n-prvkové množiny je
+- uspořádaná k-tice obsahující každý prvek z původní množiny nejvýše jednou
+- ✅ uspořádaná k-tice obsahující každý prvek z původní množiny právě jednou
+- multi-množina obsahující každý prvek z původní množiny právě jednou
+
+**2.** Kombinační číslo n nad k je rovno
+- n! / k!
+- n! / (n-k)!
+- ✅ n! / (k!·(n-k)!)
+
+**3.** Kombinace využijeme, pokud z nějaké množiny objektů vybíráme určitý počet objektů, přičemž
+- ✅ nezáleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty nelze vybrat znovu.
+- záleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty nelze vybrat znovu.
+- nezáleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty lze vybrat opakovaně.
+- záleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty lze vybrat znovu.
+
+**4.** Počet kombinací k prvků z n prvkové množiny
+- ✅ získám jako počet k-členných variací z n-prvkové množiny děleno počtem permutací k-prvkové množiny
+- n! / (n-k)!
+- k! / (k!·(n-k)!)
+
+**5.** Variace využijeme, pokud z nějaké množiny objektů vybíráme určitý počet objektů, přičemž
+- ✅ záleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty nelze vybrat znovu.
+- nezáleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty nelze vybrat znovu.
+- záleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty lze vybrat znovu.
+- nezáleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty lze vybrat opakovaně.
+
+**6.** Variace s opakováním využijeme, pokud z nějaké množiny objektů vybíráme určitý počet objektů, přičemž
+- záleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty nelze vybrat znovu.
+- nezáleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty nelze vybrat znovu.
+- ✅ záleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty lze vybrat znovu.
+- nezáleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty lze vybrat opakovaně.
+
+**7.** Kombinace s opakováním využijeme, pokud z nějaké množiny objektů vybíráme určitý počet objektů, přičemž
+- záleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty nelze vybrat znovu.
+- nezáleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty nelze vybrat znovu.
+- záleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty lze vybrat znovu.
+- ✅ nezáleží na pořadí, v jakém tyto objekty vybíráme, vybrané objekty lze vybrat opakovaně.
+
+**8.** Distribuční funkce pro diskrétní náhodnou veličinu je vždy nutně
+- ✅ nespojitá
+- rostoucí
+- neomezená
+
+**9.** Pravděpodobnost, že na standardní šestistěnné hrací kostce padlo číslo větší než jedna, pokud vím, že padlo číslo menší než čtyři, je
+- 2/6
+- 3/6
+- ✅ 4/6
+
+**10.** Bayesova věta z teorie pravděpodobnosti je
+- vztah, kterým se spočítá podmíněná pravděpodobnost jevu A při platnosti jevu B.
+- ✅ souvislost mezi podmíněnou pravděpodobností jevu A při platnosti jevu B a pravděpodobností jevu B při platnosti jevu A.
+- zákon, že součet pravděpodobností výskytu jednotlivých jevů je roven jedné.
+- pravidlo, že pravděpodobnost současného výskytu dvou nezávislých jevů je rovna součinu pravděpodobností výskytu jednotlivých jevů.
+
+## Popisná statistika
+
+**1.** Slovo popisná ve spojení se statistikou říká, že
+- statistika nuda je, ovšem popisuje cenné údaje a proto se u ní hodně píše
+- popisuje nádheru světa, života a vůbec
+- ✅ pouze popisuje charakteristiky souboru dat
+
+**2.** Střední hodnota souboru diskrétních dat je
+- pravděpodobnostní hodnota, jejíž číselné vyjádření je středově souměrné
+- hodnota, která se vyskytuje s nejvyšší četností
+- hodnota, která byla pravděpodobnostně naměřena ve středu
+- ✅ je četností vážený průměr všech hodnot
+
+**3.** Medián je
+- označení speciálního druhu medu.
+- hodnota ze souboru dat, pro níž platí, že alespoň polovina hodnot ze souboru je ostře menší, a alespoň polovina hodnot ze souboru je ostře větší.
+- ✅ hodnota, která se v souboru dat nemusí vyskytovat.
+- mediální magnát.
+
+**4.** Mějme neprázdný soubor hodnot, pro který určíme správně průměr a medián. Vztah průměru a mediánu je takový, že
+- obě hodnoty si nemohou nikdy být rovny.
+- medián si zachovává svou hodnotu, i když z dat odeberu jeden prvek, zatímco průměr nikoliv.
+- medián je nižší než průměr (medián není ovlivněn extrémními vysokými hodnotami).
+- ✅ v některých případech může medián být větší než průměr.
+
+**5.** Jako rozptyl je ve statistice označováno
+- průměr kvadrátů odchylek od střední hodnoty.
+- střední hodnota odchylek od střední hodnoty.
+- střední hodnota odchylek od kvadrátu střední hodnoty.
+- ✅ střední hodnota kvadrátů odchylek od střední hodnoty.
+- střední hodnota kvadrátů odchylek od průměru.
+
+**6.** Korelace ve statistice je
+- doplněk binární relace vzhledem ke kartézkému součinu nosných množin.
+- ✅ vzájemný lineární vztah mezi dvěma veličinami.
+- statisticky významné pozorování, že v ČR míra rozvodovosti souvisí s četností nemanželského sexu.
+
+**7.** Hodnota hladiny významnosti (často označována jako alfa)
+- ✅ stanovuje maximální míru množství náhodných pokusů, v nichž může být testovaná hypotéza náhodným pokusem vyvrácena.
+- stanovuje pravděpodobnostní hodnotu výskytu nejvýznamnějšího jevu v souboru dat.
+- byla stanovena historicky Ronaldem Fisherem v roce 1925 na hodnotu 30%.
+
+**8.** Spolehlivost statistického odhadu
+- ✅ roste s počtem hodnot náhodné veličiny, ze kterých statistický odhad provádím.
+- klesá s počtem hodnot náhodné veličiny, ze kterých statistický odhad provádím.
+- se nemění s počtem hodnot náhodné veličiny, ze kterých statistický odhad provádím.
+
+**9.** Hustota pravděpodobnosti u spojitých náhodných veličin je analogií k
+- ✅ rozložení pravděpodobnosti u diskrétních náhodných veličin.
+- odchylce od střední hodnoty u souboru dat diskrétní náhodné veličiny.
+- četnosti výskytu extrémních hodnot v souboru dat diskrétní náhodné veličiny.

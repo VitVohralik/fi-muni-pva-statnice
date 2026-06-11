@@ -263,3 +263,66 @@ Alan Turing použil diagonalizaci k důkazu, že halting problém je nerozhodnut
 	- Pokud $H$ řekne, že $D$ nezastaví na vstupu $D$, pak $D$ podle své definice **zastaví**.
 
 Tento paradox ukazuje, že $H$ nemůže existovat, protože vede k logickému rozporu. Tím je dokázáno, že halting problém je **nerozhodnutelný**. $\square$
+
+# Otázky z ISu
+
+**1.** Jazyk, který odpovídá Ano/Ne problému nad množinou přípustných vstupů, je
+- libovolná podmnožina přípustných vstupů, pro něž je odpověď na příslušnou Ano/Ne otázku záporná.
+- ✅ množina všech přípustných vstupů, pro něž je odpověď na příslušnou Ano/Ne otázku kladná.
+- množina těch vstupů, pro něž neumím rozhodnout, jak odpovědět na příslušnou Ano/Ne otázku.
+- jazyk obsahující slova Ano a Ne.
+
+**2.** Problém je algoritmicky rozhodnutelný, právě když jazyk příslušný problému je
+- konečný.
+- jazyk typu 0, dle Chomského hierarchie.
+- ✅ rozhodován nějakým Turingovým strojem.
+- existuje algoritmus pro rozhodnutí příslušnosti jednoho vybraného slova do daného jazyka.
+
+**3.** Turingův stroj rozhoduje nějaký jazyk L právě když: (TS akceptuje = zastaví a řekne ano, TS zamítá = zastaví a řekne ne, TS neakceptuje = zamítá, nebo cyklí)
+- nad všemi slovy jazyka L svůj výpočet zastaví.
+- nad všemi slovy jazyka L svůj výpočet zastaví a slovo akceptuje.
+- nad všemi slovy jazyka L svůj výpočet zastaví a slovo akceptuje, nad ostatními slovy neakceptuje.
+- nad všemi slovy svůj výpočet zastaví a akceptuje, nebo zamítne.
+- ✅ ani jedna z ostatních odpovědí není správná.
+
+**4.** Turingův stroj akceptuje nějaký jazyk L právě když: (TS akceptuje = zastaví a řekne ano, TS zamítá = zastaví a řekne ne, TS neakceptuje = zamítá, nebo cyklí)
+- nad všemi slovy jazyka L svůj výpočet zastaví.
+- nad všemi slovy jazyka L svůj výpočet zastaví a slovo akceptuje.
+- ✅ nad všemi slovy jazyka L svůj výpočet zastaví a slovo akceptuje, nad ostatními slovy neakceptuje.
+- nad všemi slovy svůj výpočet zastaví a akceptuje, nebo zamítne.
+- ani jedna z ostatních odpovědí není správná.
+
+**5.** Univerzální Turingův stroj je
+- Turingův stroj, který umí simulovat výpočet jiného Turingova stroje, který má zakódovaný ve své přechodové funkci.
+- Turingův stroj, který akceptuje všechny jazyky typu 0.
+- Turingův stroj, který na vstupu dostane kód jiného Turingova stroje a pro zadaný stroj rozhodne, zda může cyklit pro nějaký vstup.
+- ✅ Turingův stroj, který na vstupu dostane kód jiného Turingova stroje a kód slova, a pro tuto dvojici věrně simuluje výpočet zadaného stroje nad zadaným slovem.
+
+**6.** Problém je částečně rozhodnutelný, pokud
+- není rozhodnutelný.
+- není rozhodnutelný a jeho doplněk není ani částečně rozhodnutelný.
+- jeho doplněk je částečně rozhodnutelný.
+- pro některé instance problému existuje rozhodující algoritmus a pro některé instance ne.
+- ✅ ani jedna z ostatních možností.
+
+**7.** Pokud existuje TS, který nad všemi slovy z jazyka L zastaví a akceptuje, pak problém, kterému jazyk L přísluší,
+- je rozhodnutelný.
+- je nerozhodnutelný.
+- není ani částečně rozhodnutelný.
+- ✅ může být rozhodnutelný.
+
+**8.** Pokud jazyk L i doplněk jazyka L jsou akceptovány nějakým Turingovým strojem, pak
+- ✅ existuje Turingův stroj, který rozhoduje jazyk L.
+- neexistuje Turingův stroj, který rozhoduje jazyk L.
+- problém odpovídající jazyku L není rozhodnutelný, ale je částečně rozhodnutelný.
+
+**9.** Problém zastavení je
+- otázka, jak dlouhá bude brzdná dráha vozu o hmotnosti m, při rychlosti v, koeficientu tření t, efektivitě brzd e, a brzdné síle F vyvíjené na brzdový pedál.
+- otázka, zda existuje Turingův stroj, který svůj výpočet vždy zastaví.
+- ✅ otázka, zda daný Turingův stroj zastaví svůj výpočet nad daným slovem.
+
+**10.** Pokud se problém A redukuje na problém B, pak
+- ✅ z nerozhodnutelnosti A plyne nerozhodnutelnost B.
+- z rozhodnutelnosti A plyne rozhodnutelnost B.
+- z nerozhodnutelnosti B plyne nerozhodnutelnost A.
+- z částečné rozhodnutelnosti B plyne rozhodnutelnost A.

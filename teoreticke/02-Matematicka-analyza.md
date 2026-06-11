@@ -412,3 +412,46 @@ $$\int x \ln x\,\mathrm{d}x = \frac{x^2}{2}\ln x - \frac{x^2}{4} + C.$$
 
 **Integrál (substituce):**
 $$\int x^2 \cos x^3\,\mathrm{d}x = \frac{1}{3}\sin x^3 + C.$$
+
+# Otázky z ISu
+
+**1.** Binární relace je
+- ✅ podmnožina kartézského součinu
+- telefonní nebo jiná časově omezená komunikace dvou účastníků
+- množina dvouprvkových množin
+
+**2.** Zobrazení
+- je relace, která není uspořádáním ani ekvivalencí
+- ✅ lze skládat
+- lze sčítat a násobit
+
+**3.** Jaký je vztah mezi spojitostí funkce a existencí její derivace?
+- Je-li funkce v nějakém bodě spojitá, pak má v tomto bodě derivaci.
+- ✅ Má-li funkce v nějakém bodě derivaci, pak je v tomto bodě spojitá.
+- Funkce je v daném bodě spojitá, právě když v něm má derivaci.
+- Neplatí žádné z uvedených tvrzení.
+
+**4.** Derivace nekonstantní polynomiální funkce
+- ✅ je vždy polynom nižšího řádu
+- je vždy polynomem, ale může mít i stejný nebo vyšší řád
+- nemusí být vůbec polynom
+
+**5.** Derivace funkce v daném bodě
+- je vždy menší než hodnota funkce v tomto bodě
+- je vždy větší nebo rovna hodnotě funkce v tomto bodě
+- ✅ neplatí ani jedno
+
+**6.** Určitý integrál funkce f od b do c je
+- ✅ pro nezápornou funkci f roven obsahu plochy vymezené grafem této funkce, osou x, a přímkami x=b a x=c
+- stejný jako neurčitý integrál, akorát se pod symbol integrálu napíše b a nad něj c
+- definován jen pro nezáporné funkce
+
+**7.** Existuje-li neurčitý integrál derivace funkce f, tak
+- je identický funkci f, protože integrace je inverzní proces k derivování
+- ✅ má tvar f+c, kde c je libovolná konstanta
+- neplatí ani jedno z výše uvedených tvrzení
+
+**8.** Diferenciální rovnice
+- popisují funkci diferenciálu v autě
+- popisují rozdíl mezi dvěma či více funkcemi
+- ✅ jsou rovnice, kde se vyskytují funkce a jejich derivace

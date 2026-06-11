@@ -347,3 +347,45 @@ function BFS((V, E), s)
 ![[04-grafy-priklad-7.png|157]]
 
 > **Odpověď: $g$.** Vrchol $g$ je přímý následník $a$, takže ho BFS objeví hned v 1. vrstvě. DFS jdoucí abecedně se nejprve celý zanoří přes $b$ a $d$, a k $g$ se dostane až mnohem později.
+
+# Otázky z ISu
+
+> Otázky pocházejí ze společné testové sekce *Algoritmy a datové struktury*. U tvrzení typu ano/ne nebyla v exportu z ISu vyznačena správná odpověď — je doplněna podle standardních výsledků.
+
+**1.** Nechť v orientovaném grafu $G$ existuje hrana z vrcholu $v$ do vrcholu $t$. Pak při průzkumu grafu $G$ do hloubky z vrcholu $v$ musí platit, že hrana $(v, t)$ je klasifikována jako stromová.
+- ano
+- ✅ ne
+
+**2.** Pro prohledávání grafu do hloubky (DFS) platí:
+- Dokážeme pomocí něj najít všechny cykly v grafu.
+- ✅ Klasifikuje hrany v grafu na stromové, dopředné, zpětné a příčné.
+- Funguje pouze pro stromy, pro obecné grafy musíme použít jiný druh prohledávání.
+- Funguje stejně jako BFS, jen s tím rozdílem, že místo fronty použijeme zásobník.
+
+**3.** Mějme bipartitní graf G. Které tvrzení o grafu G určitě neplatí?
+- Graf G obsahuje vrchol stupně 10.
+- Graf G obsahuje cyklus sudé délky.
+- ✅ Graf G obsahuje cyklus liché délky.
+- Graf G obsahuje právě jeden vrchol.
+
+**4.** Je dán orientovaný graf $G = (V, E)$. Existuje algoritmus se složitostí v $\mathcal O(V + E)$, který rozhoduje, zda v $G$ existuje orientovaný cyklus?
+- ✅ ano
+- ne
+
+**5.** Pro jaký typ orientovaného grafu platí, že jeho DFS strom má tvar, který je nezávislý na tom, ve kterém vrcholu průzkum grafu začíná a jaké je uspořádání následníků jednotlivých vrcholů (tj. všechny vyprodukované DFS stromy jsou grafově izomorfní)?
+- acyklický graf
+- ✅ cyklus
+- pro každý graf
+- pro žádný graf
+
+**6.** Mějme nekonečný binární strom (tj. binární strom, v němž je alespoň jedna nekonečná větev). Jaké prohledávání grafu zaručeně projde každý vrchol tohoto stromu v konečném čase?
+- IFS (prohledávání do nekonečna)
+- ✅ BFS (prohledávání do šířky)
+- DFS (prohledávání do hloubky)
+- žádné, takové prohledávání není možné
+
+**7.** Pro prohledávání grafu do šířky (BFS) platí:
+- ✅ Hledá nejkratší cesty, pokud za délku cesty považujeme počet hran.
+- K implementaci používáme zásobník.
+- Na neorientovaných grafech se zacyklí.
+- Klasifikuje hrany v grafu na stromové, dopředné, zpětné a příčné.

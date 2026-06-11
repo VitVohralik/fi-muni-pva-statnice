@@ -223,3 +223,89 @@ Důkaz NP-úplnosti „od nuly" je obtížný $\Rightarrow$ dělá se to jen pro
 
 - **Halt** (zároveň NP-Hard)
 - **CFG-Equality**
+
+# Otázky z ISu
+
+**1.** Jestliže pro daný problém máme algoritmus, který ho řeší s časovou složitostí ve třídě O(f(n)), pak o složitosti tohoto problému víme, že
+- je alespoň O(f(n))
+- ✅ je nejvýše O(f(n))
+- nedokážeme z toho nic usoudit o složitosti tohoto problému
+
+**2.** Jestliže chceme dokázat, že daný problém má složitost v Θ(f(n)), pak musíme
+- navrhnout algoritmus, který ho řeší s časovou složitostí v Θ(f(n))
+- ✅ dokázat, že neexistuje žádný algoritmus, který by problém řešil a měl časovou složitost v o(f(n)) a navrhnout algoritmus, který ho řeší s časovou složitostí v Θ(f(n))
+- dokázat, že problém nelze vyřešit v O(f(n))
+
+**3.** Jestliže máme problém, jehož časová složitost je lineární, pak
+- všechny algoritmy, které ho řeší, běží v O(n)
+- ✅ může existovat algoritmus, který ho řeší v O(n²)
+- nemůže existovat algoritmus, který ho řeší v O(n³)
+- může existovat algoritmus, který ho řeší v O(log n)
+
+**4.** O složitostní třídě P platí, že
+- problém rozhodnout, zda je daná sekvence čísel seřazená, do ní nepatří
+- ✅ obsahuje právě problémy, které lze řešit v polynomiálním čase na deterministickém Turingově stroji
+- nemá praktické využití, protože v praxi nikdo nepoužívá Turingovy stroje
+- obsahuje právě problémy, které lze řešit v polynomiálním prostoru na deterministickém Turingově stroji
+
+**5.** O vztahu mezi složitostními třídami P a NP je známo
+- že všechny problémy, které jsou v NP, jsou i v P
+- že existují problémy, které jsou v NP a nejsou v P
+- ✅ že všechny problémy, které jsou v P, jsou i v NP
+- nevíme, zda je jedna z nich podtřídou druhé
+
+**6.** O vztahu mezi složitostními třídami NP a PSPACE je známo
+- nic, protože NP je časová třída a PSPACE prostorová
+- nic, protože NP je definována pomocí nedeterministického Turingova stroje a PSPACE pomocí deterministického
+- ✅ že NP je podtřídou PSPACE
+- že PSPACE je podtřídou NP
+- že existují problémy, které jsou v PSPACE a nejsou v NP
+
+**7.** Problém, jehož časová složitost je exponenciální…
+- může patřit do třídy P
+- ✅ může patřit do třídy PSPACE
+- nemůže patřit do třídy PSPACE
+- nelze vyřešit na deterministickém Turingově stroji
+
+**8.** Jestliže o problému víme, že patří do složitostní třídy P, pak víme
+- že pro něj neexistuje algoritmus, který ho řeší v exponenciálním čase
+- že pro něj existuje algoritmus, který ho řeší v lineárním čase
+- ✅ že pro něj existuje algoritmus, který ho řeší v polynomiálním čase pro vhodný polynom
+
+**9.** Mezi problémy ze složitostní třídy NP nepatří:
+- problém splnitelnosti výrokových formulí (SAT)
+- problém rozhodnout pro graf, jeho dva vrcholy a číslo, zda má nejkratší cesta mezi danými vrcholy právě danou cenu
+- ✅ problém pravdivosti kvantifikovaných formulí nad booleovskými proměnnými (TQBF)
+
+**10.** O problému A řekneme, že je NP-těžký, jestliže
+- A patří do třídy NP
+- A je NP-úplný a navíc patří do třídy NP
+- ✅ na A lze polynomiálně redukovat všechny problémy ze třídy NP
+- A lze polynomiálně redukovat na některý z problémů třídy NP
+
+**11.** O problému A řekneme, že je NP-úplný, jestliže
+- ✅ je NP-těžký a navíc patří do NP
+- je NP-těžký a navíc na něj lze polynomiálně redukovat všechny problémy z třídy NP
+- na něj lze polynomiálně redukovat všechny problémy z třídy NP
+
+**12.** K důkazu, že problém A je NP-těžký, můžeme použít
+- polynomiální redukci z problému A na některý z problémů ve třídě NP
+- polynomiální redukci z problému A na některý NP-těžký problém
+- polynomiální redukci z některého z problémů ve třídě NP na A
+- ✅ polynomiální redukci z některého z NP-těžkých problémů na A
+
+**13.** Vyberte, která varianta obsahuje pouze NP-úplné problémy
+- SAT, 3-SAT, TQBF
+- problém kliky (CLIQUE), 3-SAT, problém zastavení (HALT)
+- problém zastavení (HALT), TQBF, SAT
+- ✅ SAT, 3-SAT, problém kliky (CLIQUE)
+
+**14.** Vyberte, které z následujících tvrzení platí:
+- ✅ $L \le_p SAT \implies L \le_p TQBF$
+- $L \le_p TQBF \implies L \notin \mathsf{NP}$
+- $L \le_p TQBF \implies L \in \mathsf{NP}$
+
+**15.** Vyberte, které z následujících tvrzení platí:
+- $L \in \mathsf{NP} \implies L \notin \mathsf{PSPACE}$
+- $L \in \mathsf{EXPTIME} \implies L \notin \mathsf{P}$
+- ✅ $L \in \mathsf{P} \implies L \le_p SAT$
