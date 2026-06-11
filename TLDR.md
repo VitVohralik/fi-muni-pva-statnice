@@ -476,3 +476,25 @@
 * **Standardy:** **BCP** (kontinuita podnikání; metriky **RPO** = max ztráta dat, **RTO** = max čas obnovy). **ISO/IEC 27000** (**ISMS**, cyklus **PDCA** — Plan-Do-Check-Act).
 * **Hodnocení bezpečnosti:** **Penetrační testování** (simulace útoků, Kali Linux), **Vulnerability Assessment** (skenování, databáze CWE), bezpečnostní audity.
 * **SecOps:** Bezpečnostní operace — koordinace bezpečnostních a provozních týmů, reakce na incidenty, monitoring sítě a systémů.
+
+## 11. Vývoj bezpečných aplikací
+* **Identita:** Podmnožina atributů dostačující k identifikaci v množině osob. Jedna osoba má více identit; **částečná identita** se váže k rolím. Atributy: doménové, funkční, časově závislé.
+* **Autentizace vs autorizace:** Autentizace ověřuje identitu (heslo, biometrie, klíč), autorizace povoluje operaci dle oprávnění.
+* **Identity management:** Systém politik pro správu přístupů a rolí. **Default-Deny** (co není povoleno, je zakázáno), využívá asymetrickou kryptografii (certifikáty, PKI).
+* **Modely řízení přístupu:** **RBAC** (role = skupiny oprávnění), **MAC** (centrální politiky, tagy, klasifikované systémy), **DAC** (práva uděluje vlastník zdroje, např. Google dokument).
+* **Soukromí:** Využití osobních a citlivých dat (lidské právo). **Soukromá data** (nechtějí být veřejná), **osobní data** (identifikují osobu).
+* **Koncepty soukromí (vůči datasetu):** **Anonymita** (bez odhalení identity), **pseudonymita** (anonymní, ale dohledatelný), **nespojitelnost** (akce bez dohledání strůjce), **nepozorovatelnost** (nelze ani zpozorovat, že akce probíhá).
+* **Common Criteria:** Standard hodnocení bezpečnosti. **TOE** (předmět hodnocení), **TSF** (bezpečnostní funkce), **TSC** (rozsah kontroly, technické požadavky).
+* **GDPR (2016):** Nařízení EU, sankce za porušení soukromí, limituje agregaci dat; osobní data = vše vedoucí k de-anonymizaci.
+* **eIDAS:** Framework EU pro elektronickou identifikaci. Úrovně podpisů: electronic → advanced (certifikát) → qualified (eID/token, roven vlastnoručnímu).
+* **Monitoring:** **Aktivní** (sondy, ping, hledání portů — Nmap, zjistitelný), **pasivní** (sledování toku — Wireshark, Snort, nenápadný).
+* **Typy útoků:** **Brute force** (všechny kombinace), **replay** (znovuzaslání zpráv), **dictionary** (běžná hesla), **downgrade** (starší protokol), **padding** (padding odhalí klíč), **DDoS** (přetížení requesty), **MITM** (zachycení komunikace), **ARP útok** (manipulace ARP tabulek).
+* **CWE:** Záznamy běžných zranitelností pro identifikaci a patchování.
+* **IDS:** Detekce útočníka — **signature-based** (známé vzory), **specification-based** (odchylka od specifikace), **anomaly-based** (odchylka od naučeného profilu).
+* **Defenzivní programování:** Připravenost na dosud neznámé chyby. **Bug bounty** = odměna za nalezení bugů.
+* **Ochrana podle úrovně:** Kód (validace vstupů, sanitizace vs SQL injection), testování (fuzzing, code review), compiler (stack protection), runtime (**DEP**, **ASLR**, sandboxing), lifecycle (**SDL**, ověřené knihovny).
+* **Fuzzing:** Posílá kvanta náhodných dat a analyzuje výstupy.
+* **Statická vs dynamická analýza:** **Statická** = z kódu (Cppcheck, CodeQL), **dynamická** = za běhu (Valgrind, sanitizers; memory leaks, **taint analysis**). Automatická v gitu (CI, dependabot).
+* **False-positives vs false-negatives:** False-positives = planý poplach; horší jsou **false-negatives** = nedetekované problémy.
+* **Použitelná bezpečnost:** Balanc využitelnosti a zabezpečení; opatření musí být user-friendly. **Impact pyramid** — výše ve stacku = méně lidí, ale větší dopad.
+* **Chybové hlášky:** **NEAT** (Necessary, Explained, Actionable, Tested), **SPRUCE** (Source, Process, Risk, Unique knowledge, Choices, Evidence).
