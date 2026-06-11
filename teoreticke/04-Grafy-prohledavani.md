@@ -1,4 +1,4 @@
-# Grafy a jejich prohledávání
+# 4. Grafy a jejich prohledávání
 
 > **Zadání:** Typy grafů, stromy, stupně vrcholů, orientované grafy, reprezentace grafů. Algoritmy prohledávání grafu do hloubky a do šířky a jejich využití. Komponenty souvislosti. (IB000, IB002)
 

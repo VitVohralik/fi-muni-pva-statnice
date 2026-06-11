@@ -1,4 +1,4 @@
-# Nízkoúrovňové výpočetní architektury
+# 3. Nízkoúrovňové výpočetní architektury
 
 > **Zadání:** Číselné soustavy, vztahy mezi soustavami, zobrazení celého čísla v počítači, aritmetika. Kódy, vnitřní, vnější, detekční a opravné. Obvody a paměti: parametry, architektura. Procesor, programování, mikroprogramování. Architektury: RISC/CISC, vyrovnávací paměti. (PB151)
 
@@ -472,7 +472,3 @@ Předpis pro řešení úlohy je převeden do posloupnosti instrukcí. Údaje a 
 | Jednodušší čipy, méně součástek, levnější výroba. | Složitější čipy, dražší návrh i výroba. |
 | Více bitů na operand $\Rightarrow$ přímo adresovatelných více míst v paměti. | Méně bitů na operand $\Rightarrow$ méně přímo adresovatelných míst. |
 | Méně adresovacích režimů. | Více adresovacích režimů. |
-
-# Otázky
-
-# Příklady

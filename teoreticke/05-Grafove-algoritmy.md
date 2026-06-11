@@ -1,4 +1,4 @@
-# Grafové algoritmy
+# 5. Grafové algoritmy
 
 > **Zadání:** Ohodnocené grafy, definice nejkratší cesty, minimální kostry grafu, algoritmy pro hledání nejkratších cest (Dijkstrův, Bellman-Fordův algoritmus) a minimálních koster v grafu. (IB000, IB002)
 

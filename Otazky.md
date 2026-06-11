@@ -1,5 +1,5 @@
-**Teoretické základy informatiky a matematika**  
-  
+# Seznam otázek
+## Teoretické základy informatiky a matematika  
 
 1. **[[01-Linearni-algebra|Lineární algebra]].** Operace s vektory a maticemi, Gaussova eliminace, inverzní matice, determinant. Vlastnosti lineárních operací a skalárního součinu, vektorové podprostory, vektorové báze. Lineární transformace, matice zobrazení, vlastní čísla a vektory a jejich geometrický význam. ([MB141](https://is.muni.cz/auth/el/fi/jaro2026/MB141/um/))
 2. **[[02-Matematicka-analyza|Základy matematické analýzy]].** Relace a zobrazení, vlastnosti reálných funkcí, polynomy, spojité funkce a limity, derivace, neurčitý a určitý integrál, geometrický význam. ([IB000](https://is.muni.cz/auth/el/fi/podzim2025/IB000/um/MZI-text25.pdf), [MB142](https://is.muni.cz/auth/el/fi/podzim2025/MB142/um/))
@@ -12,9 +12,8 @@
 9. **[[09-Regularni-jazyky|Regulární jazyky]].** Chomského hierarchie formálních jazyků. Regulární jazyky, jejich reprezentace a převody mezi nimi. Varianty konečných automatů. Nedeterminismus a determinizace automatů. Uzávěrové vlastnosti regulárních jazyků. ([IB110](https://is.muni.cz/auth/el/fi/jaro2026/IB110/index.qwarp))
 10. **[[10-Rozhodnutelnost|Rozhodnutelnost]].** Pojem algoritmického problému a algoritmu. Turingův stroj a problém zastavení. Rozhodnutelnost a částečná rozhodnutelnost, nerozhodnutelnost. Metoda redukce. ([IB110](https://is.muni.cz/auth/el/fi/jaro2026/IB110/index.qwarp))
 11. **[[11-Slozitost|Složitost]].** Časová složitost algoritmu versus časová složitost problému. Složitostní třídy (P, NP) a vztahy mezi nimi, příklady problémů z jednotlivých tříd. Těžkost a úplnost problému v dané třídě, polynomiální redukce problémů, NP-úplné úlohy. ([IB110](https://is.muni.cz/auth/el/fi/jaro2026/IB110/index.qwarp))
+## Programové, výpočetní a informační systémy  
 
-**Programové, výpočetní a informační systémy**  
-  
 
 1. **[[01-OOP|Podprogramy a objektově orientované programování]].** Podprogramy, rozsahy jmen, předávání hodnot, výjimky. Objektově orientované programování. Zapouzdření, dědičnost, polymorfismus - principy, použití a implementace. Realizace v jazycích C#, C++ nebo Java (dle vlastní volby). ([PB006](https://is.muni.cz/auth/el/fi/podzim2025/PB006/um/))
 2. **[[02-Nizkourovnove-programovani|Principy nízkoúrovňového programování]].** Paměťový model programu; správa paměti, nízkoúrovňová práce s pamětí, ukazatel, pole a ukazatelová aritmetika, práce s uživatelskými datovými strukturami. Realizace v programovacím jazyku dle vlastní volby. ([PB111](https://is.muni.cz/auth/el/fi/jaro2026/PB111/um/))

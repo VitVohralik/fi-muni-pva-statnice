@@ -1,4 +1,4 @@
-# Stromové datové struktury
+# 6. Stromové datové struktury
 
 > **Zadání:** Binární vyhledávací stromy, B-stromy, červeno-černé stromy, haldy, související operace a jejich složitost. Typické implementace, příklady použití. (IB002)
 

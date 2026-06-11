@@ -1,3 +1,4 @@
+# TLDR
 ## 1. Lineární algebra
 * **Operace s vektory a maticemi:**
   * **Vektory:** Sčítání (po složkách), skalární součin (výsledkem číslo, 0 = kolmost), vektorový součin (ve 3D, výsledkem kolmý vektor).

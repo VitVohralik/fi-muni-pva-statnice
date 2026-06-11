@@ -1,4 +1,4 @@
-# Základy informační bezpečnosti
+# 10. Základy informační bezpečnosti
 
 > **Zadání:** Základní bezpečnostní funkce a jejich zajištění – důvěrnost, integrita, dostupnost, nepopiratelnost původu. Kryptografická primitiva, protokoly. Řízení rizik, audit, bezpečnostní operace, standardy, hodnocení bezpečnosti. (PV080)
 
@@ -314,5 +314,3 @@ Standardy bezpečnosti poskytují rámec a osvědčené postupy pro správu info
 **1.** Jaký je rozdíl mezi autorizací a autentizací? V jakém pořadí se provádí?
 
 > **Odpověď:** **Autentizace** je ověření identity — kdo jsi (heslo, klíč, certifikát). **Autorizace** je přiznání oprávnění — co smíš dělat (přístup ke zdroji, službě). Provádí se nejprve autentizace (ověří se identita), teprve poté autorizace (ověřené identitě se přidělí oprávnění) — nelze rozumně přidělovat práva entitě, jejíž identitu jsme neověřili.
-
-# Příklady

@@ -1,4 +1,4 @@
-# Operační systémy
+# 6. Operační systémy
 
 > **Zadání:** Architektura operačního systému, architektura jádra, základní režimy procesoru. Programovací rozhraní, knihovny. Uživatel, přístupová práva, virtualizace. Virtuální paměť, proces a stránkové tabulky. Vlákno, plánování vláken a procesů. Souběžnost, uváznutí, přidělování zdrojů. Vznik procesu a spuštění programu v systémech POSIX, copy-on-write. (PB152)
 

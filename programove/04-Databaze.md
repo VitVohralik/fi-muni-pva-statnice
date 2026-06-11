@@ -1,4 +1,4 @@
-# Databáze
+# 4. Databáze
 
 > **Zadání:** Relační model dat, relační schéma, klíče relačních schémat, relační algebra (projekce, selekce, agregace, přejmenování), spojování relací. Funkční závislosti, normální formy (1NF, 2NF, 3NF, Boyce-Coddova NF), vztahy mezi normálními formami. Dekompozice relačních schémat, normalizace schématu. (PB154)
 
@@ -306,7 +306,3 @@ $$\begin{aligned} R = (\;& \text{Číslo výrobku}, \text{Název výrobku}, \tex
 
 - Provádí se právě převodem do normálních forem.
 - Relace udržují funkční závislosti.
-
-# Otázky
-
-# Příklady

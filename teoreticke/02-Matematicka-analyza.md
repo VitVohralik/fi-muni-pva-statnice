@@ -1,4 +1,4 @@
-# Základy matematické analýzy
+# 2. Základy matematické analýzy
 
 > **Zadání:** Relace a zobrazení, vlastnosti reálných funkcí, polynomy, spojité funkce a limity, derivace, neurčitý a určitý integrál, geometrický význam. (IB000, MB142)
 

@@ -1,4 +1,4 @@
-# Popisná statistika
+# 3. Popisná statistika
 
 > **Zadání:** Popisná statistika, střední hodnota, medián, rozptyl, korelace. Odhady statistik a jejich spolehlivost. Distribuční funkce, rozdělení náhodných veličin a jejich příklady. (MB143)
 

@@ -1,4 +1,4 @@
-# Principy nízkoúrovňového programování
+# 2. Principy nízkoúrovňového programování
 
 > **Zadání:** Paměťový model programu; správa paměti, nízkoúrovňová práce s pamětí, ukazatel, pole a ukazatelová aritmetika, práce s uživatelskými datovými strukturami. Realizace v programovacím jazyku dle vlastní volby. (PB111)
 

@@ -1,4 +1,4 @@
-# Sítě
+# 8. Sítě
 
 > **Zadání:** Modely vrstev počítačových sítí (ISO/OSI, TCP/IP): funkcionalita a součinnost vrstev, adresace. Fyzická vrstva, signály a jejich kódování, řízení přístupu k médiu. Propojování počítačových sítí. Síťové protokoly, přepínání a směrování, multicast. Zajištěný přenos dat, sestavení a ukončení spojení. Transportní protokoly. (PB156)
 

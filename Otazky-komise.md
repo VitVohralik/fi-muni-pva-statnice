@@ -495,7 +495,7 @@
 
 ---
 
-## 18. Matematická logika
+## Matematická logika
 
 > *Není samostatnou otázkou v `Otazky.md`, ale dokazatelnost a rozhodnutelnost logiky navazují na [[#10. Rozhodnutelnost|Rozhodnutelnost]] a [[#11. Složitost|Složitost]].*
 

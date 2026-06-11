@@ -1,4 +1,4 @@
-# Síťové aplikace a jejich bezpečnost
+# 9. Síťové aplikace a jejich bezpečnost
 
 > **Zadání:** Základní aplikační protokoly: doručování pošty, přenos souborů, web, jmenná služba. Principy popisu a zajištění kvality služby, použití pro multimédia. Zabezpečení síťové komunikace, autentizace a šifrování, zabezpečení na jednotlivých protokolových vrstvách. (PB156)
 
@@ -379,5 +379,3 @@ Funguje jako kompletní balíček stavějící na asymetrické kryptografii, kte
 **7.** Co je to DNS a k čemu je? Jak probíhá vyhodnocení požadavku?
 
 > **Odpověď:** **DNS** (Domain Name System) je jmenná služba pro překlad doménových jmen na IP adresy (a zpět). Jmenný prostor je hierarchický (invertovaný strom rozdělený do zón, root zóna = 13 serverů). Vyhodnocení dotazu (např. `seznam.cz`) postupuje od root zóny → server TLD (`.cz`), který vrátí odkaz na autoritativní server domény → ten vrátí finální IP adresu.
-
-# Příklady

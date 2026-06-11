@@ -1,4 +1,4 @@
-# Lineární algebra
+# 1. Lineární algebra
 
 > **Zadání:** Operace s vektory a maticemi, Gaussova eliminace, inverzní matice, determinant. Vlastnosti lineárních operací a skalárního součinu, vektorové podprostory, vektorové báze. Lineární transformace, matice zobrazení, vlastní čísla a vektory a jejich geometrický význam. (MB141)
 

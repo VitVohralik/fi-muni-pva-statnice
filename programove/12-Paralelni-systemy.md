@@ -1,4 +1,4 @@
-# Paralelní systémy
+# 12. Paralelní systémy
 
 > **Zadání:** Paralelní systémy. Základní metody v návrhu paralelních algoritmů – dekompozice, mapování, komunikační primitiva. Výkonnostní analýza paralelních algoritmů. Paralelní algoritmy v prostředí se sdílenou pamětí. OpenMP standard. POSIX Threads. Lock-free přístup. Paralelní algoritmy v prostředí s distribuovanou pamětí. Message Passing Interface (MPI). (IB109)
 

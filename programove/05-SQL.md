@@ -1,4 +1,4 @@
-# SQL, transakce, dotazy
+# 5. SQL, transakce, dotazy
 
 > **Zadání:** Syntaxe a sémantika příkazů. Příkazy pro dotazování a aktualizaci dat, agregační funkce, triggery a uložené procedury, definici dat, integritní omezení. Transakční zpracování, jeho vlastnosti. Základní principy vyhodnocování dotazů (náklady na vyhodnocení dotazu, využití indexování a hašování). (PB154)
 

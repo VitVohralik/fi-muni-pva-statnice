@@ -1,4 +1,4 @@
-# Vývoj bezpečných aplikací
+# 11. Vývoj bezpečných aplikací
 
 > **Zadání:** Řízení identity a přístupu. Ochrana soukromí – koncepty a metody. Bezpečné programování, statické a dynamické nástroje pro analýzu bezpečnosti software. Použitelná bezpečnost. (PV080)
 
