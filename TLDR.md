@@ -450,3 +450,29 @@
 * **SSL/TLS (L4–L7):** Šifrování + autentizace mezi transportní a aplikační vrstvou (SSL 3.0 = TLS 1.0). Handshake: asymetricky se vymění symetrický klíč → šifrovaný provoz (**HTTPS**, **FTPS**).
 * **Aplikační brány / Proxy (L7):** Oddělují sítě dvěma spojeními přes bránu (NAT, skrytí klienta). Vysoké zabezpečení, vyšší latence a nižší propustnost.
 * **PGP:** L7 protokol pro důvěrnost, integritu a autentizaci — šifrování e-mailů.
+
+## 10. Základy informační bezpečnosti
+* **Bezpečnostní funkce:** **Důvěrnost** (šifrování), **integrita** (hash/kódy), **nepopiratelnost** (logy, digitální podpis), **dostupnost** (zálohy, redundance). Plus **autentizace** (ověření identity) a **autorizace** (Access Control).
+* **Trustworthy ≠ trusted:** Spoléhání na systém (trusted) neznamená, že je objektivně bezpečný (trustworthy).
+* **Kryptografická primitiva:** Stavební bloky — symetrická/asymetrická šifra, hashování, RNG, MAC. **Kerckhoffsův princip:** bezpečnost závisí na utajení klíče, ne implementace.
+* **Symetrické šifrování:** Stejný klíč pro šifrování i dešifrování (problém distribuce). Rychlé, krátké klíče (128–256 b), HW akcelerace. Základ = **XOR**.
+* **Proudová šifra:** XORuje plaintext s pseudonáhodným keystreamem (RNG), po bitech/bajtech; rychlá pro datové proudy. Riziko = opakování klíče. Např. **RC4**.
+* **Bloková šifra:** Šifruje po blocích, potřebuje padding. **DES** (56b klíč, Feistelova síť, slabé), **3DES** (3× s 2 klíči), **AES** (Rijndael, 128–256b, rychlejší i bezpečnější).
+* **Režimy blokové šifry:** **ECB** (bloky nezávisle, prozrazuje vzory), **CBC** ($C_i=E_K(P_i\oplus C_{i-1})$, sériové, IV), **CTR** (šifruje čítače, paralelní). **nonce** brání replay útokům.
+* **Asymetrické šifrování:** Veřejný klíč šifruje, soukromý dešifruje (matematicky propojené). Pomalé, velké klíče (~4096 b). Soukromý podepisuje, veřejný ověřuje. Např. **RSA**.
+* **RSA:** Bezpečnost stojí na obtížnosti **faktorizace** $N=p\cdot q$. Šifrování $m^e \bmod N$, dešifrování $c^d \bmod N$. Brute-force marný; riziko bias PRNG klíčů.
+* **Certifikát:** Obsahuje majitele, vydavatele, klíč, podpis — zaručuje autenticitu. Ověřitelný (i self-signed), CA tvoří hierarchii s **root** v prohlížečích.
+* **Hashování:** Jednosměrný převod libovolného vstupu na pevně velký hash; zajišťuje integritu. **Lavinový efekt** (změna 1 bitu → ≥50 %). **Kolize** nelze nikdy vyloučit. SHA-256, MD5.
+* **Digitální podpis:** Zašifrovaný hash zprávy (privátním klíčem). Zajišťuje autenticitu, integritu, nepopiratelnost. Ověření veřejným klíčem + porovnání hashů. RSA, DSA.
+* **MAC:** Otisk zprávy pevné délky se sdíleným symetrickým klíčem; ověřuje integritu a autenticitu. **HMAC** (hash+šifra), **CMAC** (bloková šifra). Kombinace: MAC-then-encrypt (TLS), Encrypt-then-MAC (nejbezpečnější), Encrypt-and-MAC (SSH), **AEAD**.
+* **PRNG:** Generátor pseudonáhodných čísel jevících se náhodně (Mersenne Twister).
+* **Diffie-Hellman:** Ustanovení sdíleného klíče přes veřejný kanál; bezpečnost = obtížnost **diskrétního logaritmu**. **STS** = autentizované DH s podpisy.
+* **Kerberos:** Autentizační protokol se symetrickou šifrou a **KDC**. AS vydá **Session key** + **TGT**, TGS pak vydá **Service ticket** pro konkrétní službu. Vzájemná autentizace.
+* **TLS:** Následník SSL, na transportní vrstvě. Integrita + důvěrnost + autentizace. Fáze: handshake (dohoda algoritmů) → výměna klíčů (veřejný klíč + certifikáty) → symetrické šifrování. **Forward secrecy** s DH.
+* **SSH:** Zabezpečený vzdálený terminál (náhrada telnetu). Transport (autentizace serveru, šifrování), User auth (klient se ověří), Connection (více kanálů).
+* **Řízení rizik:** Identifikace aktiv (Asset), hrozeb (Threat) a zranitelností (Vulnerability). Definuje strategii ochrany.
+* **Hodnocení rizik:** **Kvalitativní** (třídy závažnosti, skóre) vs **kvantitativní** (**ALE** z historických dat). $R = P \cdot V \cdot C$ (Probability × Vulnerability × Cost).
+* **Audit bezpečnosti:** Systematické ověření shody opatření s normami. Kroky: plánování → sbírání dat → výběr testů → hodnocení → zpráva.
+* **Standardy:** **BCP** (kontinuita podnikání; metriky **RPO** = max ztráta dat, **RTO** = max čas obnovy). **ISO/IEC 27000** (**ISMS**, cyklus **PDCA** — Plan-Do-Check-Act).
+* **Hodnocení bezpečnosti:** **Penetrační testování** (simulace útoků, Kali Linux), **Vulnerability Assessment** (skenování, databáze CWE), bezpečnostní audity.
+* **SecOps:** Bezpečnostní operace — koordinace bezpečnostních a provozních týmů, reakce na incidenty, monitoring sítě a systémů.
