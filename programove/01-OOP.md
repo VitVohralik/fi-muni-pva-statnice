@@ -39,7 +39,7 @@
 ## Jednoduché
 
 - **Ordinální** (celá čísla, boolean, char, enum)
-	- **celá čísla** $\Rightarrow$ integer (32 bit), bigInt (256 bit)
+	- **celá čísla** $\Rightarrow$ integer (32 bit), bigInt (libovolná přesnost, omezená jen pamětí)
 	- **char** $\Rightarrow$ reprezentace znaku, často ASCII nebo UTF-8
 	- **enum** $\Rightarrow$ výčtový typ (specifikuje konstanty, vnitřně celočíselná reprezentace)
 - **Neordinální** (desetinná čísla, void)

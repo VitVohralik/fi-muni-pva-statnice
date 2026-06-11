@@ -463,8 +463,8 @@ Problémy jdou vždy řešit sekvenčně ⇒ paralelně získáme pouze vyšší
 - $T_s$ – čas **nejlepšího** sekvenčního algoritmu, **nelze použít $T_p$ pro 1 jádro!!!**
 - $T_p$ – čas paralelního algoritmu
 - $p$ – počet procesních jednotek
-- $T_o$ – časová cena režie ⇒ $T_o = T_p - T_s$
-- **Účinnost** (zrychlení) ⇒ $S = T_s / T_p$
+- $T_o$ – časová cena režie ⇒ $T_o = p \cdot T_p - T_s$ (celková práce všech jednotek minus užitečná sekvenční práce)
+- **Zrychlení** (speedup) ⇒ $S = T_s / T_p$
 - **Cena problému** ⇒ $C = p \cdot T_p$ ($T_p$ cena je optimální, pokud asymptoticky roste stejně jako cena $T_s$)
 
 **Efektivita**

@@ -69,7 +69,7 @@ Příkazy jazyka SQL se dělí na čtyři základní skupiny:
 - `=, <>, <, >, <=, >=` – klasické porovnání porovnatelných hodnot.
 - `BETWEEN` – rozsah porovnatelných hodnot, **inkluzivní** z obou stran.
 - `LIKE` – shoda s nějakým vzorem (`First_Name LIKE 'Will%'`).
-	- case-insensitive (záleží na collation; v PostreSQL je case-sensitive, v MySQL obvykle ne)
+	- case-insensitive (záleží na collation; v PostgreSQL je case-sensitive, v MySQL obvykle ne)
 - `IN` – rovnost s některou z hodnot (`DeptCode IN (101, 103, 209)`).
 - `IS` / `IS NOT` – porovnání s `NULL`.
 - `IS NOT DISTINCT FROM` – hodnoty jsou stejné, nebo jsou obě `NULL`.
@@ -421,7 +421,7 @@ SELECT * FROM Customers WHERE city = cityname
 $$;
 
 -- spuštění procedury:
-CALL customer_find_by_city @city = 'Brno';
+CALL customer_find_by_city('Brno');
 ```
 
 # Příkazy pro definici dat (DDL)

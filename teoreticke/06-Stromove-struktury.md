@@ -159,8 +159,8 @@ function LeftRotate(T, x)
 Uzel ze stromu odstraníme stejným postupem jako z BVS.
 
 - Pokud odstraněný uzel měl **červenou** barvu, vlastnosti stromu zůstávají zachované.
-- Pokud měl **černou** barvu, může dojít k porušení vlastnosti 4 (stejná černá výška).
-- Černou barvu z odstraněného uzlu **přesouváme směrem ke kořeni** tak, abychom obnovili platnost vlastnosti 4.
+- Pokud měl **černou** barvu, může dojít k porušení vlastnosti 6 (stejná černá výška).
+- Černou barvu z odstraněného uzlu **přesouváme směrem ke kořeni** tak, abychom obnovili platnost vlastnosti 6.
 
 > **Využití:** implementace **asociativního pole** (hash-mapy, slovníku), rozhodovací stromy, implementace Dijkstrova algoritmu.
 

@@ -197,7 +197,7 @@ else return False;
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | regulární | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | bezkontextové | ✅ | ❌ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| deterministické bezkontextové | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| deterministické bezkontextové | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ |
 | rekurzivní | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | rekurzivně spočetné | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ |
 
@@ -208,7 +208,7 @@ else return False;
 - Cílem je **převést jeden problém na jiný** tak, aby řešení druhého problému šlo použít k řešení toho původního $\Rightarrow$ návrh **transformačního algoritmu** pro převedení problému $A$ na problém $B$.
 - Rozhodovací problém $P_1$ lze **redukovat** na problém $P_2$, pokud platí $L_1 \leq L_2$.
 	- $P_2$ tedy nemusí jít redukovat na $P_1$.
-	- Problémy, pro něž $L_1 = L_2$, se nazývají **výpočetně ekvivalentními**.
+	- Problémy, pro něž $L_1 \leq L_2$ a zároveň $L_2 \leq L_1$, se nazývají **výpočetně ekvivalentními**.
 
 > **Definice redukce:** Mějme dva rozhodovací problémy $P_1 = (\mathcal{D}_1, out_1)$ a $P_2 = (\mathcal{D}_2, out_2)$. Funkce $f : \mathcal{D}_1 \to \mathcal{D}_2$ je **redukcí** problému $P_1$ na problém $P_2$, jestliže:
 > - $f$ je počítaná nějakým algoritmem $A$, který **vždy zastaví** (pro libovolný vstup $x \in \mathcal{D}_1$ vrátí $f(x) \in \mathcal{D}_2$),

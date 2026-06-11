@@ -65,7 +65,7 @@ Využívá deterministický RNG (generátor pseudonáhodných čísel).
 - **DES** (Data Encryption Standard) ⇒ 56bit klíč, 64bit bloky
   - slabé, ale stále používané; používá **Feistelovu síť**
   - **Triple DES** — workaround pro vyšší bezpečnost: 3× šifrování se 2 klíči
-- **AES** (Advanced Encryption Standard / Rijndael) ⇒ vylepšené DES, 128–256bitové bloky
+- **AES** (Advanced Encryption Standard / Rijndael) ⇒ náhrada DES, pevný **128bitový blok**, klíče 128/192/256 bitů
   - bezpečnější než DES a zároveň rychlejší (díky HW akceleraci)
   - hlavní klíč je rozšířen na 14 round klíčů
 

@@ -82,7 +82,7 @@ $$\vec{u} \times \vec{v} = (u_2 v_3 - v_2 u_3,\ u_3 v_1 - v_3 u_1,\ u_1 v_2 - v_
 - **Násobení maticí** $\implies$ Můžeme pouze matici $A$ tvaru $k \times n$ s maticí $B$ tvaru $n \times p$
 	- Výsledek $A \cdot B$ je matice tvaru $k \times p$
 	- Řádky matice $A$ se násobí se sloupky matice $B$
-	- Tvar $k \times n \implies k =$ sloupce a $n =$ řádky
+	- Tvar $k \times n \implies k =$ řádky a $n =$ sloupce
 	- Asociativní: $A \cdot (B \cdot C) = (A \cdot B) \cdot C$
 	- Distributivní vzhledem ke sčítání: $A \cdot (B + C) = A \cdot B + A \cdot C$
 - **Inverze** $\implies$ Matice $B$ je inverzní k $A$, pokud $A \cdot B = E$
@@ -107,7 +107,7 @@ Algoritmus:
 > Determinantem čtvercové matice řádu $n$ se nazývá součet všech součinů $n$ prvků této matice takových, že v žádném z uvedených součinů se nevyskytují dva prvky z téhož řádku ani z téhož sloupce. Každý součin přitom označíme znaménkem permutace.
 - Definován pouze pro čtvercové matice
 - **Geometrický význam** determinantu matice $A$ tvaru $n \times n$ bude orientovaný objem rovnoběžnostěnu v $n$-rozměrném prostoru určeného vektory sloupců (nebo řádků) matice $A$
-- Absolutního hodnota determinantu matice $3 \times 3$ nad $R$ udává objem ronoběžnostěnu...
+- Absolutní hodnota determinantu matice $3 \times 3$ nad $R$ udává objem rovnoběžnostěnu...
 - Jde o **skalár**, který je funkcí prvků matice
 
 Pokud je matice ve schodovitém tvaru, determinant je součinem diagonály. Jinak ho lze získat jako součin prvků na diagonále horní trojúhelníkové matice. Výpočet determinantu pro vyšší řády $\implies$ **Leibnizova formule**
@@ -283,7 +283,7 @@ Které z tvrzení je pravdivé?
 **2.** Vypočtěte
 $$\begin{pmatrix} 1 & -2 & 3 \\ 1 & 0 & -1 \end{pmatrix} \cdot \begin{pmatrix} 0 & 4 \\ -1 & -1 \\ 3 & -5 \end{pmatrix}.$$
 
-> **Odpověď:** $\begin{pmatrix} 11 & -13 \\ -3 & 9 \end{pmatrix}$. Násobíme řádky první matice se sloupci druhé; počet sloupců první ($3$) odpovídá počtu řádků druhé ($3$), výsledek je matice $2 \times 2$.
+> **Odpověď:** $\begin{pmatrix} 11 & -9 \\ -3 & 9 \end{pmatrix}$. Násobíme řádky první matice se sloupci druhé; počet sloupců první ($3$) odpovídá počtu řádků druhé ($3$), výsledek je matice $2 \times 2$.
 
 **3.** Která z matic zadává lineární zobrazení $\mathbb{R}^2 \to \mathbb{R}^2$ odpovídající osové souměrnosti podle přímky $y = x$?
 

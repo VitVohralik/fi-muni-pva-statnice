@@ -1,6 +1,6 @@
 # Nízkoúrovňové výpočetní architektury
 
-> **Zadání:** Číselné soustavy, vztahy mezi soustavami, zobrazení celého čísla v počítači, aritmetika. Kódy, vnitřní, vnější, detekční a opravné. Obvody a paměti: parametry, architektura. Procesor, programování, mikroprogramování. Architektury: RISC/CISC, vyrovnávací paměti. (PB150)
+> **Zadání:** Číselné soustavy, vztahy mezi soustavami, zobrazení celého čísla v počítači, aritmetika. Kódy, vnitřní, vnější, detekční a opravné. Obvody a paměti: parametry, architektura. Procesor, programování, mikroprogramování. Architektury: RISC/CISC, vyrovnávací paměti. (PB151)
 
 # Číselné soustavy
 

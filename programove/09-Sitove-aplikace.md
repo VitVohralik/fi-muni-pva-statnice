@@ -303,7 +303,7 @@ Zabezpečené protokoly lze provozovat na L7, L4 i na L3.
 
 ## SSL/TLS (mezi L4 a L7)
 
-**Secure Sockets Layer (SSL)** — doslova „vrstva bezpečných socketů". Následovníkem a dnešním standardem je protokol **Transport Layer Security (TLS)** (SSL 3.0 == TLS 1.0).
+**Secure Sockets Layer (SSL)** — doslova „vrstva bezpečných socketů". Následovníkem a dnešním standardem je protokol **Transport Layer Security (TLS)** (TLS 1.0 přímo navazuje na SSL 3.0, ale není s ním totožný – někdy se značí jako „SSL 3.1").
 - **Kde se nachází:** Z pohledu OSI modelu leží na **L5/L6** (mezi transportní L4 a aplikační L7). Zabezpečuje stávající TCP spojení. V praxi (TCP/IP model) je považován za součást aplikační vrstvy.
 - **Účel:** Poskytuje zabezpečení komunikace šifrováním a autentizaci (ověření) komunikujících stran.
 - **Využití:** Obalením běžných aplikačních protokolů do TLS vznikají jejich bezpečné varianty, např. **HTTPS** nebo **FTPS**. Po vytvoření spojení (session) je veškerá komunikace šifrovaná.

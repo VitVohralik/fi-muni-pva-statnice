@@ -154,7 +154,7 @@
 * **Formální jazyk:** Libovolná množina slov nad **abecedou $\Sigma$** (konečná množina symbolů). **Slovo** je konečná posloupnost symbolů, **$\varepsilon$** je prázdné slovo.
 * **Operace nad jazyky:** Sjednocení, průnik, rozdíl, zřetězení ($L_1.L_2$), iterace ($L^*$, $L^+$), doplněk ($\Sigma^* \setminus L$), reverze (palindrom $ww^R$).
 * **Pumping lemma (lemma o vkládání):** Každé dostatečně dlouhé slovo z dané třídy lze rozdělit a „napumpovat" zopakováním části → opět slovo z jazyka. Slouží k důkazu, že jazyk **není** regulární.
-* **DFA (deterministický konečný automat):** Pětice $(Q, \Sigma, \delta, s, F)$ s **totální injektivní** přechodovou funkcí $Q \times \Sigma \to Q$. Pamatuje si jen současný stav.
+* **DFA (deterministický konečný automat):** Pětice $(Q, \Sigma, \delta, s, F)$ s **totální (jednoznačnou)** přechodovou funkcí $Q \times \Sigma \to Q$ (každá dvojice stav–symbol → právě jeden stav; ne injektivita). Pamatuje si jen současný stav.
 * **NFA (nedeterministický):** Stejná pětice, ale $\delta: Q \times \Sigma \to 2^Q$ (potenční množina). Slovo je platné, dovede-li alespoň jednu větev do koncového stavu. **$\varepsilon$-NFA** povoluje epsilon-kroky (přechod bez čtení znaku).
 * **Síla NFA = síla DFA:** Oba akceptují pouze regulární jazyky; NFA převedeme na DFA **determinizací**.
 * **Determinizace:** Odstranění $\varepsilon$-kroků (Next1/2/3 – epsilon okolí) + **podmnožinová konstrukce** (stav DFA = množina stavů NFA).
@@ -447,7 +447,7 @@
 * **Diffie-Hellman:** Ustanovení sdíleného tajného klíče přes nezabezpečený kanál pomocí $G^{XY} \bmod N$, bez přenosu klíče.
 * **Digitální podpis:** Podepsaný hash zprávy (privátním klíčem, ověření veřejným). Zajišťuje integritu, nepopiratelnost i autentizaci. Hash: MD5, SHA-256.
 * **IPSec (L3):** Bezpečnost na síťové vrstvě. **AH** (autentizace + integrita) + **ESP** (šifrování). Transportní vs tunelovací mód (VPN).
-* **SSL/TLS (L4–L7):** Šifrování + autentizace mezi transportní a aplikační vrstvou (SSL 3.0 = TLS 1.0). Handshake: asymetricky se vymění symetrický klíč → šifrovaný provoz (**HTTPS**, **FTPS**).
+* **SSL/TLS (L4–L7):** Šifrování + autentizace mezi transportní a aplikační vrstvou (TLS navazuje na SSL, není s ním totožný). Handshake: asymetricky se vymění symetrický klíč → šifrovaný provoz (**HTTPS**, **FTPS**).
 * **Aplikační brány / Proxy (L7):** Oddělují sítě dvěma spojeními přes bránu (NAT, skrytí klienta). Vysoké zabezpečení, vyšší latence a nižší propustnost.
 * **PGP:** L7 protokol pro důvěrnost, integritu a autentizaci (např. šifrování e-mailů). Využívá asymetrickou kryptografii, hybridní model šifrování a decentralizovanou správu klíčů (Web of Trust).
 
@@ -525,6 +525,6 @@
 * **OpenMP:** API pro paralelní C/C++; paralelizaci řeší překladač dle direktiv (`-fopenmp`). Direktivy `parallel`, `single`, `for` (`ordered`), `sections`, `redukce`; `private`/`shared`, `OMP_NUM_THREADS`.
 * **MPI (Message Passing Interface):** Komunikace mezi procesy, abstrahuje typy přes **Datatype**. `MPI_Init/Finalize`, `Comm_size/rank`, `Send/Recv`, neblokující `Isend/Irecv`. Kolektivní: `MPI_Bcast`, `MPI_Reduce`.
 * **Výkonnostní analýza:** n zdrojů ≠ n-násobné zrychlení (režie: komunikace, synchronizace, nerovnoměrná zátěž). **Superlineární zrychlení** falešné vs skutečné (cache efekt).
-* **Metriky:** $T_s$ = nejlepší sekvenční čas, $T_p$ paralelní, $T_o = T_p - T_s$ režie. **Zrychlení** $S = T_s/T_p$, **efektivita** $E = S/p$, **cena** $C = p \cdot T_p$.
+* **Metriky:** $T_s$ = nejlepší sekvenční čas, $T_p$ paralelní, $T_o = p \cdot T_p - T_s$ režie. **Zrychlení** $S = T_s/T_p$, **efektivita** $E = S/p$, **cena** $C = p \cdot T_p$.
 * **Škálovatelnost a izoefektivita:** Škálovatelnost = zachování efektivity při růstu jader/vstupu. **Izoefektivita** = jak musí růst objem výpočtu ($T_s$) pro zachování efektivity (rovnice: $T_s = K \cdot T_o(W, p)$; nižší funkce = snazší škálování).
 * **Amdahlův zákon:** $S_{max} = \frac{1}{(1-p) + p/S_p}$, kde $p$ = paralelizovatelný podíl, $S_p$ = zrychlení nad paralelní částí. Limit zrychlení danou sekvenční částí.

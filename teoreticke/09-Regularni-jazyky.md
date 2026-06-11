@@ -66,14 +66,14 @@ Automaty se dělí na **deterministické** a **nedeterministické**.
 
 DFA je **konečnou reprezentací potenciálně nekonečného objektu**.
 - **Konečný** znamená, že disponuje omezenou pamětí $\Rightarrow$ pamatuje si jen současný stav.
-- **Deterministický** znamená, že je přechodová funkce **totální** a **injektivní** (prostá):
-	- **Totální** zajišťuje, že se automat nikdy nezasekne = každý prvek z definičního oboru má hodnotu v oboru hodnot
-	- **Injektivní** = každý prvek z oboru hodnot je mapován nanejvýš jedním prvkem z definičního oboru
+- **Deterministický** znamená, že je přechodová funkce **totální** a **jednoznačná** (každá dvojice stav–symbol má právě jeden následující stav):
+	- **Totální** zajišťuje, že se automat nikdy nezasekne = každá dvojice (stav, symbol) má definovaný přechod
+	- **Jednoznačná (deterministická)** = každá dvojice (stav, symbol) se zobrazí na **právě jeden** stav (ne na množinu stavů jako u NFA). Pozor: nejde o injektivitu – více přechodů může vést do téhož stavu.
 
 DFA zapisujeme jako **uspořádanou pětici** $A = (Q, \Sigma, \delta, s, F)$:
 - **$Q$** – konečná neprázdná množina všech možných stavů $q_i$ – **včetně chybového**
 - **$\Sigma$** (sigma) – vstupní **abeceda symbolů**, z kterých skládáme stavy
-- **$\delta$** (delta) – totální injektivní přechodová **funkce**: $Q \times \Sigma \to Q$
+- **$\delta$** (delta) – totální (jednoznačná) přechodová **funkce**: $Q \times \Sigma \to Q$
 - **$s$** – počáteční stav
 - **$F$** – množina koncových stavů
 

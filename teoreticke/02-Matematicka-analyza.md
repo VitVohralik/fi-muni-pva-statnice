@@ -261,7 +261,8 @@ $$\lim_{x \to 0} \frac{1 - \cos x}{x} = 0, \qquad \lim_{n \to \infty} \left(1 + 
 | $+\infty$ | | | $\pi/2$ | $0$ |
 | $-\infty$ | | | $-\pi/2$ | $0$ |
 | parita | lichá | nic | lichá | lichá |
-| obor hodnot | $(-1, 1)$ | $\langle -1, 1\rangle$ | $(-\pi/2, \pi/2)$ | |
+| def. obor | $\langle -1, 1\rangle$ | $\langle -1, 1\rangle$ | $\mathbb{R}$ | $\mathbb{R}$ |
+| obor hodnot | $[-\pi/2, \pi/2]$ | $[0, \pi]$ | $(-\pi/2, \pi/2)$ | $(0, \pi)$ |
 
 **Extra:**
 - $\ln()$ nemůže brát záporná čísla
@@ -275,7 +276,7 @@ $$\lim_{x \to 0} \frac{1 - \cos x}{x} = 0, \qquad \lim_{n \to \infty} \left(1 + 
 - $e^{-\infty} = 0$
 
 **Neurčité výrazy:**
-- $\infty - \infty = \infty$
+- $\infty - \infty$ = neurčitý výraz (nutná úprava – vytknout, sloučit zlomky apod.)
 - $\infty / 0 = \infty$
 - $0 / \infty = 0$
 - $0/0$ = příklad by měl jít upravit, vytknout a pak dát jiný výsledek

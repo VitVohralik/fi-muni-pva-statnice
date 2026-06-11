@@ -151,7 +151,7 @@ Jde o druhou odmocninu z rozptylu. Odpovídá tomu, nakolik se od sebe typicky l
 $$\operatorname{Cov}(X, Y) = \mathrm{E}(X - \mathrm{E}\,X)(Y - \mathrm{E}\,Y) = \mathrm{E}(XY) - \mathrm{E}\,X \cdot \mathrm{E}\,Y.$$
 
 **Korelace** měří sílu lineární závislosti mezi veličinami $X$ a $Y$.
-- Výpočtem získáváme **korelační koeficient** $\in (-1, 1)$.
+- Výpočtem získáváme **korelační koeficient** $\in [-1, 1]$.
 - Čím víc se jeho hodnota blíží ke krajům, tím více se graf závislosti narovnává.
 - $1$ (přímá závislost), $-1$ (nepřímá závislost). V obou případech se graf blíží přímce.
 - $0$ (nekorelují), nelze statisticky zjistit lineární závislost.
@@ -274,7 +274,7 @@ $$P_X(A) = P(X \in A) \quad \text{pro } A \in B(\mathbb{R}).$$
 
 **Distribuční funkce** náhodné veličiny $X$ je funkce $F(x) = P(X \leq x)$, $\mathbb{R} \to [0, 1]$.
 - Jde o pravděpodobnost toho, že bude veličina $X$ menší než nějaká mez $x$.
-- Jednoznačně určuje toto rozdělení. Funkce je neklesající a spojitá.
+- Jednoznačně určuje toto rozdělení. Funkce je neklesající a **zprava spojitá** (u diskrétní náhodné veličiny má skoky, není tedy spojitá v běžném smyslu).
 
 > Dvě náhodné veličiny jsou stejně rozdělené, pokud mají stejné distribuční funkce.
 

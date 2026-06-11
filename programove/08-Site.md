@@ -442,7 +442,7 @@ Popis polí:
 - **urgentní data (urgent pointer)** — zasílání dat mimo pořadí
 - **volby (options)**
 
-**Acknowledgement number** je nejvyšší číslo bajtu v segmentu. Pokud se ztratí paket nebo potvrzení, po timeoutu pokračuje odesílatel od posledního ACK.
+**Acknowledgement number** je číslo **příštího očekávaného** bajtu (tj. o 1 vyšší než poslední správně přijatý bajt). Pokud se ztratí paket nebo potvrzení, po timeoutu pokračuje odesílatel od posledního ACK.
 
 ### TCP Handshake
 
@@ -600,4 +600,4 @@ Poskytuje služby uživatelům, síťové aplikační protokoly (HTTP, SMTP, DNS
 
 **9.** Router obdrží dva IPv4 pakety, které tvoří jeden UDP datagram. Odchozí rozhraní má ještě menší MTU než to příchozí. Jaké tvrzení odpovídá standardnímu chování routeru?
 
-> **Odpověď:** Router okamžitě fragmentuje každý příchozí paket na potřebný počet odchozích paketů, aktualizuje offsety užitečného zatížení a nastaví hlavičku UDP v každém vytvořeném odchozím paketu.
+> **Odpověď:** Router okamžitě fragmentuje každý příchozí paket na potřebný počet odchozích paketů, aktualizuje offsety užitečného zatížení a nastaví hlavičku UDP **pouze v prvním** odchozím paketu. (Při IP fragmentaci nese transportní hlavičku jen první fragment; ostatní fragmenty obsahují jen IP hlavičku a data.)
